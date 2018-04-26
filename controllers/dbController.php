@@ -17,9 +17,9 @@ class dbController
         return $connection;
     }
 
-    function runQuery($query, $fetchType) {
+    function runQuery($query, $fetchType, $arrayType) {
         $this->result = $this->connection->query($query);
-        $stored = $this->result->$fetchType(PDO::FETCH_ASSOC);
+        $stored = $this->result->$fetchType($arrayType);
         return $stored;
     }
 
