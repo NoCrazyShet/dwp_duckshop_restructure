@@ -1,9 +1,16 @@
 <?php
 require_once("./permanents/session.php");
 require_once("./controllers/redirectController.php");
+require_once("./controllers/loginController.php");
 
 if(logged_in()) {
-    redirect_to("yard.php");
+    redirect_to("index.php?page=yard");
+}
+
+if(!empty($_GET['login'])){
+    if($_GET['login']=='true'){
+        $login->loginAdmin();
+    }
 }
 
 if(!empty($_GET['loginStatus'])) {
