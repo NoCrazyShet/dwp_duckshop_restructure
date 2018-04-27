@@ -12,7 +12,7 @@ class loginController
                     if(password_verify($password, $result['password'])){
                         $_SESSION['userID'] = $result['userID'];
                         $_SESSION['eMail'] = $result['eMail'];
-                        redirect_to("index.php?page=yard");
+                        redirect_to("backdex.php?page=backdexYard");
                     }
                     else {
                         redirect_to('index.php?page=gate&loginStatus=incorrect');

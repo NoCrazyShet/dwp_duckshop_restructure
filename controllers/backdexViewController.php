@@ -1,7 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Bogor
- * Date: 27/04/2018
- * Time: 10.21
- */
+$allowed = array('backdexYard');
+$page = ( isset($_GET['page']) ) ? $_GET['page'] : 'backdex';
+if ( in_array($page, $allowed) ) {
+    include("./backdexPages/$page.php");
+}
