@@ -1,8 +1,4 @@
 <?php
-require_once("./permanents/session.php");
-require_once("./controllers/redirectController.php");
-require_once("./controllers/loginController.php");
-
 if(logged_in()) {
     redirect_to("index.php?page=yard");
 }
