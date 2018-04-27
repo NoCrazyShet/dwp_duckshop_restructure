@@ -23,4 +23,9 @@ class dbController
         return $stored;
     }
 
+    function updateEntry($query) {
+        $stmt = $this->connection->prepare("$query");
+        $stmt->execute();
+    }
+
 }

@@ -21,6 +21,7 @@ $login = new loginController();
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">Logo</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="backdex.php?page=company">Edit Company</a></li>
                     <li><a href="index.php?page=products">Edit products</a></li>
                     <li><a href="index.php?page=login">Login to your account</a></li>
                 </ul>
@@ -31,7 +32,7 @@ $login = new loginController();
 
 <main>
     <div class="container center">
-        <?php include("controllers/backdexViewController.php");?>
+        <?php include("backdexPageControllers/backdexViewController.php");?>
     </div>
 </main>
 
