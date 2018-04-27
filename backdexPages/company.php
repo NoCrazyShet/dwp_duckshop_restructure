@@ -3,7 +3,7 @@ require_once("./backdexPageControllers/backdexCompanyController.php");
 ?>
 
 
-<div class="row">
+<div class="row" style="margin-top: 50px;">
     <form class="col s12" name="lars" id="lars" method="POST" action="./backdex.php?action=update&page=company">
         <div class="card">
                 <div class="card-image">
