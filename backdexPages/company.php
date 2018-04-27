@@ -12,7 +12,7 @@ require_once("./backdexPageControllers/backdexCompanyController.php");
                     <div class="card-content">
                         <div class="btn">
                             <span>Change image</span>
-                            <input type="file">
+                            <input type="file" name="image" value="">
                         </div>
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text" placeholder="Select a file to upload">
@@ -49,7 +49,7 @@ require_once("./backdexPageControllers/backdexCompanyController.php");
                 </div>
             </div>
         <div class="card-action">
-             <button class="waves-effect waves-light btn-large" type="submit" name="submit">Update Company Information</button>
+             <button class="waves-effect waves-light btn-large" type="submit" name="Submit" value="Submit">Update Company Information</button>
         </div>
     </form>
 </div>

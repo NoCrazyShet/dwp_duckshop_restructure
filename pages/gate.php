@@ -18,7 +18,7 @@ echo '<div class="row">';
         echo '</div>';
         echo '<div class="row">';
             echo '<div class="input-field col s12">';
-                echo '<button class="waves-effect waves-light btn-large" name="submit" type="submit">Login</button>';
+                echo '<button class="waves-effect waves-light btn-large" name="Submit" type="submit" value="Submit">Login</button>';
             echo '</div>';
         echo '</div>';
     echo '</form>';
