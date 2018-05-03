@@ -15,7 +15,7 @@
 
 if(isset($_GET['action'])) {
     $action = $_GET['action'];
-    if ($action == "update"); {
+    if ($action == "update") {
 
         $logoText = htmlspecialchars(trim($_POST["logoText"]));
         $aboutUs = htmlspecialchars(trim($_POST['aboutUs']));
@@ -26,5 +26,7 @@ if(isset($_GET['action'])) {
         $updateCompany = "UPDATE companyInfo SET logoText = '{$logoText}', aboutUs = '{$aboutUs}', street = '{$street}', streetNumber = '{$streetNr}', zipCode = '{$zip}' WHERE CVR= '{$CVR}'";
         $stmt = $db->updateEntry($updateCompany);
         redirect_to('./backdex.php?page=company');
+    }elseif ($action == "logo") {
+
     }
 }

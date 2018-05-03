@@ -4,23 +4,29 @@ require_once("./backdexPageControllers/backdexCompanyController.php");
 
 
 <div class="row" style="margin-top: 50px;">
-    <form class="col s12" name="lars" id="lars" method="POST" action="./backdex.php?action=update&page=company">
-        <div class="card">
-            <div class="card-image">
-                <img src="./images/top-duck.svg">
+    <div class="card">
+        <div class="card-image">
+            <img src="./images/<?php echo $compInfo['logo']?>">
+            <form name="imgup" method="post" action="./controllers/imageUploadController.php" enctype="multipart/form-data">
                 <div class="file-field input-field">
                     <div class="card-content">
                         <div class="btn">
                             <span>Change image</span>
                             <input type="file" name="image" value="">
                         </div>
+
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text" placeholder="Select a file to upload">
                         </div>
+
+                        <button class="btn waves-effect waves-light" type="submit" name="submit" value="submit">Upload new image</button>
                     </div>
                 </div>
-            </div>
-            <div class="card-content">
+            </form>
+        </div>
+        <div class="card-content">
+            <div class="row">
+            <form class="col s12" name="lars" id="lars" method="POST" action="./backdex.php?action=update&page=company">
                 <div class="row">
                     <div class="input-field col s12 m12">
                         <textarea id="logoText" name="logoText" class="materialize-textarea"><?php echo $compInfo['logoText'];?></textarea>
@@ -47,10 +53,14 @@ require_once("./backdexPageControllers/backdexCompanyController.php");
                         <label for="zipCode">Zip Code</label>
                     </div>
                 </div>
+                <div class="row">
+                <div class="card-action">
+                    <button class="waves-effect waves-light btn-large" type="submit" name="Submit" value="Submit">Update Company Information</button>
+                </div>
+                </div>
+            </form>
             </div>
-        <div class="card-action">
-             <button class="waves-effect waves-light btn-large" type="submit" name="Submit" value="Submit">Update Company Information</button>
         </div>
-    </form>
+    </div>
 </div>
 
