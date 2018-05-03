@@ -1,5 +1,17 @@
 <?php
-$compInfo = $db->runQuery("SELECT * FROM companyInfo", 'fetch', PDO::FETCH_ASSOC);
+    //For a stored procedure we would first create the procedure within the DB and then call it from within this controller.
+    //The stored procedure would look as such
+
+        // CREATE DEFINER=`root`@`localhost`
+            // PROCEDURE `proc_get_compInfo`()
+                // BEGIN
+                    // SELECT * From companyInfo;
+                // END
+
+    //$statement= "CALL proc_get_compInfo";
+    //The $statement variable would then be injected as a parameter in our runQuery function shown below.
+
+    $compInfo = $db->runQuery("SELECT * FROM companyInfo", 'fetch', PDO::FETCH_ASSOC);
 
 if(isset($_GET['action'])) {
     $action = $_GET['action'];

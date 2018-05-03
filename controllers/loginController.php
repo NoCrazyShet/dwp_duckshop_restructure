@@ -7,7 +7,7 @@ class loginController
             $password = trim(htmlspecialchars($_POST['password']));
             if (isset($_GET['login'])=='true') {
                 $db = new dbController();
-                $result = $db->runQuery("SELECT COUNT(userID), userID, eMail, password, adminConfirm FROM admin WHERE eMail = '{$eMail}' LIMIT 1", fetch, PDO::FETCH_ASSOC);
+                $result = $db->runQuery("SELECT COUNT(userID), userID, eMail, password FROM admin WHERE eMail = '{$eMail}' LIMIT 1", fetch, PDO::FETCH_ASSOC);
                 if($db->result==1) {
                     if(password_verify($password, $result['password'])){
                         $_SESSION['userID'] = $result['userID'];
