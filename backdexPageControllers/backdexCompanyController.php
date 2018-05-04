@@ -1,4 +1,5 @@
 <?php
+require_once("./controllers/imageResizer.php");
     //For a stored procedure we would first create the procedure within the DB and then call it from within this controller.
     //The stored procedure would look as such
 
@@ -27,6 +28,7 @@ if(isset($_GET['action'])) {
         $stmt = $db->updateEntry($updateCompany);
         redirect_to('./backdex.php?page=company');
     }elseif ($action == "logo") {
-
+        require_once("./controllers/imageUploadController.php");
+        redirect_to('./backdex.php?page=company');
     }
 }

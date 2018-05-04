@@ -1,8 +1,4 @@
 <?php
-require_once("../controllers/imageResizer.php");
-require_once("../controllers/dbController.php");
-require_once("../controllers/redirectController.php");
-
 define("MAX_SIZE", "3000");
 $upmsg = array();
 
@@ -16,7 +12,7 @@ if (isset($_POST['submit'])) {
             if ($size<MAX_SIZE*1024) {
                 $prefix = uniqid();
                 $iName = $prefix."_".$imagename;
-                $newName = "../images/".$iName;
+                $newName = "./images/".$iName;
                 $resObj = new imageResizer();
                 $resObj->load($file);
                 if (isset($_POST['resizetype'])){
@@ -46,7 +42,7 @@ if (isset($_POST['submit'])) {
         $CVR = $result['CVR'];
         $db->updateEntry("UPDATE companyInfo SET logo='$iName' WHERE CVR = $CVR");
         array_push($upmsg, "Image uploaded!");
-        redirect_to("../backdex.php?page=company");
+        redirect_to("./backdex.php?page=company");
 
     }else{array_push($upmsg, "no file selected");}
 }

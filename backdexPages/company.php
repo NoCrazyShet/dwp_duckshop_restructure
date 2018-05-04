@@ -7,7 +7,7 @@ require_once("./backdexPageControllers/backdexCompanyController.php");
     <div class="card">
         <div class="card-image">
             <img src="./images/<?php echo $compInfo['logo']?>">
-            <form name="imgup" method="post" action="./controllers/imageUploadController.php" enctype="multipart/form-data">
+            <form name="imgup" method="post" action="./backdex.php?action=logo&page=company" enctype="multipart/form-data">
                 <div class="file-field input-field">
                     <div class="card-content">
                         <div class="btn">
