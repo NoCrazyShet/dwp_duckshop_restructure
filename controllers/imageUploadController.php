@@ -37,7 +37,6 @@ if (isset($_POST['submit'])) {
 
 
         $resObj->save($newName);
-        $db = new dbController();
         $result = $db->runQuery("SELECT CVR FROM companyInfo", 'fetch', PDO::FETCH_ASSOC);
         $CVR = $result['CVR'];
         $db->updateEntry("UPDATE companyInfo SET logo='$iName' WHERE CVR = $CVR");
