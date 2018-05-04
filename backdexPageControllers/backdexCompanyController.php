@@ -14,6 +14,10 @@ require_once("./controllers/imageResizer.php");
 
     $compInfo = $db->runQuery("SELECT * FROM companyInfo", 'fetch', PDO::FETCH_ASSOC);
 
+    if(isset($_SESSION['upmsg'])){
+        $upmsg = $_SESSION['upmsg'];
+    }
+
 if(isset($_GET['action'])) {
     $action = $_GET['action'];
     if ($action == "update") {

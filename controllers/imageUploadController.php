@@ -1,6 +1,7 @@
 <?php
 define("MAX_SIZE", "3000");
-$upmsg = array();
+
+$_SESSION['upmsg'] = array();
 
 if (isset($_POST['submit'])) {
     if ($_FILES['image']['name']) {
@@ -19,29 +20,33 @@ if (isset($_POST['submit'])) {
                 if ($_POST['resizetype']=="width") {
                     $width = $_POST['size'];
                     $resObj->resizeToWidth($width);
-                    array_push($upmsg, "Image resized to $width pixels wide");
+                    array_push($_SESSION['upmsg'], "Image resized to $width pixels wide");
                 }elseif ($_POST['resizetype']=="height") {
                     $height = $_POST['size'];
                     $resObj->resizeToHeight($height);
-                    array_push($upmsg, "Image resized to $height pixels high");
+                    array_push($_SESSION['upmsg'], "Image resized to $height pixels high");
                 }elseif ($_POST['resizetype']=="scale") {
                     $scale = $_POST['size'];
                     $resObj->scale($scale);
-                    array_push($upmsg, "image scaled to $scale %");
+                    array_push($_SESSION['upmsg'], "image scaled to $scale %");
                 }} elseif (!isset($_POST['resizetype'])){
                     $resObj->noChange();
-                    array_push($upmsg, "image uploaded with no changes");
+                    array_push($_SESSION['upmsg'], "image uploaded with no changes");
                 }
-            }else {array_push($upmsg, "Image to big! max 3mb");}
-        }else {array_push($upmsg, "wrong filetype, accepted types are gif, jpeg and png");}
+                $resObj->save($newName);
+                $result = $db->runQuery("SELECT CVR FROM companyInfo", 'fetch', PDO::FETCH_ASSOC);
+                $CVR = $result['CVR'];
+                $db->updateEntry("UPDATE companyInfo SET logo='$iName' WHERE CVR = $CVR");
+               // redirect_to("./backdex.php?page=company");
 
+            }else  {array_push($_SESSION['upmsg'], "Image to big! max 3mb");
+                //redirect_to('./backdex.php?page=company');
+            }
 
-        $resObj->save($newName);
-        $result = $db->runQuery("SELECT CVR FROM companyInfo", 'fetch', PDO::FETCH_ASSOC);
-        $CVR = $result['CVR'];
-        $db->updateEntry("UPDATE companyInfo SET logo='$iName' WHERE CVR = $CVR");
-        array_push($upmsg, "Image uploaded!");
-        redirect_to("./backdex.php?page=company");
+        }else {array_push($_SESSION['upmsg'], "Wrong filetype, accepted types are gif, jpeg and png");
+            //redirect_to('./backdex.php?page=company');
+        }
 
-    }else{array_push($upmsg, "no file selected");}
+    }else{array_push($_SESSION['upmsg'], "No file selected");
+    }
 }
