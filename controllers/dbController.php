@@ -17,9 +17,17 @@ class dbController
         return $connection;
     }
 
-    function runQuery($query, $fetchType, $arrayType) {
+    function runQuery2($query, $fetchType, $arrayType) {
         $this->result = $this->connection->query($query);
         $stored = $this->result->$fetchType($arrayType);
+        return $stored;
+    }
+
+    function runQuery($query, $fetchType, $arrayType, $exe) {
+        $sql = $query;
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute($exe);
+        $stored = $stmt->$fetchType($arrayType);
         return $stored;
     }
 
