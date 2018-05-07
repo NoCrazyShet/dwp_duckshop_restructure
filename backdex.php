@@ -22,7 +22,7 @@ $login = new loginController();
                 <a href="#" class="brand-logo">Logo</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down valign-wrapper">
                     <li><a href="backdex.php?page=company">Edit Company</a></li>
-                    <li><a href="index.php?page=products">Edit products</a></li>
+                    <li><a href="backdex.php?page=backdexProducts">Edit products</a></li>
                     <li><a href="index.php?page=login">Login to your account</a></li>
                     <?php if(isset($_SESSION['userID'])){
                         echo '<li><form action="index.php?page=yard&login=false" method="post" style="margin-bottom: 0; display: inherit;">';
