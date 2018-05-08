@@ -12,7 +12,7 @@ require_once("./controllers/imageResizer.php");
     //$statement= "CALL proc_get_compInfo";
     //The $statement variable would then be injected as a parameter in our runQuery function shown below.
 
-    $compInfo = $db->runQuery("SELECT * FROM companyInfo", 'fetch', PDO::FETCH_ASSOC);
+    $compInfo = $db->runQuery("SELECT * FROM companyInfo", 'fetch', PDO::FETCH_ASSOC, NULL);
 
     if(isset($_SESSION['upmsg'])){
         $upmsg = $_SESSION['upmsg'];
