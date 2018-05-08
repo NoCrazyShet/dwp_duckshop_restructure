@@ -31,6 +31,28 @@ class dbController
         return $stored;
     }
 
+    function boundQuery($query, $fetchType, $arrayType, $values, $types = false) {
+        $stmt = $this->connection->prepare($query);
+
+        foreach($values as $key => $value) {
+            if($types) {
+                $stmt->bindValue(":$key", $value, $types[$key]);
+            } else {
+                if(is_int($value))          { $param = PDO::PARAM_INT; }
+                elseif (is_bool($value))    { $param = PDO::PARAM_BOOL; }
+                elseif (is_null($value))    { $param = PDO::PARAM_NULL; }
+                elseif (is_string($value))  { $param = PDO::PARAM_STR; }
+                else                        { $param = FALSE; }
+
+                if($param) $stmt->bindValue(":$key", $value, $param);
+            }
+        }
+
+        $stmt->execute();
+        $stored = $stmt->$fetchType($arrayType);
+        return $stored;
+    }
+
     function updateEntry($query) {
         $stmt = $this->connection->prepare("$query");
         $stmt->execute();

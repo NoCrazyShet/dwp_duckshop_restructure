@@ -1,6 +1,7 @@
 <?php
 require_once("./pagecontrol/gateController.php");
 
+
 echo '<div class="row">';
     echo '<h2>Please login</h2>';
     echo '<form class="col s12" action="index.php?page=gate&login=true" method="post">';
