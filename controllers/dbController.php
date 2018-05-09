@@ -31,9 +31,8 @@ class dbController
         return $stored;
     }
 
-    function boundQuery($query, $fetchType, $arrayType, $values, $types = false) {
+    function boundQuery($query, $values, $fetchType = NULL, $arrayType = NULL, $types = false) {
         $stmt = $this->connection->prepare($query);
-
         foreach($values as $key => $value) {
             if($types) {
                 $stmt->bindValue(":$key", $value, $types[$key]);
@@ -47,10 +46,14 @@ class dbController
                 if($param) $stmt->bindValue(":$key", $value, $param);
             }
         }
-
         $stmt->execute();
-        $stored = $stmt->$fetchType($arrayType);
-        return $stored;
+        if($fetchType != NULL){
+            $stored = $stmt->$fetchType($arrayType);
+            return $stored;
+        } else {
+            return $stmt;
+        }
+
     }
 
     function updateEntry($query) {
