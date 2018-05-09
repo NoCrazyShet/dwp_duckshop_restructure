@@ -1,6 +1,22 @@
 <?php
 $products = $db->runQuery("SELECT * FROM product", 'fetchAll', PDO::FETCH_ASSOC, NULL);
 $rowCount = 0;
+
+
+
+//Delete product try here
+if(isset($_GET['id'])){
+
+}
+
+if(isset($_GET['delete'])) {
+    if($_GET['delete'] == 'true') {
+        $id = $_GET['id'];
+        $values = array('productID' => $id);
+        $deleteProduct = $db->boundQuery("DELETE FROM product WHERE productID = :productID", $values);
+    }
+}
+
 ?>
     <div class="row"> <?php
 foreach ($products as $row) {
@@ -17,6 +33,9 @@ foreach ($products as $row) {
                 <div class="card-action">
                     <a href="#">Something</a>
                 </div>
+                   <div class="card-action">
+                    <a href="./backdex.php?page=backdexProducts&id=<?php $id=$row['productID'] ?>&delete=true" style="color: red;">Delete this product</a>
+                 </div>
             </div>
         </div>
     <?php
