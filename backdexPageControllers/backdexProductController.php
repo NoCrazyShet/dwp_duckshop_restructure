@@ -3,10 +3,6 @@ $products = $db->boundQuery("SELECT * FROM product", NULL, 'fetchAll', PDO::FETC
 $rowCount = 0;
 
 //Delete product try here
-if(isset($_GET['id'])){
-
-}
-
 if(isset($_GET['delete'])) {
     if($_GET['delete'] == 'true') {
         $id = $_GET['id'];
@@ -31,10 +27,10 @@ foreach ($products as $row) {
                     <?php echo $row['productName'] ?>
                 </div>
                 <div class="card-action">
-                    <a href="#">Something</a>
+                    <a href="./backdex.php?page=backdexProductsUpdate&id=<?php echo $row['productID']?>">Update product</a>
                 </div>
                    <div class="card-action">
-                    <a href="./backdex.php?page=backdexProducts&id=<?php echo $row['productID']?>&delete=true" style="color: red;">Delete this product</a>
+                    <a href="./backdex.php?page=backdexProducts&id=<?php echo $row['productID']?>&delete=true" style="color: red;">Delete product</a>
                  </div>
             </div>
         </div>
