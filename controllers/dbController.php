@@ -17,36 +17,22 @@ class dbController
         return $connection;
     }
 
-    function runQuery2($query, $fetchType, $arrayType) {
-        $this->result = $this->connection->query($query);
-        $stored = $this->result->$fetchType($arrayType);
-        return $stored;
-    }
-
-    function runQuery($query, $fetchType, $arrayType, $exe) {
-        $sql = $query;
-        $stmt = $this->connection->prepare($sql);
-        $stmt->execute($exe);
-        $stored = $stmt->$fetchType($arrayType);
-        return $stored;
-    }
-
-    function boundQuery($query, $values, $fetchType = NULL, $arrayType = NULL, $types = false) {
+    function boundQuery($query, $values = NULL, $fetchType = NULL, $arrayType = NULL, $types = false) {
         $stmt = $this->connection->prepare($query);
         if(isset($values)){
-        foreach($values as $key => $value) {
-            if($types) {
-                $stmt->bindValue(":$key", $value, $types[$key]);
-            } else {
-                if(is_int($value))          { $param = PDO::PARAM_INT; }
-                elseif (is_bool($value))    { $param = PDO::PARAM_BOOL; }
-                elseif (is_null($value))    { $param = PDO::PARAM_NULL; }
-                elseif (is_string($value))  { $param = PDO::PARAM_STR; }
-                else                        { $param = FALSE; }
+            foreach($values as $key => $value) {
+                if($types) {
+                    $stmt->bindValue(":$key", $value, $types[$key]);
+                } else {
+                    if(is_int($value))          { $param = PDO::PARAM_INT; }
+                    elseif (is_bool($value))    { $param = PDO::PARAM_BOOL; }
+                    elseif (is_null($value))    { $param = PDO::PARAM_NULL; }
+                    elseif (is_string($value))  { $param = PDO::PARAM_STR; }
+                    else                        { $param = FALSE; }
 
-                if($param) $stmt->bindValue(":$key", $value, $param);
+                    if($param) $stmt->bindValue(":$key", $value, $param);
+                }
             }
-        }
         }
         $stmt->execute();
         if($fetchType != NULL){
@@ -58,9 +44,5 @@ class dbController
 
     }
 
-    function updateEntry($query) {
-        $stmt = $this->connection->prepare("$query");
-        $stmt->execute();
-    }
 
 }
