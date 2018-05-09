@@ -33,6 +33,7 @@ class dbController
 
     function boundQuery($query, $values, $fetchType = NULL, $arrayType = NULL, $types = false) {
         $stmt = $this->connection->prepare($query);
+        if(isset($values)){
         foreach($values as $key => $value) {
             if($types) {
                 $stmt->bindValue(":$key", $value, $types[$key]);
@@ -45,6 +46,7 @@ class dbController
 
                 if($param) $stmt->bindValue(":$key", $value, $param);
             }
+        }
         }
         $stmt->execute();
         if($fetchType != NULL){

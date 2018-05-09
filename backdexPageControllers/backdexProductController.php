@@ -1,5 +1,5 @@
 <?php
-$products = $db->runQuery("SELECT * FROM product", 'fetchAll', PDO::FETCH_ASSOC, NULL);
+$products = $db->boundQuery("SELECT * FROM product", NULL, 'fetchAll', PDO::FETCH_ASSOC, NULL);
 $rowCount = 0;
 
 
