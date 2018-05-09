@@ -12,7 +12,7 @@ require_once("./controllers/imageResizer.php");
     //$statement= "CALL proc_get_compInfo";
     //The $statement variable would then be injected as a parameter in our runQuery function shown below.
 
-    $compInfo = $db->runQuery("SELECT * FROM companyInfo", 'fetch', PDO::FETCH_ASSOC, NULL);
+    $compInfo = $db->boundQuery("SELECT * FROM companyInfo", NULL, 'fetch', PDO::FETCH_ASSOC, NULL);
 
     if(isset($_SESSION['upmsg'])){
         $upmsg = $_SESSION['upmsg'];
@@ -28,8 +28,9 @@ if(isset($_GET['action'])) {
         $streetNr = htmlspecialchars(trim($_POST['streetNumber']));
         $zip = htmlspecialchars(trim($_POST['zipCode']));
         $CVR = htmlspecialchars(trim($compInfo['CVR']));
-        $updateCompany = "UPDATE companyInfo SET logoText = '{$logoText}', aboutUs = '{$aboutUs}', street = '{$street}', streetNumber = '{$streetNr}', zipCode = '{$zip}' WHERE CVR= '{$CVR}'";
-        $stmt = $db->updateEntry($updateCompany);
+
+        $values = array('logoText' => $logoText, 'aboutUs' => $aboutUs, 'street' => $street, 'streetNumber' => $streetNr, 'zipCode' => $zip, 'CVR' => $CVR);
+        $stmt = $db->boundQuery("UPDATE companyInfo SET logoText = :logoText, aboutUs = :aboutUs, street = :street, streetNumber = :streetNumber, zipCode = :zipCode WHERE CVR = :CVR", $values);
         redirect_to('./backdex.php?page=company');
     }elseif ($action == "logo") {
         require_once("./controllers/imageUploadController.php");

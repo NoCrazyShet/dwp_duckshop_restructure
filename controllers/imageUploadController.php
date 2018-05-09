@@ -34,9 +34,10 @@ if (isset($_POST['submit'])) {
                     array_push($_SESSION['upmsg'], "image uploaded with no changes");
                 }
                 $resObj->save($newName);
-                $result = $db->runQuery("SELECT CVR FROM companyInfo", 'fetch', PDO::FETCH_ASSOC);
+                $result = $db->boundQuery("SELECT CVR FROM companyInfo",NULL, 'fetch', PDO::FETCH_ASSOC);
                 $CVR = $result['CVR'];
-                $db->updateEntry("UPDATE companyInfo SET logo='$iName' WHERE CVR = $CVR");
+                $values = array('logo' => $iName , 'CVR' => $CVR);
+                $db->boundQuery("UPDATE companyInfo SET logo = :logo WHERE CVR = :CVR", $values);
                // redirect_to("./backdex.php?page=company");
 
             }else  {array_push($_SESSION['upmsg'], "Image to big! max 3mb");

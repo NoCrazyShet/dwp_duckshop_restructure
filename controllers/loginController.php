@@ -10,7 +10,7 @@ class loginController
 
                 $values = array('eMail' => $eMail);
 
-                $result = $db->boundQuery("SELECT userID, eMail, password FROM admin WHERE eMail = :eMail LIMIT 1", 'fetch', PDO::FETCH_ASSOC, $values);
+                $result = $db->boundQuery("SELECT userID, eMail, password FROM admin WHERE eMail = :eMail LIMIT 1", $values, 'fetch', PDO::FETCH_ASSOC);
                 if(count($result) == 3) {
                     if(password_verify($password, $result['password'])){
                         $_SESSION['userID'] = $result['userID'];
