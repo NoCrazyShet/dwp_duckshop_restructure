@@ -4,6 +4,7 @@ require_once("./backdexPageControllers/backdexCompanyController.php");
 if(isset($upmsg)){
     foreach($upmsg as $msg){echo '<div class="col s12"><h1>'.$msg.'</h1></div>';
     }
+    unset($_SESSION['upmsg']);
 }
 ?>
 <div class="row" style="margin-top: 50px;">

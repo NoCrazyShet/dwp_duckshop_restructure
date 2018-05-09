@@ -32,8 +32,11 @@ if(isset($_GET['action'])) {
         $values = array('logoText' => $logoText, 'aboutUs' => $aboutUs, 'street' => $street, 'streetNumber' => $streetNr, 'zipCode' => $zip, 'CVR' => $CVR);
         $stmt = $db->boundQuery("UPDATE companyInfo SET logoText = :logoText, aboutUs = :aboutUs, street = :street, streetNumber = :streetNumber, zipCode = :zipCode WHERE CVR = :CVR", $values);
         redirect_to('./backdex.php?page=company');
+
     }elseif ($action == "logo") {
         require_once("./controllers/imageUploadController.php");
-        redirect_to('./backdex.php?page=company');
+        $imgCnt = new imageUploadController();
+        $imgCnt->imageUpload("SELECT CVR FROM companyInfo",'CVR' ,'logo',"UPDATE companyInfo SET logo = :logo WHERE CVR = :CVR", "company");
+
     }
 }
