@@ -14,12 +14,14 @@ if(isset($_GET['delete'])) {
         $id = $_GET['id'];
         $values = array('productID' => $id);
         $deleteProduct = $db->boundQuery("DELETE FROM product WHERE productID = :productID", $values);
+        redirect_to("./backdex.php?page=backdexProducts");
     }
 }
 
 ?>
     <div class="row"> <?php
 foreach ($products as $row) {
+
     ?>
         <div class="col s6 m3">
             <div class="card">
@@ -34,7 +36,7 @@ foreach ($products as $row) {
                     <a href="#">Something</a>
                 </div>
                    <div class="card-action">
-                    <a href="./backdex.php?page=backdexProducts&id=<?php $id=$row['productID'] ?>&delete=true" style="color: red;">Delete this product</a>
+                    <a href="./backdex.php?page=backdexProducts&id=<?php echo $row['productID']?>&delete=true" style="color: red;">Delete this product</a>
                  </div>
             </div>
         </div>
