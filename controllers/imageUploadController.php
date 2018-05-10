@@ -6,7 +6,7 @@ class imageUploadController {
         define("MAX_SIZE", "3000");
     }
 
-    function imageUpload($selectQuery, $key, $target,  $changeQuery, $redTarg) {
+    function imageUpload($selectQuery, $selectVal=NULL, $key, $target,  $changeQuery, $redTarg) {
         $_SESSION['upmsg'] = array();
 
         if (isset($_POST['submit'])) {
@@ -41,7 +41,8 @@ class imageUploadController {
                         }
                         $resObj->save($newName);
                         $db = new dbController();
-                        $result = $db->boundQuery($selectQuery,NULL, 'fetch', PDO::FETCH_ASSOC);
+                        $result = $db->boundQuery($selectQuery,$selectVal, 'fetch', PDO::FETCH_ASSOC);
+                        echo "hello";
                         $resKey = $result["{$key}"];
                         $resTarg = $key;
                         $values = array($target => $iName , $resTarg => $resKey);
