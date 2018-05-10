@@ -1,6 +1,6 @@
 <?php
 $products = $db->boundQuery("SELECT * FROM product", NULL, 'fetchAll', PDO::FETCH_ASSOC, NULL);
-$rowCount = 0;
+$rowCount = 1;
 
 //Delete product try here
 if(isset($_GET['delete'])) {
@@ -13,7 +13,24 @@ if(isset($_GET['delete'])) {
 }
 
 ?>
-    <div class="row"> <?php
+    <div class="row">
+
+        <div class="col s6 m3">
+            <a href="./backdex.php?page=backdexProductsCreate">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./images/egg.jpg">
+                        <span class="card-title black-text">New Product</span>
+                         <a class="btn-floating halfway-fab waves-effect waves-light indigo lighten-1 pulse"><i class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content">
+                        This is where you add new products.
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    <?php
 foreach ($products as $row) {
 
     ?>

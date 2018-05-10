@@ -10,8 +10,11 @@ $login = new loginController();
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style/css/materialize.css">
     <link rel="stylesheet" type="text/css" href="style/css/custom.css">
+
     <script src="style/js/bin/materialize.min.js"></script>
 </head>
 <body>
@@ -19,7 +22,7 @@ $login = new loginController();
     <nav>
         <div class="container">
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Logo</a>
+                <a href="./backdex.php" class="brand-logo">Logo</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down valign-wrapper">
                     <li><a href="backdex.php?page=company">Edit Company</a></li>
                     <li><a href="backdex.php?page=backdexProducts">Edit products</a></li>
@@ -37,7 +40,7 @@ $login = new loginController();
 
 <main>
     <div class="container center">
-        <?php include("backdexPageControllers/backdexViewController.php");?>
+        <?php if(isset($_GET['page'])) {include("backdexPageControllers/backdexViewController.php");} else {include("./backdexPages/backdexPage.php");};?>
     </div>
 </main>
 

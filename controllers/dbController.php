@@ -4,7 +4,7 @@ class dbController
     private $host = 'mysql:dbname=duckshopdb;host=localhost';
     private $user = 'root';
     private $password = '123456';
-    private $connection;
+    public $connection;
     public $result;
 
 
@@ -34,14 +34,17 @@ class dbController
         $stmt->execute();
             if($fetchType != NULL){
                 $stored = $stmt->$fetchType($arrayType);
-                $this->connection = NULL;
+                //$this->connection = NULL;
                 return $stored;
             } else {
-                $this->connection = NULL;
+                //$this->connection = NULL;
                 return $stmt;
             }
 
     }
 
+    function disconnetDB() {
+        $this->connection = NULL;
+    }
 
 }

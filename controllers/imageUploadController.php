@@ -42,7 +42,6 @@ class imageUploadController {
                         $resObj->save($newName);
                         $db = new dbController();
                         $result = $db->boundQuery($selectQuery,$selectVal, 'fetch', PDO::FETCH_ASSOC);
-                        echo "hello";
                         $resKey = $result["{$key}"];
                         $resTarg = $key;
                         $values = array($target => $iName , $resTarg => $resKey);
@@ -61,5 +60,4 @@ class imageUploadController {
             }
         }
     }
-
 }
