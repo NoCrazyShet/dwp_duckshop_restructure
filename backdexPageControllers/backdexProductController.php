@@ -21,7 +21,7 @@ if(isset($_GET['delete'])) {
                     <div class="card-image">
                         <img src="./images/egg.jpg">
                         <span class="card-title black-text">New Product</span>
-                         <a class="btn-floating halfway-fab waves-effect waves-light indigo lighten-1 pulse"><i class="material-icons">add</i></a>
+                         <a class="btn-floating halfway-fab waves-effect waves-light indigo lighten-1 pulse" href="./backdex.php?page=backdexProductsCreate"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                         This is where you add new products.
