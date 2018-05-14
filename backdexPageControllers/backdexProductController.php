@@ -38,7 +38,6 @@ foreach ($products as $row) {
             <div class="card">
                 <div class="card-image">
                     <img src="./images/<?php echo $row['productIMG'] ?>">
-                    <span class="card-title black-text"><?php echo $row['productName']?></span>
                 </div>
                 <div class="card-content">
                     <?php echo $row['productName'] ?>

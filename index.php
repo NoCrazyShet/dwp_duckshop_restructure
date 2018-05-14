@@ -13,7 +13,6 @@ $login = new loginController();
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style/css/materialize.css">
     <link rel="stylesheet" type="text/css" href="style/css/custom.css">
-    <script src="style/js/bin/materialize.min.js"></script>
 </head>
 <body>
 <header>
@@ -31,10 +30,11 @@ $login = new loginController();
 </header>
 
 <main>
-    <div class="container center">
-        <?php if(isset($_GET['page'])){include("controllers/viewController.php");}
-        else {echo "YOU WUT MATE";}?>
-    </div>
+
+        <?php if(isset($_GET['page'])){
+            include("indexPageControllers/indexViewController.php");}
+        else {include("./pages/indexPage.php");}?>
+
 </main>
 
 <footer class="page-footer">
@@ -62,5 +62,8 @@ $login = new loginController();
         </div>
     </div>
 </footer>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="style/js/bin/materialize.min.js"></script>
+<script src="style/js/custom.js"></script>
 </body>
 </html>
