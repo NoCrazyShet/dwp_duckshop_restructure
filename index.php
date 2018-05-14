@@ -16,7 +16,7 @@ $login = new loginController();
 </head>
 <body>
 <header>
-    <nav>
+    <nav id="nav">
         <div class="container">
             <div class="nav-wrapper">
                 <a href="./index.php" class="brand-logo">Logo</a>

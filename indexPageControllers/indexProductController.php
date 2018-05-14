@@ -1,6 +1,6 @@
 <?php
 $products = $db->boundQuery("SELECT * FROM product", NULL, 'fetchAll', PDO::FETCH_ASSOC, NULL);
-$rowCount = 1;
+$rowCount = 0;
 
 if(isset($_GET['delete'])) {
     if($_GET['delete'] == 'true') {
@@ -10,10 +10,12 @@ if(isset($_GET['delete'])) {
         redirect_to("./backdex.php?page=products");
     }
 }
-
+?>
+<div class="row">
+<?php
 foreach ($products as $row) {
+    $rowCount++;
     ?>
-    <div class="row">
     <div class="col s6 m3">
         <div class="card">
             <div class="card-image">
@@ -31,6 +33,6 @@ foreach ($products as $row) {
         </div>
     </div>
     <?php
-    $rowCount++;
+
     if ($rowCount % 4 == 0) echo '</div><div class="row">';
 }
