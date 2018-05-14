@@ -53,7 +53,6 @@ switch ($productCase) {
 <?php
         break;
     case "picture";
-
     ?>
 
 <div class="card">

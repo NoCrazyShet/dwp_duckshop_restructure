@@ -10,13 +10,15 @@ class loginController
 
                 $values = array('eMail' => $eMail);
 
-                $result = $db->boundQuery("SELECT userID, eMail, password FROM admin WHERE eMail = :eMail LIMIT 1", $values, 'fetch', PDO::FETCH_ASSOC);
-                if(count($result) == 3) {
+                $result = $db->boundQuery("SELECT userID, eMail, password, accessLevel FROM admin WHERE eMail = :eMail LIMIT 1", $values, 'fetch', PDO::FETCH_ASSOC);
+                if(count($result) == 4) {
                     if(password_verify($password, $result['password'])){
                         $_SESSION['userID'] = $result['userID'];
                         $_SESSION['eMail'] = $result['eMail'];
-                        $_SESSION['adminConfirm'] = $result['adminConfirm'];
+                        $_SESSION['acLe'] = intval($result['accessLevel']);
+
                         redirect_to("backdex.php?page=backdexYard");
+
                     }
                     else {
                         redirect_to('index.php?page=gate&loginStatus=incorrect');

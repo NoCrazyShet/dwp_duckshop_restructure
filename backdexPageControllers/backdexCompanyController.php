@@ -28,9 +28,11 @@ if(isset($_GET['action'])) {
         $streetNr = htmlspecialchars(trim($_POST['streetNumber']));
         $zip = htmlspecialchars(trim($_POST['zipCode']));
         $CVR = htmlspecialchars(trim($compInfo['CVR']));
+        $eMail = htmlspecialchars(trim($compInfo['eMail']));
+        $phone = htmlspecialchars(trim($compInfo['phone']));
 
-        $values = array('logoText' => $logoText, 'aboutUs' => $aboutUs, 'street' => $street, 'streetNumber' => $streetNr, 'zipCode' => $zip, 'CVR' => $CVR);
-        $stmt = $db->boundQuery("UPDATE companyInfo SET logoText = :logoText, aboutUs = :aboutUs, street = :street, streetNumber = :streetNumber, zipCode = :zipCode WHERE CVR = :CVR", $values);
+        $values = array('logoText' => $logoText, 'aboutUs' => $aboutUs, 'street' => $street, 'streetNumber' => $streetNr, 'zipCode' => $zip, 'CVR' => $CVR, 'eMail' => $eMail, 'phone' => $phone);
+        $stmt = $db->boundQuery("UPDATE companyInfo SET logoText = :logoText, aboutUs = :aboutUs, street = :street, streetNumber = :streetNumber, zipCode = :zipCode, eMail = :eMail, phone = :phone WHERE CVR = :CVR", $values);
         redirect_to('./backdex.php?page=company');
 
         }elseif ($action == "logo") {

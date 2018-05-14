@@ -9,7 +9,7 @@
                 </div>
                 <div class="card-stacked">
                     <div class="card-content valign-wrapper">
-                        <h3 class="center-align ">Edit products</h3>
+                        <h3 class="compLinks">Edit products</h3>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="card-stacked">
                     <div class="card-content valign-wrapper">
-                        <h3 class="center-align">Edit company info</h3>
+                        <h3 class="compLinks">Edit company info</h3>
                     </div>
                 </div>
             </div>
@@ -33,17 +33,18 @@
 
 <div class="row">
     <div class="col s12 m6">
-        <h2 class="header">Thing</h2>
-        <div class="card horizontal">
+        <a href="./backdex.php?page=backdexCompanyContact">
+        <div class="card horizontal green white-text">
             <div class="card-image">
-                <span><i class="material-icons large">add</i></span>
+                <span><i class="material-icons large" style="font-size: 200px">add</i></span>
             </div>
             <div class="card-stacked">
-                <div class="card-content">
-                    <p>This is the card</p>
+                <div class="card-content valign-wrapper">
+                    <h3 class="compLinks">Edit business hours</h3>
                 </div>
             </div>
         </div>
+        </a>
     </div>
 
     <div class="col s12 m6">

@@ -56,6 +56,14 @@ if(isset($upmsg)){
                         <textarea id="zipCode" name="zipCode" class="materialize-textarea"><?php echo $compInfo['zipCode'];?></textarea>
                         <label for="zipCode">Zip Code</label>
                     </div>
+                    <div class="input-field col s12 m6">
+                        <textarea id="phone" name="phone" class="materialize-textarea"><?php echo $compInfo['phone'];?></textarea>
+                        <label for="phone">Phone Number</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <textarea id="eMail" name="eMail" class="materialize-textarea"><?php echo $compInfo['eMail'];?></textarea>
+                        <label for="eMail">Email</label>
+                    </div>
                 </div>
                 <div class="row">
                 <div class="card-action">

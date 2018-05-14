@@ -26,6 +26,7 @@ if(isset($_GET['action'])) {
     } elseif ($action == "productImage") {
         require_once ('./controllers/imageUploadController.php');
         require_once("./controllers/imageResizer.php");
+
         $values = array('productID' => $_GET['id']);
         $updateProduct = $db->boundQuery("SELECT * FROM product WHERE productID=:productID", $values, 'fetch', PDO::FETCH_ASSOC);
         $id = $updateProduct['productID'];
