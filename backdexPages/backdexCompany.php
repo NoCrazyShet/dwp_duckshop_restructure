@@ -53,19 +53,19 @@ if(isset($upmsg)){
                                 <label for="aboutUs">About us</label>
                             </div>
                             <!-- Third line -->
-                            <div class="input-field col s12 m4">
-                                <textarea id="textarea2" name="zipCode" class="materialize-textarea" data-length="4"><?php echo $compInfo['zipCode'];?></textarea>
-                                <label for="zipCode">Zip code</label>
-                            </div>
-                            <!-- Fourth line -->
-                            <div class="input-field col s12 m4">
+                            <div class="input-field col s12 m6">
                                 <textarea id="textarea2" name="street" class="materialize-textarea" data-length="30"><?php echo $compInfo['street'];?></textarea>
                                 <label for="street">Street</label>
                             </div>
-                            <!-- Fifth line -->
-                            <div class="input-field col s12 m4">
+                            <!-- Fourth line -->
+                            <div class="input-field col s12 m3">
                                 <textarea id="textarea2" name="streetNumber" class="materialize-textarea" data-length="3"><?php echo $compInfo['streetNumber'];?></textarea>
                                 <label for="streetNumber">Street number</label>
+                            </div>
+                            <!-- Fifth line -->
+                            <div class="input-field col s12 m3">
+                                <textarea id="textarea2" name="zipCode" class="materialize-textarea" data-length="4"><?php echo $compInfo['zipCode'];?></textarea>
+                                <label for="zipCode">Zip code</label>
                             </div>
                             <!-- Sixth line -->
                             <div class="input-field col s12 m12">
