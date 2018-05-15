@@ -2,6 +2,7 @@
 require_once("./controllers/imageResizer.php");
 $values = array('productID' => $_GET['id']);
 $updateProduct = $db->boundQuery("SELECT * FROM product WHERE productID=:productID", $values, 'fetch', PDO::FETCH_ASSOC);
+$categorySelect = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll', PDO::FETCH_ASSOC);
 
 if(isset($_GET['action'])) {
     $action = $_GET['action'];

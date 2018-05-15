@@ -1,5 +1,6 @@
 <?php
 require_once ('./backdexPageControllers/backdexProductUpdateController.php');
+
 ?>
 
 <div class="row" style="margin-top: 50px;">
@@ -29,7 +30,12 @@ require_once ('./backdexPageControllers/backdexProductUpdateController.php');
                 <form class="col s12" name="lars" id="lars" method="POST" action="./backdex.php?action=update&page=backdexProductsUpdate&id=<?PHP echo $updateProduct['productID']?>">
                     <div class="row">
                         <div class="input-field col s12 m12">
-                            <textarea id="categoryID" name="categoryID" class="materialize-textarea"><?php echo $updateProduct['categoryID'];?></textarea>
+                            <select name="categoryID">
+                                <option value="categoryID" name="categoryID" disabled>Choose product category</option>
+                                <?php foreach ($categorySelect as $category) {?>
+                                    <option value="<?php echo $category['categoryID'] ?>" <?php if ($category['categoryID'] == $updateProduct['categoryID']) {echo "selected";} ?>><?php echo $category['categoryName'] ?></option>
+                                <?php } ?>
+                            </select>
                             <label for="categoryID">Category ID</label>
                         </div>
                     </div>
