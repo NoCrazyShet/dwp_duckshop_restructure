@@ -31,7 +31,7 @@ if(isset($_GET['action'])) {
         $eMail = htmlspecialchars(trim($compInfo['eMail']));
         $phone = htmlspecialchars(trim($compInfo['phone']));
 
-        $values = array('logoText' => $logoText, 'aboutUs' => $aboutUs, 'street' => $street, 'streetNumber' => $streetNr, 'zipCode' => $zip, 'CVR' => $CVR, 'eMail' => $eMail, 'phone' => $phone);
+        $values = array('logoText' => $logoText, 'aboutUs' => $aboutUs, 'street' => $street, 'streetNumber' => $streetNr, 'zipCode' => $zip, 'eMail' => $eMail, 'phone' => $phone, 'CVR' => $CVR);
         $stmt = $db->boundQuery("UPDATE companyInfo SET logoText = :logoText, aboutUs = :aboutUs, street = :street, streetNumber = :streetNumber, zipCode = :zipCode, eMail = :eMail, phone = :phone WHERE CVR = :CVR", $values);
         redirect_to('./backdex.php?page=backdexCompany');
 

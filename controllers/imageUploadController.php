@@ -68,11 +68,11 @@ class imageUploadController {
                         redirect_to("./backdex.php?page=$redTarg");
 
                     }else  {array_push($_SESSION['upmsg'], "Image to big! max 3mb");
-                        redirect_to('./backdex.php?page=company');
+                        redirect_to('./backdex.php?page=backdexCompany');
                     }
 
                 }else {array_push($_SESSION['upmsg'], "Wrong filetype, accepted types are gif, jpeg and png");
-                    //redirect_to('./backdex.php?page=company');
+                    //redirect_to('./backdex.php?page=backdexCompany');
                 }
 
             }else{array_push($_SESSION['upmsg'], "No file selected");

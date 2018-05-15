@@ -39,7 +39,7 @@ $login = new loginController();
 </header>
 
 <main>
-    <div class="container">
+    <div class="container" style="margin-top: 50px;">
         <?php if(isset($_GET['page'])) {include("backdexPageControllers/backdexViewController.php");} else {include("./backdexPages/backdexPage.php");};?>
     </div>
 </main>
