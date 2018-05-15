@@ -1,4 +1,5 @@
 <?php
+$categorySelect = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll', PDO::FETCH_ASSOC);
 
 
 if(!isset($_GET['case'])) {
@@ -35,6 +36,7 @@ if(isset($_GET['action'])) {
         $imgCnt->imageUpload("SELECT productID FROM product WHERE productID = :productID", $selVal , 'productID', 'productIMG', "UPDATE product SET productIMG = :productIMG WHERE productID = :productID", "backdexProductsUpdate&id=$id");
     }
 }
+
 
 
 

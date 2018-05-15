@@ -4,3 +4,7 @@ $( document ).ready(function() {
         $('.carousel').carousel('next');
     },2000);
 });
+
+$(document).ready(function(){
+    $('select').formSelect();
+});

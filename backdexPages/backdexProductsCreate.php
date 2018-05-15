@@ -14,7 +14,12 @@ switch ($productCase) {
 
                         <div class="row">
                             <div class="input-field col s12 m12">
-                                <textarea id="categoryID" name="categoryID" class="materialize-textarea" required></textarea>
+                                <select name="categoryID">
+                                     <option value="categoryID" name="categoryID" disabled selected>Choose product category</option>
+                                     <?php foreach ($categorySelect as $category) { ?>
+                                     <option value="<?php echo $category['categoryID'] ?>"><?php echo $category['categoryName'] ?></option>
+                                     <?php } ?>
+                                </select>
                                 <label for="categoryID">Category ID</label>
                             </div>
                         </div>
