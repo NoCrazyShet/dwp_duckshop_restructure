@@ -33,7 +33,7 @@ if(isset($_GET['action'])) {
         $id = $updateProduct['productID'];
         $selVal = array('productID' => $updateProduct['productID']);
         $imgCnt = new imageUploadController();
-        $imgCnt->imageUpload("SELECT productID FROM product WHERE productID = :productID", $selVal , 'productID', 'productIMG', "UPDATE product SET productIMG = :productIMG WHERE productID = :productID", "backdexProductsUpdate&id=$id");
+        $imgCnt->imageUpload("SELECT productID FROM product WHERE productID = :productID", $selVal , 'productID', 'productIMG', "UPDATE product SET productIMG = :productIMG WHERE productID = :productID", "backdexProductsUpdate&id=$id", "cut");
     }
 }
 

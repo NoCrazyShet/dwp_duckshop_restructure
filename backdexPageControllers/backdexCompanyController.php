@@ -38,7 +38,7 @@ if(isset($_GET['action'])) {
         }elseif ($action == "logo") {
         require_once("./controllers/imageUploadController.php");
         $imgCnt = new imageUploadController();
-        $imgCnt->imageUpload("SELECT CVR FROM companyInfo", NULL,'CVR' ,'logo', "UPDATE companyInfo SET logo = :logo WHERE CVR = :CVR", "backdexCompany");
+        $imgCnt->imageUpload("SELECT CVR FROM companyInfo", NULL,'CVR' ,'logo', "UPDATE companyInfo SET logo = :logo WHERE CVR = :CVR", "backdexCompany", "none");
 
     }
 }

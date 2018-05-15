@@ -6,7 +6,7 @@ class imageUploadController {
         define("MAX_SIZE", "3000");
     }
 
-    function imageUpload($selectQuery, $selectVal=NULL, $key, $target,  $changeQuery, $redTarg) {
+    function imageUpload($selectQuery, $selectVal=NULL, $key, $target,  $changeQuery, $redTarg, $imghandling) {
         $_SESSION['upmsg'] = array();
 
         if (isset($_POST['submit'])) {
@@ -22,22 +22,41 @@ class imageUploadController {
                         $newName = "./images/".$iName;
                         $resObj = new imageResizer();
                         $resObj->load($file);
-                        if (isset($_POST['resizetype'])){
-                        if ($_POST['resizetype']=="width") {
+//                        if (isset($_POST['resizetype'])){
+//                        if ($_POST['resizetype']=="width") {
+//                            $width = $_POST['size'];
+//                            $resObj->resizeToWidth($width);
+//                            array_push($_SESSION['upmsg'], "Image resized to $width pixels wide");
+//                        }elseif ($_POST['resizetype']=="height") {
+//                            $height = $_POST['size'];
+//                            $resObj->resizeToHeight($height);
+//                            array_push($_SESSION['upmsg'], "Image resized to $height pixels high");
+//                        }elseif ($_POST['resizetype']=="scale") {
+//                            $scale = $_POST['size'];
+//                            $resObj->scale($scale);
+//                            array_push($_SESSION['upmsg'], "image scaled to $scale %");
+//                        }} elseif (!isset($_POST['resizetype'])){
+//                            $resObj->cutFromCenter(500, 600);
+//                            array_push($_SESSION['upmsg'], "image uploaded with no changes");
+//                        }
+                        if($imghandling == "width") {
                             $width = $_POST['size'];
                             $resObj->resizeToWidth($width);
                             array_push($_SESSION['upmsg'], "Image resized to $width pixels wide");
-                        }elseif ($_POST['resizetype']=="height") {
+                        } elseif ($imghandling == "height") {
                             $height = $_POST['size'];
                             $resObj->resizeToHeight($height);
                             array_push($_SESSION['upmsg'], "Image resized to $height pixels high");
-                        }elseif ($_POST['resizetype']=="scale") {
+                        } elseif ($imghandling == "scale") {
                             $scale = $_POST['size'];
                             $resObj->scale($scale);
                             array_push($_SESSION['upmsg'], "image scaled to $scale %");
-                        }} elseif (!isset($_POST['resizetype'])){
-                            $resObj->cutFromCenter(500, 600);
-                            array_push($_SESSION['upmsg'], "image uploaded with no changes");
+                        } elseif ($imghandling == "cut") {
+                            $resObj->cutOrFill(500, 600);
+                            array_push($_SESSION['upmsg'], "It has been cut and/or filled");
+                        } elseif ($imghandling == "none") {
+                            $resObj->noChange();
+                            array_push($_SESSION['upmsg'], "Image uplaoded with no changes");
                         }
                         $resObj->save($newName);
                         $db = new dbController();

@@ -92,4 +92,40 @@ class imageResizer {
         $this->image = $new_image;
     }
 
+    public function maxArea($width, $height = NULL) {
+        $height = $height ? $height : $width;
+        if($this->getWidth() > $width) {
+            $this->resizeToWidth($width);
+        }
+        if($this->getHeight() < $height) {
+            $this->resizeToHeight($height);
+        }
+    }
+
+    public function maxAreaFill($width, $height, $red = 0, $green = 0, $blue = 0) {
+        $this->maxArea($width, $height);
+        $new_image = imagecreatetruecolor($width, $height);
+        $color_fill = imagecolorallocate($new_image, $red, $green, $blue);
+        imagefill($new_image, 0, 0, $color_fill);
+        imagecopyresampled($new_image,
+                                        $this->image,
+                                        floor(($width - $this->getWidth())/2),
+                                        floor(($height - $this->getHeight())/2),
+                                        0, 0,
+                                        $this->getWidth(),
+                                        $this->getHeight(),
+                                        $this->getWidth(),
+                                        $this->getHeight()
+                            );
+        $this->image = $new_image;
+    }
+
+    public function cutOrFill($width, $height, $red = 0, $green=0, $blue =0){
+        if($this->getWidth() < $width OR $this->getHeight() < $height) {
+            $this->maxAreaFill($width, $height, $red, $green, $blue);
+        } else {
+            $this->cutFromCenter($width, $height);
+        }
+    }
+
 }

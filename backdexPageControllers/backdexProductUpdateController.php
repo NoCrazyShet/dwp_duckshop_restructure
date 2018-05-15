@@ -22,6 +22,6 @@ if(isset($_GET['action'])) {
         require_once ('./controllers/imageUploadController.php');
         $selVal = array('productID' => $updateProduct['productID']);
         $imgCnt = new imageUploadController();
-        $imgCnt->imageUpload("SELECT productID FROM product WHERE productID = :productID", $selVal , 'productID', 'productIMG', "UPDATE product SET productIMG = :productIMG WHERE productID = :productID", "backdexProducts");
+        $imgCnt->imageUpload("SELECT productID FROM product WHERE productID = :productID", $selVal , 'productID', 'productIMG', "UPDATE product SET productIMG = :productIMG WHERE productID = :productID", "backdexProducts", "cut");
     }
 }
