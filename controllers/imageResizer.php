@@ -58,6 +58,32 @@ class imageResizer {
         $this->image = $new_image;
     }
 
+    public function cut($x, $y, $width, $height) {
+        $new_image = imagecreatetruecolor($width, $height);
+
+            imagecolortransparent($new_image, imagecolorallocate($new_image, 0, 0, 0));
+            imagealphablending($new_image, false);
+            imagesavealpha($new_image, true);
+
+            imagecopy($new_image, $this->image, 0, 0, $x, $y, $width, $height);
+
+            $this->image = $new_image;
+    }
+
+    public function cutFromCenter($width, $height) {
+        if ($width < $this->getWidth() && $width > $height) {
+            $this->resizeToWidth($width);
+        }
+        if ($height < $this->getHeight() && $width < $height) {
+            $this->resizeToHeight($height);
+        }
+
+        $x = ($this->getWidth() / 2) - ($width / 2);
+        $y = ($this->getHeight() / 2) - ($height / 2);
+
+        return $this->cut($x, $y, $width, $height);
+    }
+
     public function noChange() {
         $width = $this->getWidth();
         $height = $this->getHeight();

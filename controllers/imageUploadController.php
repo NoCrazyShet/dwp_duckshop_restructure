@@ -36,7 +36,7 @@ class imageUploadController {
                             $resObj->scale($scale);
                             array_push($_SESSION['upmsg'], "image scaled to $scale %");
                         }} elseif (!isset($_POST['resizetype'])){
-                            $resObj->noChange();
+                            $resObj->cutFromCenter(500, 600);
                             array_push($_SESSION['upmsg'], "image uploaded with no changes");
                         }
                         $resObj->save($newName);
@@ -57,6 +57,7 @@ class imageUploadController {
                 }
 
             }else{array_push($_SESSION['upmsg'], "No file selected");
+                redirect_to('./backdex.php?page=backdexProducts');
             }
         }
     }
