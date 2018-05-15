@@ -11,12 +11,14 @@ switch ($productCase) {
             <div class="card-content">
                 <div class="row">
                     <form class="col s12" name="create" id="create" method="POST" action="./backdex.php?page=backdexProductsCreate&action=create">
+
                         <div class="row">
                             <div class="input-field col s12 m12">
                                 <textarea id="categoryID" name="categoryID" class="materialize-textarea" required></textarea>
                                 <label for="categoryID">Category ID</label>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="input-field col s12 m12">
                                 <textarea id="productName" name="productName" class="materialize-textarea" required></textarea>

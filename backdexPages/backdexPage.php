@@ -17,7 +17,7 @@
     </div>
 
     <div class="col s12 m6">
-        <a href="./backdex.php?page=company">
+        <a href="./backdex.php?page=backdexCompany">
             <div class="card horizontal deep-purple lighten-1 white-text">
                 <div class="card-image">
                     <span><i class="material-icons large" style="font-size: 200px;">add</i></span>

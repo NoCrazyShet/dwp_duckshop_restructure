@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS duckshopdb;
-CREATE TABLE duckshopdb;
+DROP DATABASE IF EXISTS duckshopdb;
+CREATE DATABASE duckshopdb;
 USE duckshopdb;
 
 CREATE TABLE admin (

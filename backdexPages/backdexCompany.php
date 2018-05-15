@@ -11,7 +11,7 @@ if(isset($upmsg)){
     <div class="card">
         <div class="card-image">
             <img src="./images/<?php echo $compInfo['logo']?>">
-            <form name="imgup" method="post" action="./backdex.php?action=logo&page=company" enctype="multipart/form-data">
+            <form name="imgup" method="post" action="./backdex.php?action=logo&page=backdexCompany" enctype="multipart/form-data">
                 <div class="file-field input-field">
                     <div class="card-content">
                         <div class="btn">
@@ -30,7 +30,7 @@ if(isset($upmsg)){
         </div>
         <div class="card-content">
             <div class="row">
-            <form class="col s12" name="lars" id="lars" method="POST" action="./backdex.php?action=update&page=company">
+            <form class="col s12" name="lars" id="lars" method="POST" action="./backdex.php?action=update&page=backdexCompany">
                 <div class="row">
                     <div class="input-field col s12 m12">
                         <textarea id="logoText" name="logoText" class="materialize-textarea"><?php echo $compInfo['logoText'];?></textarea>
