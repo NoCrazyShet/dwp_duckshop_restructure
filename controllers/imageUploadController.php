@@ -22,23 +22,6 @@ class imageUploadController {
                         $newName = "./images/".$iName;
                         $resObj = new imageResizer();
                         $resObj->load($file);
-//                        if (isset($_POST['resizetype'])){
-//                        if ($_POST['resizetype']=="width") {
-//                            $width = $_POST['size'];
-//                            $resObj->resizeToWidth($width);
-//                            array_push($_SESSION['upmsg'], "Image resized to $width pixels wide");
-//                        }elseif ($_POST['resizetype']=="height") {
-//                            $height = $_POST['size'];
-//                            $resObj->resizeToHeight($height);
-//                            array_push($_SESSION['upmsg'], "Image resized to $height pixels high");
-//                        }elseif ($_POST['resizetype']=="scale") {
-//                            $scale = $_POST['size'];
-//                            $resObj->scale($scale);
-//                            array_push($_SESSION['upmsg'], "image scaled to $scale %");
-//                        }} elseif (!isset($_POST['resizetype'])){
-//                            $resObj->cutFromCenter(500, 600);
-//                            array_push($_SESSION['upmsg'], "image uploaded with no changes");
-//                        }
                         if($imghandling == "width") {
                             $width = $_POST['size'];
                             $resObj->resizeToWidth($width);
@@ -61,8 +44,10 @@ class imageUploadController {
                         $resObj->save($newName);
                         $db = new dbController();
                         $result = $db->boundQuery($selectQuery,$selectVal, 'fetch', PDO::FETCH_ASSOC);
+
                         $resKey = $result["{$key}"];
                         $resTarg = $key;
+
                         $values = array($target => $iName , $resTarg => $resKey);
                         $db->boundQuery($changeQuery, $values);
                         redirect_to("./backdex.php?page=$redTarg");

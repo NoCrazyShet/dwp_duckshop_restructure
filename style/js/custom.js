@@ -3,6 +3,8 @@ $( document ).ready(function() {
     setInterval(function(){
         $('.carousel').carousel('next');
     },2000);
+
+    $('.modal').modal();
 });
 
 $(document).ready(function(){
