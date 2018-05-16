@@ -3,8 +3,11 @@ require_once("./permanents/session.php");
 require_once("./controllers/redirectController.php");
 require_once("./controllers/dbController.php");
 require_once("./controllers/loginController.php");
+require_once("./controllers/shoppingCartController.php");
 $db = new dbController();
 $login = new loginController();
+$sc = new shoppingCartController();
+$categories = $db->boundQuery("SELECT * FROM productCategory");
 ?>
 
 <html>
@@ -16,17 +19,25 @@ $login = new loginController();
 </head>
 <body>
 <header>
-    <nav id="nav">
+    <nav id="nav" class="nav-extended">
         <div class="container">
             <div class="nav-wrapper">
                 <a href="./index.php" class="brand-logo">Logo</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="index.php?page=products">Products</a></li>
+                    <li><a class="dropdown-button btn-flat white-text" href="?page=products" data-target="dropdown1"><?php if(!isset($_GET['category'])) { echo "Products" ;} elseif (isset($_GET['category']) && isset($_GET['catName'])) {echo "Products - "; echo $_GET['catName'];} ?></a></li>
                     <li><a href="index.php?page=login">Login to your account</a></li>
+                    <li><a href="#" class="dropdown-button btn-flat white-text" data-target="cart"><i class="material-icons">shopping_cart</i></a></li>
                 </ul>
             </div>
         </div>
     </nav>
+    <ul id='dropdown1' class='dropdown-content productDrop'>
+        <li><a href="index.php?page=products">Products</a></li>
+        <li class="divider"></li>
+        <?php foreach ($categories as $category) {?>
+        <li><a href="index.php?page=products&category=<?php echo $category['categoryID']?>&catName=<?php echo $category['categoryName']?>"><?php echo $category['categoryName']?></a></li>
+        <?php }?>
+    </ul>
 </header>
 
 <main>

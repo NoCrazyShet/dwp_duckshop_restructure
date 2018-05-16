@@ -8,7 +8,7 @@
     container: null,
     coverTrigger: true,
     closeOnClick: true,
-    hover: false,
+    hover: true,
     inDuration: 150,
     outDuration: 250,
     onOpenStart: null,
