@@ -39,7 +39,7 @@ if(isset($upmsg)){
                     <form class="col s12 m12" name="" id="" method="post" action="./backdex.php?action=update&page=backdexCompany">
                         <div class="row">
                             <div class="input-field col s12 m12">
-                                <textarea id="textarea2" name="CVR" class="materialize-textarea" data-length="8"><?php echo $compInfo['CVR'];?></textarea>
+                                <textarea id="textarea2" name="CVR" class="materialize-textarea" disabled data-length="8"><?php echo $compInfo['CVR'];?></textarea>
                                 <label for="CVR">Working with this CVR:</label>
                             </div>
                             <!-- First line -->
