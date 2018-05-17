@@ -23,7 +23,7 @@ var_dump($_SESSION['shoppingCart']);
                 </div>
                 <div class="card-action">
                     <a class="col s8" href="./index.php?page=productDetails&productID=<?php echo $row['productID']?>">Go to product</a>
-                    <form method="post" action="./index.php?page=products&productID=<?php echo $row['productID']?>&action=addCart">
+                    <form method="post" action="./index.php?page=products<?php if (isset($_GET['category']) && isset($_GET['catName'])) {echo "&category=".$_GET['category']."&catName=".$_GET['catName'];}?>&productID=<?php echo $row['productID'];?>&action=addCart">
                             <button type="submit" class="btn-small"><i class="material-icons">add_shopping_cart</i></button>
                     </form>
                 </div>

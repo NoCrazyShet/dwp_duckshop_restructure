@@ -18,6 +18,7 @@ class shoppingCartController
         $_SESSION['shoppingCart'][$_GET['productID']] = array('qty' => $currentQty, 'productName' => $product['productName'], 'productIMG' => $product['productIMG'], 'productPrice' => $product['productPrice']);
         $product = "";
         $db->disconnetDB();
+
     }
 
     public function cartTotal(){
@@ -27,5 +28,9 @@ class shoppingCartController
             $grandTotal = $grandTotal + $total;
         }
         return $grandTotal;
+    }
+
+    public function emptyCart(){
+        $_SESSION['products'] = NULL;
     }
 }
