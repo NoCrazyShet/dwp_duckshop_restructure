@@ -52,8 +52,8 @@ $categories = $db->boundQuery("SELECT * FROM productCategory");
                         </div>
                         <div class="card-stacked">
                             <div class="card-content">
-                                <p><?php echo $cartItem['productName']; ?></p><br>
-                                <p><?php echo $cartItem['productPrice']?></p><br>
+                                <span class="card-title grey-text text-darken-4"><?php echo $cartItem['productName']; ?></span>
+                                <p>Price: <?php echo $cartItem['productPrice']. "kr"?></p><br>
                             </div>
                             <div class="card-action">
 
