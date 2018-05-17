@@ -1,6 +1,10 @@
 <div class="container">
 <?php
 require_once ('./indexPageControllers/indexProductController.php');
+
+if(isset($_SESSION['shoppingCart'])){
+var_dump($_SESSION['shoppingCart']);
+}
 ?>
     <div class="row">
 <h1 class="center">These are the producks</h1>

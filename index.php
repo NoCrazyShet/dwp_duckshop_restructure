@@ -8,6 +8,7 @@ $db = new dbController();
 $login = new loginController();
 $sc = new shoppingCartController();
 $categories = $db->boundQuery("SELECT * FROM productCategory");
+
 ?>
 
 <html>
