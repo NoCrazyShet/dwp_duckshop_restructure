@@ -4,12 +4,11 @@ require_once("./controllers/redirectController.php");
 require_once("./controllers/dbController.php");
 require_once("./controllers/loginController.php");
 require_once("./controllers/shoppingCartController.php");
-require_once("./indexPageControllers/indexController.php");
 $db = new dbController();
 $login = new loginController();
 $sc = new shoppingCartController();
 $categories = $db->boundQuery("SELECT * FROM productCategory");
-//session_destroy();
+
 ?>
 
 <html>
@@ -28,8 +27,8 @@ $categories = $db->boundQuery("SELECT * FROM productCategory");
                 <a href="./index.php" class="brand-logo">Logo</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a class="dropdown-button btn-flat white-text" href="?page=products" data-target="products"><?php if(!isset($_GET['category'])) { echo "Products" ;} elseif (isset($_GET['category']) && isset($_GET['catName'])) {echo "Products - "; echo $_GET['catName'];} ?></a></li>
-                    <li><a href="index.php?page=login">Login to your account</a></li>
                     <li><a href="#" class="dropdown-button btn-flat white-text" data-target="shoppingCart"><i class="material-icons right">shopping_cart</i>Shopping Cart</a></li>
+                    <li><?php if(!logged_in()) {?><a href="index.php?page=loginPage"><?php echo 'Log in';} else{?><a href="index.php?page=userPage"><i class="large material-icons">account_box</i><?php }?> </a></li>
                 </ul>
             </div>
         </div>
@@ -41,25 +40,29 @@ $categories = $db->boundQuery("SELECT * FROM productCategory");
         <li><a href="index.php?page=products&category=<?php echo $category['categoryID']?>&catName=<?php echo $category['categoryName']?>"><?php echo $category['categoryName']?></a></li>
         <?php }?>
     </ul>
-
     <ul id="shoppingCart" class="dropdown-content">
-        <li class="col s12">
-            <a href="#">
-                <div class="row">
-                    <div class="col s12">
-                        <p><?php
-                            if(isset($_SESSION['shoppingCart'])) {
-                                echo "Your shopping cart total is: ".$sc->cartTotal();
-                            }elseif (!isset($_SESSION['shoppingCart'])) {
-                                echo "Your shopping cart is empty!";
-                            } ?>
-                        </p>
+        <li class="col s12"><a href="#"><div class="row"><div class="col s6"><?php if(isset($_SESSION['shoppingCart'])) {echo "Your shopping cart total: ". $sc->cartTotal();} elseif (!isset($_SESSION['shoppingCart'])) { echo "Your shopping cart is empty!";} ?></div></div></a></li>
+        <li class="divider" tabindex="-1"></li>
+        <?php foreach ($_SESSION['shoppingCart'] as $cartItem){ ?>
+            <li>
+                <div class="col s12 m12">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="images/<?php echo $cartItem['productIMG'];?>">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <span class="card-title grey-text text-darken-4"><?php echo $cartItem['productName']; ?></span>
+                                <p>Price: <?php echo $cartItem['productPrice']. "kr"?></p><br>
+                            </div>
+                            <div class="card-action">
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </a>
-        </li>
-        <li class="divider" tabindex="-1"></li>
-        <?php require_once("./indexPageControllers/shoppingCartViewController.php");?>
+            </li>
+        <?php }?>
     </ul>
 </header>
 

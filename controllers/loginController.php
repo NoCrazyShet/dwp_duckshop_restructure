@@ -68,6 +68,6 @@ class loginController
             setcookie(session_name(), '', time()-42000, '/');
         }
         session_destroy();
-        redirect_to("./index.php?page=gate&loginStatus=logout");
+        redirect_to("./index.php");
     }
 }
