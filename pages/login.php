@@ -1,10 +1,11 @@
 <?php
 require_once("./pagecontrol/gateController.php"); ?>
 
+
 <div class="container center">
     <div class="row">
-        <h2>Admin login</h2>
-        <form class="col s12" action="index.php?page=gate&login=true" method="post">
+    <h2>Please login</h2>
+        <form class="col s12" action="index.php?page=login&userLogin=true" method="post">
             <div class="row">
                 <div class="input-field col s12">
                     <input id="username" type="text" name="eMail" maxlength="30" value="">

@@ -19,3 +19,9 @@ if(!empty($_GET['loginStatus'])) {
         $_GET['loginStatus'] = '';
     }
 }
+
+if(!empty($_GET['userLogin'])){
+    if($_GET['userLogin']=='true'){
+        $login->loginUser();
+    }
+}

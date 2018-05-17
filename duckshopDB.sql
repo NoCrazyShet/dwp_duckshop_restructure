@@ -128,6 +128,13 @@ commentText varchar(10000),
 FOREIGN KEY (articleID) REFERENCES news (articleID)
 );
 
+CREATE TABLE customerContact (
+full_name varchar(50),
+email varchar (100),
+message VARCHAR (300),
+code_confirmation VARCHAR (300)
+);
+
 INSERT INTO admin VALUES(1, 'duranovic46@gmail.com', '$2y$15$Q.rE3kqj3kpbH5AiVWP5bebiT5v3FE9ghsjMXT9kLY00ydtemO/I6', 1);
 INSERT INTO admin VALUES(2, 'j.pettit51@gmail.com', '$2y$15$Q.rE3kqj3kpbH5AiVWP5bebiT5v3FE9ghsjMXT9kLY00ydtemO/I6', 1);
 

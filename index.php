@@ -13,6 +13,7 @@ $categories = $db->boundQuery("SELECT * FROM productCategory");
 
 <html>
 <head>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style/css/materialize.css">
@@ -83,7 +84,7 @@ $categories = $db->boundQuery("SELECT * FROM productCategory");
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="./index.php?page=contact">Contact</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
