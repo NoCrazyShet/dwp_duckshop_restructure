@@ -13,7 +13,7 @@ class dbController
         return $connection;
     }
 
-    function boundQuery($query, $values = NULL, $fetchType = NULL, $arrayType = NULL, $types = false) {
+    function boundQuery($query, $values = NULL, $fetchType = 'fetch', $arrayType = NULL, $types = false) {
         $this->connection = $this->connectDB();
         $stmt = $this->connection->prepare($query);
             if(isset($values)){
@@ -35,9 +35,15 @@ class dbController
         $stmt->execute();
         if($fetchType != NULL){
             $stored = $stmt->$fetchType($arrayType);
+            array_walk_recursive($stored, function(&$value){
+                $value = trim(filter_var($value, FILTER_SANITIZE_STRING));
+            });
             //$this->connection = NULL;
             return $stored;
         } else {
+            array_walk_recursive($stmt, function (&$value){
+                $value = trim(filter_var($value, FILTER_SANITIZE_STRING));
+            });
             //$this->connection = NULL;
             return $stmt;
         }
