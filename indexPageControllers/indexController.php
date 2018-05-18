@@ -5,7 +5,6 @@ $sc = new shoppingCartController();
 
 if(isset($_GET['action'])){
     if($_GET['action']=='addCart'){
-        $sc = new shoppingCartController();
         $productID = $_GET['productID'];
         $sc->addToCart();
         if(isset($_GET['category'])) {
@@ -16,7 +15,9 @@ if(isset($_GET['action'])){
             redirect_to("./index.php?page=products");
         }
     }elseif ($_GET['action']=='emptyCart'){
-        $sc = new shoppingCartController();
         $sc->emptyCart();
+        redirect_to("./index.php");
+    }elseif ($_GET['action']=='removeItem'){
+        $sc->removeItem();
     }
 }

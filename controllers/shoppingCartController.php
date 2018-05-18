@@ -15,7 +15,7 @@ class shoppingCartController
             $currentQty = $x;
         }
 
-        $_SESSION['shoppingCart'][$_GET['productID']] = array('qty' => $currentQty, 'productName' => $product['productName'], 'productIMG' => $product['productIMG'], 'productPrice' => $product['productPrice']);
+        $_SESSION['shoppingCart'][$_GET['productID']] = array('qty' => $currentQty, 'productName' => $product['productName'], 'productIMG' => $product['productIMG'], 'productPrice' => $product['productPrice'], 'productID' => $product['productID']);
         $product = "";
         $db->disconnetDB();
 
@@ -31,6 +31,14 @@ class shoppingCartController
     }
 
     public function emptyCart(){
-        $_SESSION['shoppingCart'] = NULL;
+        unset($_SESSION['shoppingCart']);
+    }
+
+    public function removeItem() {
+        $productID = $_GET['productID'];
+        $shoppingCart = $_SESSION['shoppingCart'];
+
+        unset($shoppingCart[$productID]);
+        $_SESSION['shoppingCart'] = $shoppingCart;
     }
 }

@@ -17,7 +17,7 @@
                         <p>Item total: <?php  echo $cartItem['qty']*$cartItem['productPrice']; ?></p>
                     </div>
                     <div class="card-action">
-
+                        <a href="?action=removeItem&productID=<?php echo $cartItem['productID'];?>">Remove item</a>
                     </div>
                 </div>
             </div>
