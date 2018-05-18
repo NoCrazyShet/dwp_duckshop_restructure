@@ -5,6 +5,7 @@ require_once("./controllers/dbController.php");
 require_once("./controllers/loginController.php");
 require_once("./controllers/shoppingCartController.php");
 require_once("./indexPageControllers/indexController.php");
+require_once ("./indexPageControllers/indexCompanyController.php");
 $categories = $db->boundQuery("SELECT * FROM productCategory");
 
 ?>
@@ -83,17 +84,29 @@ $categories = $db->boundQuery("SELECT * FROM productCategory");
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
+                <h5 class="white-text" <a href="./index.php?page=contact">Contact</a></h5>
                 <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
             </div>
             <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                    <li><a class="grey-text text-lighten-3" href="./index.php?page=contact">Contact</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
+                <h5 class="white-text">Opening days & hours</h5>
+                <div class="col s6 m6">
+                    <ul>
+                        <?php foreach ($compInfo2 as $day) {
+                            ?>
+                            <li><a class="grey-text text-lighten-3" href="#!"><?php echo $day['openDay'] ?></a></li>
+                            <?php
+                        } ?>
+                    </ul>
+                </div>
+                <div class="col s6 m6">
+                    <ul>
+                        <?php foreach ($compInfo2 as $hour) {
+                            ?>
+                            <li><a class="grey-text text-lighten-3" href="#!"><?php echo $hour['openHours'] ?></a></li>
+                            <?php
+                        } ?>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
