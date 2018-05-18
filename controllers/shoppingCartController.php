@@ -31,6 +31,6 @@ class shoppingCartController
     }
 
     public function emptyCart(){
-        $_SESSION['products'] = NULL;
+        $_SESSION['shoppingCart'] = NULL;
     }
 }

@@ -3,7 +3,7 @@ require_once("./controllers/shoppingCartController.php");
 
 if(!isset($_GET['category'])){
     $query = "SELECT * FROM product";
-$values = NULL;
+    $values = NULL;
 } elseif(isset($_GET['category'])) {
     $query = "SELECT * FROM product WHERE categoryID = :categoryID";
     $categoryID = $_GET['category'];

@@ -1,4 +1,7 @@
 <?php
+$db = new dbController();
+$login = new loginController();
+$sc = new shoppingCartController();
 
 if(isset($_GET['action'])){
     if($_GET['action']=='addCart'){

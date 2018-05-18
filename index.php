@@ -4,11 +4,8 @@ require_once("./controllers/redirectController.php");
 require_once("./controllers/dbController.php");
 require_once("./controllers/loginController.php");
 require_once("./controllers/shoppingCartController.php");
-$db = new dbController();
-$login = new loginController();
-$sc = new shoppingCartController();
+require_once("./indexPageControllers/indexController.php");
 $categories = $db->boundQuery("SELECT * FROM productCategory");
-
 ?>
 
 <html>
