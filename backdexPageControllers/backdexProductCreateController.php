@@ -15,7 +15,7 @@ if(isset($_GET['action'])) {
         $productDescription = htmlspecialchars(trim($_POST['productDescription']));
         $productStock = htmlspecialchars(trim($_POST['productStock']));
         $productPrice = htmlspecialchars(trim($_POST['productPrice']));
-        $productName = htmlspecialchars(trim($_POST['productName']));
+        $productName = $_POST['productName'];
 
 
         $values = array('productIMG' => 'egg.jpg', 'categoryID' => $categoryID, 'productDescription' => $productDescription, 'productStock' => $productStock, 'productPrice' => $productPrice, 'productName' => $productName);

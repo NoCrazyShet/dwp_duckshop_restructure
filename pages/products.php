@@ -19,9 +19,9 @@ require_once ('./indexPageControllers/indexProductController.php');
                     <?php echo $row['productName'] ?>
                 </div>
                 <div class="card-action">
-                    <a class="col s8" href="./index.php?page=productDetails&productID=<?php echo $row['productID']?>">Go to product</a>
+                    <a class="col s5" href="./index.php?page=productDetails&productID=<?php echo $row['productID']?>">Details</a>
                     <form method="post" action="./index.php?page=products<?php if (isset($_GET['category']) && isset($_GET['catName'])) {echo "&category=".$_GET['category']."&catName=".$_GET['catName'];}?>&productID=<?php echo $row['productID'];?>&action=addCart">
-                            <button type="submit" class="btn-small"><i class="material-icons">add_shopping_cart</i></button>
+                            <button type="submit" class="btn-small"><i class="material-icons right">add_shopping_cart</i><?php echo $row['productPrice']."kr"?></button>
                     </form>
                 </div>
             </div>

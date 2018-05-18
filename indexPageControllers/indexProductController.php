@@ -10,7 +10,7 @@ if(!isset($_GET['category'])){
     $values = array('categoryID' => $categoryID);
 }
 
-$products = $db->boundQuery("$query", $values, 'fetchAll', PDO::FETCH_ASSOC, NULL);
+$products = $db->boundQuery($query, $values, 'fetchAll', PDO::FETCH_ASSOC, NULL);
 $rowCount = 0;
 
 ?>

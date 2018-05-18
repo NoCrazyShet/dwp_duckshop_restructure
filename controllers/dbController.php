@@ -18,6 +18,7 @@ class dbController
         $stmt = $this->connection->prepare($query);
             if(isset($values)){
                 foreach($values as $key => $value) {
+                    $value = trim(filter_var($value, FILTER_SANITIZE_STRING));
                     if($types) {
                         $stmt->bindValue(":$key", $value, $types[$key]);
                     } else {
@@ -32,14 +33,14 @@ class dbController
                 }
             }
         $stmt->execute();
-            if($fetchType != NULL){
-                $stored = $stmt->$fetchType($arrayType);
-                //$this->connection = NULL;
-                return $stored;
-            } else {
-                //$this->connection = NULL;
-                return $stmt;
-            }
+        if($fetchType != NULL){
+            $stored = $stmt->$fetchType($arrayType);
+            //$this->connection = NULL;
+            return $stored;
+        } else {
+            //$this->connection = NULL;
+            return $stmt;
+        }
 
     }
 
