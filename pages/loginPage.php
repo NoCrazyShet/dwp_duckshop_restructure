@@ -2,8 +2,6 @@
 require_once("./pagecontrol/gateController.php");
 ?>
 
-
-
 <div class="container center">
     <div class="row">
     <h2>Please login</h2>

@@ -43,3 +43,6 @@ if(isset($_GET['action'])) {
 
     }
 }
+
+$compInfoContact = $db->boundQuery("SELECT * FROM companyContact", NULL, 'fetch', PDO::FETCH_ASSOC, NULL);
+
