@@ -13,7 +13,7 @@ class dbController
         return $connection;
     }
 
-    function boundQuery($query, $values = NULL, $fetchType = 'fetch', $arrayType = NULL, $types = false) {
+    function boundQuery($query, $values = NULL, $fetchType = NULL, $arrayType = NULL, $types = false) {
         $this->connection = $this->connectDB();
         $stmt = $this->connection->prepare($query);
             if(isset($values)){
