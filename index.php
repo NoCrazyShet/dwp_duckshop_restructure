@@ -6,7 +6,7 @@ require_once("./controllers/loginController.php");
 require_once("./controllers/shoppingCartController.php");
 require_once("./indexPageControllers/indexController.php");
 require_once ("./indexPageControllers/indexCompanyController.php");
-$categories = $db->boundQuery("SELECT * FROM productCategory");
+$categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll', PDO::FETCH_ASSOC);
 
 ?>
 
@@ -52,7 +52,7 @@ $categories = $db->boundQuery("SELECT * FROM productCategory");
                     <div class="col s12">
                         <?php
                             if(isset($_SESSION['shoppingCart']) && !empty($_SESSION['shoppingCart'])) {
-                                echo "Your shopping cart total: ". $sc->cartTotal();
+                                echo "Your shopping cart total: ". $sc->cartTotal()."kr";
                             } elseif (empty($_SESSION['shoppingCart'])) {
                                 echo "Your shopping cart is empty!";
                             }?>
@@ -61,13 +61,9 @@ $categories = $db->boundQuery("SELECT * FROM productCategory");
             </a>
         </li>
         <li class="divider" tabindex="-1"></li>
-        <?php if(isset($_SESSION['shoppingCart'])) {
+        <?php if(!empty($_SESSION['shoppingCart'])) {
             include("./indexPageControllers/shoppingCartViewController.php");
-        }else { ?>
-            <li>
-                <a href="./index.php?page=products">Go shop!</a>
-            </li>
-        <?php } ?>
+        } ?>
     </ul>
 </header>
 
