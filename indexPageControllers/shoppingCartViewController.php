@@ -17,7 +17,7 @@
                         <p>Item total: <?php  echo $cartItem['qty']*$cartItem['productPrice']; ?></p>
                     </div>
                     <div class="card-action">
-                        <a href="?action=removeItem&productID=<?php echo $cartItem['productID'];?>">Remove item</a>
+                        <a href="?page=<?php echo $_GET['page']; if(isset($_GET['category'])) {echo "&category=".$_GET['category'];} if(isset($_GET['catName'])){ echo "&catName=".$_GET['catName']; } ?>&action=removeItem&productID=<?php echo $cartItem['productID'];?>">Remove item</a>
                     </div>
                 </div>
             </div>
