@@ -44,5 +44,17 @@ if(isset($_GET['action'])) {
     }
 }
 
-$compInfoContact = $db->boundQuery("SELECT * FROM companyContact", NULL, 'fetch', PDO::FETCH_ASSOC, NULL);
+$compInfoContact = $db->boundQuery("SELECT * FROM companyContact", NULL, 'fetchAll', PDO::FETCH_ASSOC, NULL);
+
+    if(isset($_GET["action"])) {
+        $action = $_GET["action"];
+        if ($action == ["update"]) {
+            $openHours = $_POST['openHours'];
+            $openDay = $_POST['openDay'];
+
+            $values = array('openHours' => $openHours, 'openDay' => $openDay);
+            $stmt = $db->boundQuery("UPDATE companyContact SET openHours = :openHours, openDay = :openDay", $values);
+            redirect_to('./backdex.php?page=backdexCompany');
+        }
+    }
 
