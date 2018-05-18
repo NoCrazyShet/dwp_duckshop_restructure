@@ -31,35 +31,60 @@ $categories = $db->boundQuery("SELECT * FROM productCategory");
         </div>
     </nav>
     <ul id='products' class='dropdown-content productDrop'>
-        <li><a href="index.php?page=products">Products</a></li>
+        <li>
+            <a href="index.php?page=products">Products</a>
+        </li>
         <li class="divider"></li>
-        <?php foreach ($categories as $category) {?>
-        <li><a href="index.php?page=products&category=<?php echo $category['categoryID']?>&catName=<?php echo $category['categoryName']?>"><?php echo $category['categoryName']?></a></li>
+            <?php foreach ($categories as $category) {?>
+        <li>
+            <a href="index.php?page=products&category=<?php echo $category['categoryID']?>&catName=<?php echo $category['categoryName']?>">
+                <?php echo $category['categoryName']?>
+            </a>
+        </li>
         <?php }?>
     </ul>
     <ul id="shoppingCart" class="dropdown-content">
-        <li class="col s12"><a href="#"><div class="row"><div class="col s6"><?php if(isset($_SESSION['shoppingCart'])) {echo "Your shopping cart total: ". $sc->cartTotal();} elseif (!isset($_SESSION['shoppingCart'])) { echo "Your shopping cart is empty!";} ?></div></div></a></li>
+        <li class="col s12">
+            <a href="#">
+                <div class="row">
+                    <div class="col s12">
+                        <?php
+                            if(isset($_SESSION['shoppingCart'])) {
+                                echo "Your shopping cart total: ". $sc->cartTotal();
+                            } elseif (!isset($_SESSION['shoppingCart'])) {
+                                echo "Your shopping cart is empty!";
+                            }?>
+                    </div>
+                </div>
+            </a>
+        </li>
         <li class="divider" tabindex="-1"></li>
-        <?php foreach ($_SESSION['shoppingCart'] as $cartItem){ ?>
-            <li>
-                <div class="col s12 m12">
-                    <div class="card horizontal">
-                        <div class="card-image">
-                            <img src="images/<?php echo $cartItem['productIMG'];?>">
-                        </div>
-                        <div class="card-stacked">
-                            <div class="card-content">
-                                <span class="card-title grey-text text-darken-4"><?php echo $cartItem['productName']; ?></span>
-                                <p>Price: <?php echo $cartItem['productPrice']. "kr"?></p><br>
+        <?php if(isset($_SESSION['shoppingCart'])) {
+            foreach ($_SESSION['shoppingCart'] as $cartItem) { ?>
+                <li>
+                    <div class="col s12 m12">
+                        <div class="card horizontal">
+                            <div class="card-image">
+                                <img src="images/<?php echo $cartItem['productIMG']; ?>">
                             </div>
-                            <div class="card-action">
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <span class="card-title grey-text text-darken-4"><?php echo $cartItem['productName']; ?></span>
+                                    <p>Price: <?php echo $cartItem['productPrice'] . "kr" ?></p><br>
+                                </div>
+                                <div class="card-action">
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </li>
+            <?php }
+        }else { ?>
+            <li>
+                <a href="./index.php?page=products">Go shop!</a>
             </li>
-        <?php }?>
+        <?php } ?>
     </ul>
 </header>
 
