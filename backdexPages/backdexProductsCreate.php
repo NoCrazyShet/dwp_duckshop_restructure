@@ -64,7 +64,7 @@ switch ($productCase) {
 
 <div class="card">
     <div class="card-image">
-        <img src="./images/<?php echo $updateProduct['productIMG']?>">
+        <img src="./images/egg.jpg">
         <form name="imgup" method="post" action="./backdex.php?action=productImage&page=backdexProductsCreate&id=<?php echo $_GET['id'];?>" enctype="multipart/form-data">
 
                 <div class="card-content">
