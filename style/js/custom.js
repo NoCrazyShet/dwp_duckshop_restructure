@@ -24,4 +24,9 @@ $( document ).ready(function() {
         }
     );
 
+    $('.modalopening').click(function () {
+        var openingID = $(this).attr('dir');
+        $('.openingID').val(openingID);
+    });
+
 });
