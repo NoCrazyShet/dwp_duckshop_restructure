@@ -90,30 +90,34 @@ if(isset($upmsg)){
             <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>Company Opening Hours</div>
             <div class="collapsible-body">
 
-                <ul>
+                <div class="container">
                     <?php foreach ($companyOpening as $openInfo) { ?>
-                        <li>
-                            <?php echo $openInfo['openDay'] ?>
-                            <!-- Modal Trigger -->
-                            <a class="waves-effect waves-light btn modal-trigger modalopening" href="#modal1" dir="<?php echo $openInfo['contactID'] ?>"><?php echo $openInfo['contactID'] ?></a>
-                        </li>
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="col s6 openDay"><?php echo $openInfo['openDay']; ?></div>
+                                <div class="col s4 openHrs"><?php echo $openInfo['openHours']; ?></div>
+                                <div class="id" hidden><?php echo $openInfo['contactID']; ?></div>
+                                <!-- Modal Trigger -->
+                                <div class="col s2 editHrs" id="<?php echo $openInfo['contactID'];?>"><a class="waves-effect waves-light btn modal-trigger modalopening" href="#modal1" dir="<?php echo $openInfo['contactID'] ?>">Edit</a></div>
+                            </div>
+                        </div>
                     <?php } ?>
-                </ul>
+                </div>
 
                 <!-- Modal Structure -->
                 <div id="modal1" class="modal">
                     <form method="post" action="">
                         <div class="row">
                             <div class="input-field col s6 m6">
-                                <input type="text" value="<?php echo $companyOpening['contactID']['openHours'] ?>" name="openHours" id="openHours">
-                                <label for="openHours">Open hours</label>
+                                <input type="text" id="openDay" name="openDay" value="">
+                                <label class="active" for="openDay">Day</label>
                             </div>
                             <div class="input-field col s6 m6">
-                                <input type="text" name="openDay" id="openDay">
-                                <label for="openDay">Open day</label>
+                                <input type="text" name="openHours" id="openHours" value="">
+                                <label class="active" for="openHours">Hours</label>
                             </div>
-                            <div class="input-field">
-                                <input class="openingID" value="NULL" name="contactID" id="contactID">
+                            <div class="input-field col s12">
+                                <input name="contactID" class="contactID" value="">
                             </div>
                         </div>
                         <div class="modal-footer">

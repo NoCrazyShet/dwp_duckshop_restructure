@@ -25,8 +25,15 @@ $( document ).ready(function() {
     );
 
     $('.modalopening').click(function () {
-        var openingID = $(this).attr('dir');
-        $('.openingID').val(openingID);
+        var contactID = $(this).attr('dir');
+        $('.contactID').val(contactID);
+
+        var openHrs = $(this).parent().siblings('.openHrs')[0].innerHTML;
+        $('#openHours').val(openHrs);
+        console.log(openHrs);
+
+        var openDay = $(this).parent().siblings('.openDay')[0].innerHTML;
+        $('#openDay').val(openDay);
     });
 
 });
