@@ -7,5 +7,5 @@ $values = array('productID' => $_GET['productID']);
 $product = $db->boundQuery($query, $values, 'fetch', PDO::FETCH_ASSOC);
 
 $rc->addToSession($product['productID']);
-$wat = $rc->selectRandomItems($product['productID']);
+$wat = $rc->selectRandomItems($product['categoryID']);
 var_dump($wat);

@@ -7,7 +7,7 @@ require_once("./controllers/shoppingCartController.php");
 require_once("./indexPageControllers/indexController.php");
 require_once ("./indexPageControllers/indexCompanyController.php");
 $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll', PDO::FETCH_ASSOC);
-//session_destroy();
+
 ?>
 
 <html>

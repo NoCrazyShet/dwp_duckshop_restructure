@@ -51,7 +51,7 @@ class recommendationController
             $selected2 = $select2Array[rand(0, count($select2Array)-1)];
             array_push($recommended, $selected2);
         }
-        return $recommended;
+        return $select2Array;
     }
 
 }
