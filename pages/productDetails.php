@@ -30,4 +30,18 @@ require_once("./indexPageControllers/productDetailsController.php");
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <h2 class="center">Recommended products</h2>
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="./images/egg.jpg" alt="">
+                </div>
+                <card class="card-content">
+                    something fancy
+                </card>
+            </div>
+        </div>
+    </div>
 </div>

@@ -30,3 +30,4 @@ require_once ('./indexPageControllers/indexProductController.php');
     if ($rowCount % 4 == 0) echo '</div><div class="row">';
 }?>
 </div>
+
