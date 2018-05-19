@@ -87,22 +87,42 @@ if(isset($upmsg)){
                     </div>
         </li>
         <li>
-            <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>Company contact information</div>
+            <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>Company Opening Hours</div>
             <div class="collapsible-body">
-                    <div class="row">
-                        <form class="col s12 m12" name="" id="" method="post" action="./backdex.php?action=update&page=backdexCompany">
-                            <ul class="collection l12 s12">
-                                <?php foreach ($compInfoContact as $openHour){ ?>
-                                        <li class="collection-item col s5 m5" name="openDay"><?php echo $openHour['openDay']?></li>
-                                        <li class="collection-item col s5 m5" name="openHours"><?php echo $openHour['openHours']?></li>
-                                        <li><a class="collection-item col s2 m2" href="./backdex.php?page=backdexProductsUpdate&id=<?php echo $row['productID']?>">Update product</a></li>
-                               <?php } ?>
-                            </ul>
-                            <div class="card-action center" style="border-top: 0;">
-                                <button class="waves-effect waves-light btn-large" type="submit" name="Submit" value="Submit">Update Company Contact Information</button>
+
+                <ul>
+                    <?php foreach ($companyOpening as $openInfo) { ?>
+                        <li>
+                            <?php echo $openInfo['openDay'] ?>
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light btn modal-trigger modalopening" href="#modal1" dir="<?php echo $openInfo['contactID'] ?>"><?php echo $openInfo['contactID'] ?></a>
+                        </li>
+                    <?php } ?>
+                </ul>
+
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                    <form method="post" action="">
+                        <div class="row">
+                            <div class="input-field col s6 m6">
+                                <input type="text" value="<?php echo $companyOpening['contactID']['openHours'] ?>" name="openHours" id="openHours">
+                                <label for="openHours">Open hours</label>
                             </div>
-                        </form>
-                    </div>
+                            <div class="input-field col s6 m6">
+                                <input type="text" name="openDay" id="openDay">
+                                <label for="openDay">Open day</label>
+                            </div>
+                            <div class="input-field">
+                                <input class="openingID" value="NULL" name="contactID" id="contactID">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                        </div>
+                    </form>
+                </div>
+
+
             </div>
         </li>
     </ul>
