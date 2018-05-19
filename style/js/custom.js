@@ -6,6 +6,8 @@ $( document ).ready(function() {
 
     $('.modal').modal();
 
+    $('.slider').slider();
+
     $('.collapsible').collapsible();
 
     $('input#input_text, textarea#textarea2').characterCounter();

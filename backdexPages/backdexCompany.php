@@ -65,26 +65,26 @@ if(isset($upmsg)){
         <li>
             <div class="collapsible-header"><i class="material-icons">image</i>Company logo</div>
             <div class="collapsible-body">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="./images/<?php echo $compInfo['logo']?>">
-                                <form name="imgup" method="post" action="./backdex.php?action=logo&page=backdexCompany" enctype="multipart/form-data">
-                                    <div class="file-field input-field">
-                                        <div class="card-content" style="min-height: 150px;">
-                                            <div class="btn" style="background-color: lightgrey"><i class="material-icons right">camera_alt</i>
-                                                <span>Change image</span>
-                                                <input type="file" name="image" value="">
-                                            </div>
-                                            <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="Select a file to upload">
-                                            </div>
-                                            <button class="btn waves-effect waves-light" type="submit" name="submit" value="submit"><i class="material-icons right">check_box</i>Upload new image</button>
-                                        </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./images/<?php echo $compInfo['logo']?>">
+                        <form name="imgup" method="post" action="./backdex.php?action=logo&page=backdexCompany" enctype="multipart/form-data">
+                            <div class="file-field input-field">
+                                <div class="card-content" style="min-height: 150px;">
+                                    <div class="btn" style="background-color: lightgrey"><i class="material-icons right">camera_alt</i>
+                                        <span>Change image</span>
+                                        <input type="file" name="image" value="">
                                     </div>
-                                </form>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Select a file to upload">
+                                    </div>
+                                    <button class="btn waves-effect waves-light" type="submit" name="submit" value="submit"><i class="material-icons right">check_box</i>Upload new image</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
+                </div>
+            </div>
         </li>
         <li>
             <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>Company Opening Hours</div>

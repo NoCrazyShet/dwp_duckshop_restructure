@@ -1,6 +1,8 @@
-<?php ?>
+<?php
+include_once('./backdexPageControllers/backdexNewsController.php');
+?>
 
-<div class="carousel carousel-slider center" data-indicators="true" style="height: 100vh;">
+<div class="carousel carousel-slider center z-depth-1-half" data-indicators="true" style="height: 100vh;">
     <div class="carousel-item red white-text" href="#one!">
         <h2>First Panel</h2>
         <p class="white-text">This is your first panel</p>
@@ -16,6 +18,22 @@
     <div class="carousel-item blue white-text" href="#four!">
         <h2>Fourth Panel</h2>
         <p class="white-text">This is your fourth panel</p>
+    </div>
+</div>
+<div class="container" style="margin-top: 50px;">
+    <div class="row">
+        <?php foreach($newsInfo as $news) { ?>
+        <a href="">
+            <div class="col s12 m6 l4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/<?php echo $news['articleIMG']?>">
+                        <span class="card-title black-text"><?php echo $news['articleTitle'] ?></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <?php } ?>
     </div>
 </div>
 
