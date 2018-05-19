@@ -1,5 +1,6 @@
 <?php
 require_once ('./pagecontrol/userPageController.php');
+require_once("./pagecontrol/yardController.php");
 ?>
 <div class="container center" style="margin-top: 50px;">
     <div class="row">
@@ -44,7 +45,9 @@ require_once ('./pagecontrol/userPageController.php');
                             </div>
                             <button type="submit" class="waves-effect waves-light btn-large">Update information</button>
                         </form>
-                        <button type="submit" class="waves-effect waves-light btn-large">Log Out</button>
+                        <form class="col s12 m12" method="post" action="./index.php?page=userPage&login=false">
+                            <button type="submit" class="waves-effect waves-light btn-large">Log Out</button>
+                        </form>
                     </div>
                 </div>
             </div>
