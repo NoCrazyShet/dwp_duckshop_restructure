@@ -89,8 +89,6 @@ if(isset($upmsg)){
         <li>
             <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>Company Opening Hours</div>
             <div class="collapsible-body">
-
-
                     <table>
                         <thead>
                             <tr>
@@ -101,7 +99,6 @@ if(isset($upmsg)){
                         </thead>
                         <tbody>
                     <?php foreach ($companyOpening as $openInfo) { ?>
-
                               <tr>
                                     <td class="col s6 openDay"><?php echo $openInfo['openDay']; ?></td>
                                     <td class="col s4 openHrs"><?php echo $openInfo['openHours']; ?></td>
@@ -113,8 +110,6 @@ if(isset($upmsg)){
                     <?php } ?>
                         </tbody>
                     </table>
-
-
                 <!-- Modal Structure -->
                 <div id="modal1" class="modal">
                     <form method="post" action="./backdex.php?action=update2&page=backdexCompany">
@@ -139,8 +134,6 @@ if(isset($upmsg)){
                     <div class="container center" style="margin-bottom: 20px;">
                         <button class="modal-close btn waves-effect waves-light modal-close" style="background-color:#ef5350;"><i class="material-icons right">cancel</i>Discard Changes</button>
                     </div>
-
-
             </div>
         </li>
     </ul>
