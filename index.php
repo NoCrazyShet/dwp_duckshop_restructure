@@ -80,36 +80,47 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text" <a href="./index.php?page=contact">Contact</a></h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <h5>ABOUT US</h5>
+                <p class="grey-text text-lighten-4"><?php echo $compInfo['aboutUs'] ?></p>
             </div>
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Opening days & hours</h5>
-                <div class="col s6 m6">
+            <div class="col l4 s12">
+                <h5 class="white-text center">OPENING DAYS & HOURS</h5>
+                <div class="col s6 m6 center">
                     <ul>
                         <?php foreach ($compInfo2 as $day) {
                             ?>
-                            <li><a class="grey-text text-lighten-3" href="#!"><?php echo $day['openDay'] ?></a></li>
+                            <li><?php echo $day['openDay'] ?></li>
                             <?php
                         } ?>
                     </ul>
                 </div>
-                <div class="col s6 m6">
+                <div class="col s6 m6 center">
                     <ul>
                         <?php foreach ($compInfo2 as $hour) {
                             ?>
-                            <li><a class="grey-text text-lighten-3" href="#!"><?php echo $hour['openHours'] ?></a></li>
+                            <li><?php echo $hour['openHours'] ?></li>
                             <?php
                         } ?>
                     </ul>
                 </div>
+            </div>
+            <div class="col l2 s12 ">
+                <h5 class="white-text">CONTACT</h5>
+                <ul>
+                    <li><?php echo $compInfo['CVR'] ?></li>
+                    <li><?php echo $compInfo['zipCode'] ?></li>
+                    <li><?php echo $compInfo['street']?> <?php echo $compInfo['streetNumber'] ?></li>
+                    <li><?php echo $compInfo['phone'] ?></li>
+                    <li><?php echo $compInfo['eMail'] ?></li>
+                <br>
+                    <a class="btn-floating btn-large indigo lighten-1 pulse" href="./index.php?page=contact"><i class="material-icons">edit</i></a>
+                </ul>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            © 2014 Copyright @ Top Duck Shop
         </div>
     </div>
 </footer>

@@ -89,44 +89,51 @@ if(isset($upmsg)){
         <li>
             <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>Company Opening Hours</div>
             <div class="collapsible-body">
-
-                <div class="container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Hour</th>
+                                <th>Click to edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                     <?php foreach ($companyOpening as $openInfo) { ?>
-                        <div class="row">
-                            <div class="col s12">
-                                <div class="col s6 openDay"><?php echo $openInfo['openDay']; ?></div>
-                                <div class="col s4 openHrs"><?php echo $openInfo['openHours']; ?></div>
-                                <div class="id" hidden><?php echo $openInfo['contactID']; ?></div>
-                                <!-- Modal Trigger -->
-                                <div class="col s2 editHrs" id="<?php echo $openInfo['contactID'];?>"><a class="waves-effect waves-light btn modal-trigger modalopening" href="#modal1" dir="<?php echo $openInfo['contactID'] ?>">Edit</a></div>
-                            </div>
+                              <tr>
+                                    <td class="col s6 openDay"><?php echo $openInfo['openDay']; ?></td>
+                                    <td class="col s4 openHrs"><?php echo $openInfo['openHours']; ?></td>
+                                    <td class="id" hidden><?php echo $openInfo['contactID']; ?></td>
+                                    <!-- Modal Trigger -->
+                                    <td class="col s2 editHrs" id="<?php echo $openInfo['contactID'];?>"><a class="btn modal-trigger modalopening" href="#modal1" dir="<?php echo $openInfo['contactID'] ?>">Edit</a></td>
+                              </tr>
                         </div>
                     <?php } ?>
-                </div>
-
+                        </tbody>
+                    </table>
                 <!-- Modal Structure -->
                 <div id="modal1" class="modal">
-                    <form method="post" action="">
-                        <div class="row">
-                            <div class="input-field col s6 m6">
-                                <input type="text" id="openDay" name="openDay" value="">
-                                <label class="active" for="openDay">Day</label>
-                            </div>
-                            <div class="input-field col s6 m6">
-                                <input type="text" name="openHours" id="openHours" value="">
-                                <label class="active" for="openHours">Hours</label>
-                            </div>
-                            <div class="input-field col s12">
-                                <input name="contactID" class="contactID" value="">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                    <form method="post" action="./backdex.php?action=update2&page=backdexCompany">
+                        <div class="container center" style="margin-top: 30px;">
+                                <h3>Update Opening Hours</h3>
+                                <div class="row">
+                                    <div class="input-field col s6 m6">
+                                        <input type="text" id="openDay" name="openDay" value="">
+                                        <label class="active" for="openDay">Day</label>
+                                    </div>
+                                    <div class="input-field col s6 m6">
+                                        <input type="text" name="openHours" id="openHours" value="">
+                                        <label class="active" for="openHours">Hours</label>
+                                    </div>
+                                    <div class="input-field col s12" hidden>
+                                        <input name="contactID" class="contactID" value="">
+                                    </div>
+                                </div>
+                                <button class="modal-close btn waves-effect waves-light" type="submit" name="submit" value="submit"><i class="material-icons right">check_box</i>Update hours</button>
                         </div>
                     </form>
-                </div>
-
-
+                    <div class="container center" style="margin-bottom: 20px;">
+                        <button class="modal-close btn waves-effect waves-light modal-close" style="background-color:#ef5350;"><i class="material-icons right">cancel</i>Discard Changes</button>
+                    </div>
             </div>
         </li>
     </ul>

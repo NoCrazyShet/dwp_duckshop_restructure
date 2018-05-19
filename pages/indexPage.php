@@ -18,6 +18,7 @@
         <p class="white-text">This is your fourth panel</p>
     </div>
 </div>
+
 <script>
     var elem = document.getElementById('nav');
     elem.style.setProperty('background-color','rgba(0,0,0,0)','');

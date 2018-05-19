@@ -42,6 +42,16 @@ if(isset($_GET['action'])) {
         $imgCnt->imageUpload("SELECT CVR FROM companyInfo", NULL,'CVR' ,'logo', "UPDATE companyInfo SET logo = :logo WHERE CVR = :CVR", "backdexCompany", "none");
 
     }
+    elseif ($action == "update2") {
+
+        $openHours = $_POST['openHours'];
+        $openDay = $_POST['openDay'];
+        $contactID = $_POST['contactID'];
+
+        $values = array('openHours' => $openHours, 'openDay' => $openDay, 'contactID' => $contactID);
+        $stmt = $db->boundQuery("UPDATE companyContact SET openHours = :openHours, openDay = :openDay WHERE contactID = :contactID", $values);
+        redirect_to('./backdex.php?page=backdexCompany');
+    }
 }
 
 
@@ -51,16 +61,7 @@ $companyOpening = $db->boundQuery("SELECT * FROM companyContact", NULL, 'fetchAl
 
 if(isset($_GET['action'])) {
     $action = $_GET['action'];
-    if($action == "update") {
 
-        $openHours = $_POST['openHours'];
-        $openDay = $_POST['openDay'];
-        $contactID = $updateCompanyOpening['contactID'];
-
-        $values = array('openHours' => $openHours, 'openDay' => $openDay, 'contactID' => $contactID);
-        $stmt = $db->boundQuery("UPDATE companyContact SET openHours = :openHours, openDay = :openDay WHERE contactID = :contactID", $values);
-        redirect_to('./backdex.php?page=backdexProducts');
-    }
 }
 
 
