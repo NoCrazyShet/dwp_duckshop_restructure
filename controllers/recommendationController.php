@@ -25,8 +25,6 @@ class recommendationController
         array_push($viewArray, $productID);
         }
         $_SESSION['recentlyViewed'] = $viewArray;
-
-
     }
 
     public function countViewed(){
@@ -34,24 +32,36 @@ class recommendationController
         return $count;
     }
 
-    public function selectRandomItems($categoryID){
+    public function selectRecommended($categoryID, $productID){
         $recommended = array();
-        if (isset($_SESSION['recentlyViewed'])) {
+        if(isset($_SESSION['recentlyViewed'])){
             $viewArray = $_SESSION['recentlyViewed'];
-            $selected1 = $viewArray[rand(0, $this->countViewed()-1)];
-            array_push($recommended, $selected1);
-
-            $values = array('categoryID' => $categoryID);
-            $db = new dbController();
-            $selection = $db->boundQuery("SELECT productID FROM product WHERE categoryID = :categoryID", $values, 'fetchAll', NULL);
-            $select2Array = array();
-            foreach ($selection as $key) {
-                array_push($select2Array, $key['productID']);
+            foreach ($viewArray as $val) {
+                if(!in_array($val, $recommended)){
+                array_push($recommended, $val);
+                }
             }
-            $selected2 = $select2Array[rand(0, count($select2Array)-1)];
-            array_push($recommended, $selected2);
         }
+        $values = array('categoryID' => $categoryID);
+        $db = new dbController();
+        $related = $db->boundQuery("SELECT productID FROM product WHERE categoryID = :categoryID", $values, 'fetchAll', NULL);
+        foreach ($related as $key) {
+            if(!in_array($key['productID'], $recommended)){
+                array_push($recommended, $key['productID']);
+            }
+        }
+        if (count($recommended) <= 4) {
+            $allProd = $db->boundQuery("SELECT productID FROM product", NULL, 'fetchAll', NULL);
+            foreach ($allProd as $key) {
+                if(!in_array($key['productID'], $recommended)){
+                    array_push($recommended, $key['productID']);
+                }
+            }
+        }
+        unset($recommended[array_search($productID, $recommended)]);
+        $recommended = array_values($recommended);
+        shuffle($recommended);
+        $recommended = array_slice($recommended, 0, 3);
         return $recommended;
     }
-
 }

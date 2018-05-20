@@ -7,5 +7,10 @@ $values = array('productID' => $_GET['productID']);
 $product = $db->boundQuery($query, $values, 'fetch', PDO::FETCH_ASSOC);
 
 $rc->addToSession($product['productID']);
-$wat = $rc->selectRandomItems($product['categoryID']);
-var_dump($wat);
+$wat = $rc->selectRecommended($product['categoryID'], $product['productID']);
+$recommended = array();
+foreach ($wat as $id) {
+    $values = array('productID' => $id);
+    $item = $db->boundQuery("SELECT * FROM product WHERE productID = :productID", $values, 'fetchAll', PDO::FETCH_ASSOC);
+    array_push($recommended, $item);
+}
