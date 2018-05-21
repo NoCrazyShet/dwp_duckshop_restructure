@@ -11,10 +11,10 @@ if(!isset($_GET['case'])) {
 if(isset($_GET['action'])) {
     $action = $_GET['action'];
     if($action == 'create') {
-        $categoryID = htmlspecialchars(trim($_POST['categoryID']));
-        $productDescription = htmlspecialchars(trim($_POST['productDescription']));
-        $productStock = htmlspecialchars(trim($_POST['productStock']));
-        $productPrice = htmlspecialchars(trim($_POST['productPrice']));
+        $categoryID = $_POST['categoryID'];
+        $productDescription = $_POST['productDescription'];
+        $productStock = $_POST['productStock'];
+        $productPrice = $_POST['productPrice'];
         $productName = $_POST['productName'];
 
 

@@ -3,6 +3,7 @@ require_once("./permanents/session.php");
 require_once("./controllers/redirectController.php");
 require_once("./controllers/dbController.php");
 require_once("./controllers/loginController.php");
+require_once("./controllers/exceptionHandler.php");
 $db = new dbController();
 $login = new loginController();
 ?>

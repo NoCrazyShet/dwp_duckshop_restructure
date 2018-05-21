@@ -14,6 +14,7 @@ class dbController
     }
 
     function boundQuery($query, $values = NULL, $fetchType = NULL, $arrayType = NULL, $types = false) {
+        try{
         $this->connection = $this->connectDB();
         $stmt = $this->connection->prepare($query);
             if(isset($values)){
@@ -46,6 +47,8 @@ class dbController
             });
             //$this->connection = NULL;
             return $stmt;
+        }}catch (PDOException $e){
+            throw new Exception($e->getMessage(), $e->getCode());
         }
 
     }

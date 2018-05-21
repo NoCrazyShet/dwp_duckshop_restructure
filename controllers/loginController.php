@@ -21,11 +21,11 @@ class loginController
 
                     }
                     else {
-                        redirect_to('index.php?page=gate&loginStatus=incorrect');
+                        throw new Exception('Your login information seems to be incorrect, please try again');
                     }
                 }
                 else {
-                    redirect_to('index.php?page=gate&loginStatus=logout');
+                    throw new Exception('Your login information could not be verified, please try again');
                 }
             }
         }
@@ -36,9 +36,7 @@ class loginController
             $password = trim(htmlspecialchars($_POST['password']));
             if (isset($_GET['userLogin'])=='true') {
                 $db = new dbController();
-
                 $values = array('eMail' => $eMail);
-
                 $result = $db->boundQuery("SELECT customerID, eMail, firstName, lastName, password FROM customer WHERE eMail = :eMail LIMIT 1", $values, 'fetch', PDO::FETCH_ASSOC);
                 if(count($result) == 5) {
                     if(password_verify($password, $result['password'])){
@@ -52,11 +50,11 @@ class loginController
 
                     }
                     else {
-                        redirect_to('./index.php?page=gate&loginStatus=incorrect');
+                        throw new Exception('Your login information seems to be incorrect, please try again!');
                     }
                 }
                 else {
-                    redirect_to('index.php?page=gate&loginStatus=logout');
+                    throw new Exception('Your login information could not be verified, please try again');
                 }
             }
         }

@@ -6,15 +6,10 @@ require_once("./controllers/loginController.php");
 require_once("./controllers/shoppingCartController.php");
 require_once("./indexPageControllers/indexController.php");
 require_once ("./indexPageControllers/indexCompanyController.php");
+require_once("./controllers/exceptionHandler.php");
 $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll', PDO::FETCH_ASSOC);
 
-    function myException($exception) {
-        echo '<script language="javascript">';
-        echo 'alert("Exception: '.$exception->getMessage().'");window.history.go(-1);';
-        echo '</script>';
-    }
 
-set_exception_handler('myException');
 ?>
 
 <html>

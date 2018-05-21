@@ -11,8 +11,7 @@ if(isset($_POST["submit"])){
     if ($result){
         echo "<script type='text/javascript'>alert('User Created');</script>";
     }else{
-        $message = "User could not be created.";
-        $message .= "<br>" .print_r($connection->errorInfo());
+        throw new Exception("User could not be created", $connection->errorInfo());
     }
 
 }

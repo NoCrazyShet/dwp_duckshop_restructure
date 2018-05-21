@@ -25,24 +25,18 @@ class imageUploadController {
                         if($imghandling == "width") {
                             $width = $_POST['size'];
                             $resObj->resizeToWidth($width);
-                            array_push($_SESSION['upmsg'], "Image resized to $width pixels wide");
                         } elseif ($imghandling == "height") {
                             $height = $_POST['size'];
                             $resObj->resizeToHeight($height);
-                            array_push($_SESSION['upmsg'], "Image resized to $height pixels high");
                         } elseif ($imghandling == "scale") {
                             $scale = $_POST['size'];
                             $resObj->scale($scale);
-                            array_push($_SESSION['upmsg'], "image scaled to $scale %");
                         } elseif ($imghandling == "cut") {
                             $resObj->cutOrFill(500, 600);
-                            array_push($_SESSION['upmsg'], "It has been cut and/or filled");
                         } elseif ($imghandling == "none") {
                             $resObj->noChange();
-                            array_push($_SESSION['upmsg'], "Image uplaoded with no changes");
                         } elseif ($imghandling == 'news'){
                             $resObj->cutOrFill(1920, 1080);
-                            array_push($_SESSION['upmsg'], "Your news article now has an image");
                         }
                         $resObj->save($newName);
                         $db = new dbController();
@@ -55,16 +49,16 @@ class imageUploadController {
                         $db->boundQuery($changeQuery, $values);
                         redirect_to("./backdex.php?page=$redTarg");
 
-                    }else  {array_push($_SESSION['upmsg'], "Image to big! max 3mb");
-                        redirect_to('./backdex.php?page=backdexCompany');
+                    }else  {
+                        throw new Exception('Image to big! Max 3mb.');
                     }
 
-                }else {array_push($_SESSION['upmsg'], "Wrong filetype, accepted types are gif, jpeg and png");
-                    //redirect_to('./backdex.php?page=backdexCompany');
+                }else {
+                    throw new Exception('Wrong filetype, accepted types are gif, jpeg and png');
                 }
 
-            }else{array_push($_SESSION['upmsg'], "No file selected");
-                redirect_to('./backdex.php?page=backdexProducts');
+            }else{
+                throw new Exception('No file selected, please choose a file and try again');
             }
         }
     }
