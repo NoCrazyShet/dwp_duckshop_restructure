@@ -26,15 +26,9 @@ if(isset($_POST['submit']) && !empty($_POST['submit'])) {
                     echo '</script>';
                 }
             }
-            echo '<script language="javascript">';
-            echo 'alert("Something went wrong :(")';
-            echo '</script>';
+            throw new Exception('Something went wrong, please try again');
         }
-        echo '<script language="javascript">';
-        echo 'alert("Not our fault this time. Google seem to have fucked up.")';
-        echo '</script>';
+        throw new Exception('It seems like reCaptcha is broken');
     }
-    echo '<script language="javascript">';
-    echo 'alert("Beep bop, please let us know that you are not a robot.")';
-    echo '</script>';
+    throw new Exception('Blep blop, show me you are no robot');
 }

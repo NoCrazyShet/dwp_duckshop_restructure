@@ -8,6 +8,13 @@ require_once("./indexPageControllers/indexController.php");
 require_once ("./indexPageControllers/indexCompanyController.php");
 $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll', PDO::FETCH_ASSOC);
 
+    function myException($exception) {
+        echo '<script language="javascript">';
+        echo 'alert("Exception: '.$exception->getMessage().'");window.history.go(-1);';
+        echo '</script>';
+    }
+
+set_exception_handler('myException');
 ?>
 
 <html>

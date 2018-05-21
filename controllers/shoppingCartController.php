@@ -41,4 +41,14 @@ class shoppingCartController
         unset($shoppingCart[$productID]);
         $_SESSION['shoppingCart'] = $shoppingCart;
     }
+
+    public function totalItems(){
+        $totalQty = 0;
+        if(!empty($_SESSION['shoppingCart'])) {
+        foreach ($_SESSION['shoppingCart'] as $cartItem) {
+            $totalQty = $totalQty + $cartItem['qty'];
+        }
+        }
+        return $totalQty;
+    }
 }
