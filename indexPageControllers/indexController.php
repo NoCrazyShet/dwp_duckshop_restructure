@@ -13,8 +13,7 @@ if(isset($_GET['action'])){
         }
         if(isset($_GET['category'])) {
             $categoryNr = $_GET['category'];
-            $catName = $_GET['catName'];
-            redirect_to("./index.php?page=products&category=$categoryNr&catName=$catName");
+            redirect_to("./index.php?page=products&category=$categoryNr");
         }elseif (isset($_GET['page']) && $_GET['page']=='productDetails'){
             $productID = $_GET['productID'];
             redirect_to("./index.php?page=productDetails&productID=$productID");

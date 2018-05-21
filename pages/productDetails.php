@@ -14,17 +14,18 @@ require_once("./indexPageControllers/productDetailsController.php");
                 <div class="card-content">
                     <p><b>Product Description:</b></p>
                     <p><?php echo $product['productDescription'];?></p>
-
                 </div>
                 <div class="card-action">
                     <form method="post" action="./index.php?page=productDetails&productID=<?php echo $product['productID'];?>&action=addCart">
+                        <h5 class="right-align"><?php echo $product['productPrice']?>,-</h5>
                         <div class="row valign-wrapper">
                             <div class="input-field col s2">
                                 <input id="quantity" name="quantity" type="text" class="validate" value="1">
                                 <label for="Quantity">Quantity</label>
                             </div>
-                            <button type="submit" class="btn-small"><i class="material-icons right">add_shopping_cart</i><?php echo $product['productPrice']."kr"?></button>
+                            <button type="submit" class="btn-small">ADD TO CART<i class="material-icons right">shopping_cart</i></button>
                         </div>
+                        <h6 class="right-align"><?php echo $product['productStock']?> in stock (delivery time 1-2 working days)</h6>
                     </form>
                 </div>
             </div>
