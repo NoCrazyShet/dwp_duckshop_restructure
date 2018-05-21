@@ -23,7 +23,9 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
     <nav id="nav" class="nav-extended">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="./index.php" class="brand-logo">Logo</a>
+                <a href="./index.php" class="brand-logo">
+                    <img src="./images/top-duck.svg" style="height: 64px;">
+                </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a class="dropdown-button btn-flat white-text" href="?page=products" data-target="products"><?php if(!isset($_GET['category'])) { echo "Products" ;} elseif (isset($_GET['category']) && isset($_GET['catName'])) {echo "Products - "; echo $_GET['catName'];} ?></a></li>
                     <li><a href="#" class="dropdown-button btn-flat white-text" data-target="shoppingCart"><i class="material-icons right">shopping_cart</i>Shopping Cart</a></li>

@@ -117,7 +117,9 @@ CREATE TABLE news (
 articleID int AUTO_INCREMENT NOT NULL PRIMARY KEY,
 articleText varchar (10000),
 articleTitle varchar(100),
+articleSubTitle varchar(100),
 articleIMG VARCHAR(100)
+
 );
 
 CREATE TABLE comments (
