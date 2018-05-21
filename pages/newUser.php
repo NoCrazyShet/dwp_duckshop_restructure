@@ -25,7 +25,7 @@ if (!empty($message)){echo "<p>". $message. "</p>";}
             </div>
         </form>
         <div class="input-field col s12">
-            <a href="./index.php?page=newUser"><button class="waves-effect waves-light btn-large">Csdfsdfds</button></a>
+            <a href="./index.php"><button class="waves-effect waves-light btn-large">Cancel</button></a>
         </div>
     </div>
 </div>

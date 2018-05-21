@@ -6,7 +6,7 @@ include_once ('./indexPageControllers/indexNewsController.php');
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="card-content" style="padding: 24px 24px 0 24px">
-                    <h4 class="header"><?php echo $newsInfo2['articleTitle'] ?></h4>
+                    <h4><?php echo $newsInfo2['articleTitle'] ?></h4>
                 </div>
             </div>
             <div class="col s12 m12 l12">
