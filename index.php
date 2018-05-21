@@ -30,7 +30,7 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
                 </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a class="dropdown-button btn-flat white-text" href="?page=products" data-target="products">Products</a></li>
-                    <li><a href="#" class="dropdown-button btn-flat white-text" data-target="shoppingCart"><i class="material-icons right">shopping_cart</i>Shopping Cart <b class="teal-text"><?php echo $sc->totalItems();?></b></a></li>
+                    <li><a href="./index.php?page=cart" class="dropdown-button btn-flat white-text" data-target="shoppingCart"><i class="material-icons right">shopping_cart</i>Shopping Cart <b class="teal-text"><?php echo $sc->totalItems();?></b></a></li>
                     <li><?php if(!logged_in()) {?><a href="index.php?page=loginPage"><i class="large material-icons right">account_box</i><?php echo 'LOG IN';} else{?><a href="index.php?page=userPage"><i class="large material-icons">account_box</i><?php }?> </a></li>
                 </ul>
             </div>
@@ -48,26 +48,6 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
             </a>
         </li>
         <?php }?>
-    </ul>
-    <ul id="shoppingCart" class="dropdown-content">
-        <li class="col s12">
-            <a href="#">
-                <div class="row">
-                    <div class="col s12">
-                        <?php
-                            if(isset($_SESSION['shoppingCart']) && !empty($_SESSION['shoppingCart'])) {
-                                echo "Your shopping cart total: ". $sc->cartTotal()."kr";
-                            } elseif (empty($_SESSION['shoppingCart'])) {
-                                echo "Your shopping cart is empty!";
-                            }?>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li class="divider" tabindex="-1"></li>
-        <?php if(!empty($_SESSION['shoppingCart'])) {
-            include("./indexPageControllers/shoppingCartViewController.php");
-        } ?>
     </ul>
 </header>
 
