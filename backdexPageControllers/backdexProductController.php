@@ -1,7 +1,6 @@
 <?php
 $products = $db->boundQuery("SELECT * FROM product", NULL, 'fetchAll', PDO::FETCH_ASSOC, NULL);
 $rowCount = 1;
-var_dump($products);
 //Delete product try here
 if(isset($_GET['delete'])) {
     if($_GET['delete'] == 'true') {
