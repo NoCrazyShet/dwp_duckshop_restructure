@@ -102,7 +102,7 @@ class imageResizer {
         }
     }
 
-    public function maxAreaFill($width, $height, $red = 0, $green = 0, $blue = 0) {
+    public function maxAreaFill($width, $height, $red = 255, $green = 255, $blue = 255) {
         $this->maxArea($width, $height);
         $new_image = imagecreatetruecolor($width, $height);
         $color_fill = imagecolorallocate($new_image, $red, $green, $blue);
@@ -120,7 +120,7 @@ class imageResizer {
         $this->image = $new_image;
     }
 
-    public function cutOrFill($width, $height, $red = 0, $green=0, $blue =0){
+    public function cutOrFill($width, $height, $red = 255, $green = 255, $blue = 255){
         if($this->getWidth() < $width OR $this->getHeight() < $height) {
             $this->maxAreaFill($width, $height, $red, $green, $blue);
         } else {

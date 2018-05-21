@@ -29,7 +29,7 @@ redirect_to("./backdex.php?page=backdexNews&id=$id&case=picture");
         $id = $updateArticle['articleID'];
         $selVal = array('articleID' => $updateArticle['articleID']);
         $imgCnt = new imageUploadController();
-        $imgCnt->imageUpload("SELECT articleID FROM news WHERE articleID = :articleID", $selVal, 'articleID', 'articleIMG', "UPDATE news SET articleIMG = :articleIMG WHERE articleID = :articleID", "backdexNews&id=$id", "cut" );
+        $imgCnt->imageUpload("SELECT articleID FROM news WHERE articleID = :articleID", $selVal, 'articleID', 'articleIMG', "UPDATE news SET articleIMG = :articleIMG WHERE articleID = :articleID", "backdexNews&id=$id", "news" );
         redirect_to("./backdex.php?page=backdex");
     }
 }

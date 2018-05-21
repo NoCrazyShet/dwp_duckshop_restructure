@@ -40,6 +40,9 @@ class imageUploadController {
                         } elseif ($imghandling == "none") {
                             $resObj->noChange();
                             array_push($_SESSION['upmsg'], "Image uplaoded with no changes");
+                        } elseif ($imghandling == 'news'){
+                            $resObj->cutOrFill(1920, 1080);
+                            array_push($_SESSION['upmsg'], "Your news article now has an image");
                         }
                         $resObj->save($newName);
                         $db = new dbController();
