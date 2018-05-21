@@ -9,7 +9,7 @@ if(isset($_POST["submit"])){
     $values = array('eMail' => $eMail, 'password' => $hashed_password);
     $result = $db->boundQuery("INSERT INTO customer (eMail, password) VALUES(:eMail, :password)", $values );
     if ($result){
-        $message = "User Created!";
+        echo "<script type='text/javascript'>alert('User Created');</script>";
     }else{
         $message = "User could not be created.";
         $message .= "<br>" .print_r($connection->errorInfo());

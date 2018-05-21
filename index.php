@@ -29,7 +29,7 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a class="dropdown-button btn-flat white-text" href="?page=products" data-target="products"><?php if(!isset($_GET['category'])) { echo "Products" ;} elseif (isset($_GET['category']) && isset($_GET['catName'])) {echo "Products - "; echo $_GET['catName'];} ?></a></li>
                     <li><a href="#" class="dropdown-button btn-flat white-text" data-target="shoppingCart"><i class="material-icons right">shopping_cart</i>Shopping Cart</a></li>
-                    <li><?php if(!logged_in()) {?><a href="index.php?page=loginPage"><?php echo 'Log in';} else{?><a href="index.php?page=userPage"><i class="large material-icons">account_box</i><?php }?> </a></li>
+                    <li><?php if(!logged_in()) {?><a href="index.php?page=loginPage"><i class="large material-icons right">account_box</i><?php echo 'LOG IN';} else{?><a href="index.php?page=userPage"><i class="large material-icons">account_box</i><?php }?> </a></li>
                 </ul>
             </div>
         </div>
@@ -106,7 +106,7 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
                     </ul>
                 </div>
             </div>
-            <div class="col l2 s12 ">
+            <div class="col l2 s12 center">
                 <h5 class="white-text">CONTACT</h5>
                 <ul>
                     <li><?php echo $compInfo['CVR'] ?></li>
