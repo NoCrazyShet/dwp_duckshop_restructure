@@ -19,7 +19,8 @@ password varchar(30),
 cardHolderName varchar(200),
 cardNumber int(30),
 CVC int(3),
-expirationDate int(8)
+expirationMonth int(2),
+expirationYear int(2)
 );
 
 CREATE TABLE shipper (
@@ -69,7 +70,7 @@ categoryID int,
 productRating varchar(5),
 productIMG varchar(100),
 productDescription varchar(300),
-productStock varchar (10),
+productStock int (10),
 productPrice int(10),
 productName varchar(100),
 FOREIGN KEY (categoryID) REFERENCES productCategory (categoryID)

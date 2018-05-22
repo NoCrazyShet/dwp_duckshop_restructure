@@ -18,8 +18,8 @@ switch ($newsCase) {
                         </div>
                         <div class="row">
                             <div class="input-field col s12 m12">
-                                <textarea id="articleTitle" name="articleTitle" class="materialize-textarea" disabled></textarea>
-                                <label for="articleTitle">Write your article below</label>
+                                <textarea id="articleSubTitle" name="articleSubTitle" class="materialize-textarea" required></textarea>
+                                <label for="articleSubTitle">Article Subtitle</label>
                             </div>
                         </div>
                         <div class="row">

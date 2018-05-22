@@ -18,12 +18,13 @@ if(isset($_GET['action'])) {
         $cardHolderName = $_POST['cardHolderName'];
         $cardNumber = $_POST['cardNumber'];
         $CVC = $_POST['CVC'];
-        $expirationDate = $_POST['expirationDate'];
+        $expirationMonth = $_POST['expirationMonth'];
+        $expirationYear = $_POST['expirationYear'];
         $customerID = $customerInfo['customerID'];
 
-        $values = array('eMail' => $email, 'firstName' => $firstName, 'lastName' => $lastName, 'cardHolderName' => $cardHolderName, 'cardNumber' => $cardNumber, 'CVC' => $CVC, 'expirationDate' => $expirationDate, 'customerID' => $customerID);
+        $values = array('eMail' => $email, 'firstName' => $firstName, 'lastName' => $lastName, 'cardHolderName' => $cardHolderName, 'cardNumber' => $cardNumber, 'CVC' => $CVC, 'expirationMonth' => $expirationMonth, 'expirationYear' => $expirationYear, 'customerID' => $customerID);
 
-        $stmt = $db->boundQuery("UPDATE customer SET eMail = :eMail, firstName = :firstName, lastName = :lastName, cardHolderName = :cardHolderName, cardNumber = :cardNumber, CVC = :CVC, expirationDate = :expirationDate WHERE customerID = :customerID", $values);
+        $stmt = $db->boundQuery("UPDATE customer SET eMail = :eMail, firstName = :firstName, lastName = :lastName, cardHolderName = :cardHolderName, cardNumber = :cardNumber, CVC = :CVC, expirationMonth = :expirationMonth, expirationYear = :expirationYear WHERE customerID = :customerID", $values);
         redirect_to('./index.php?page=userPage');
     }
 }

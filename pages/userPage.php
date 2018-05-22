@@ -34,13 +34,27 @@ require_once("./pagecontrol/yardController.php");
                                     <textarea id="textarea2" name="cardNumber" class="materialize-textarea"><?php echo $customerInfo['cardNumber'];?></textarea>
                                     <label for="cardNumber">Card Number</label>
                                 </div>
-                                <div class="input-field col s3 m3">
+                                <div class="input-field col s2 m2">
+                                    <select name="expirationMonth" id="expirationMonth">
+                                        <option value="expirationMonth" id="expirationMonth" name="expirationMonth" <?php if(!isset($customerInfo['expirationMonth'])) {echo "selected";} ?> disabled>Expiration Month</option>
+                                        <?php for ($x = 01; $x <= 12; $x++) { ?>
+                                        <option <?php if($x == $customerInfo['expirationMonth']) {echo "selected";} ?> value="<?php echo $x ?>"><?php if($x <= 9) { echo 0; echo $x;} else echo $x; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <label for="expirationMonth">Month</label>
+                                </div>
+                                <div class="input-field col s2 m2">
+                                    <select name="expirationYear" id="expirationYear">
+                                        <option id="expirationYear" value="expirationYear" name="expirationYear" <?php if(!isset($customerInfo['expirationYear'])) { echo "selected";} ?> disabled>Expiration Year</option>
+                                        <?php for ($x = 18; $x <= 28; $x++) { ?>
+                                        <option <?php if($x == $customerInfo['expirationYear']) { echo "selected";} ?> value="<?php echo $x ?>"><?php echo $x ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <label for="expirationYear">Month</label>
+                                </div>
+                                <div class="input-field col s2 m2">
                                     <textarea id="textarea2" name="CVC" class="materialize-textarea"><?php echo $customerInfo['CVC'];?></textarea>
                                     <label for="CVC">CVC</label>
-                                </div>
-                                <div class="input-field col s3 m3">
-                                    <textarea id="textarea2" name="expirationDate" class="materialize-textarea"><?php echo $customerInfo['expirationDate'];?></textarea>
-                                    <label for="expirationDate">Expiration Date</label>
                                 </div>
                             </div>
                             <button type="submit" class="waves-effect waves-light btn-large">Update information</button>

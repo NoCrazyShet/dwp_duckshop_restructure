@@ -16,7 +16,7 @@ include_once ("./indexPageControllers/shoppingCartViewController.php"); ?>
                 <tbody>
                 <?php if(isset($_SESSION['shoppingCart'])) { foreach ($_SESSION['shoppingCart'] as $cartItem){ ?>
                 <tr>
-                    <td><?php echo $cartItem['productName'] ?></td>
+                    <td><a href="./index.php?page=productDetails&productID=<?php echo $cartItem['productID'] ?>"><?php echo $cartItem['productName'] ?></a></td>
                     <td><?php echo $cartItem['qty'] ?></td>
                     <td><?php echo $cartItem['productPrice'] ?>,-</td>
                     <td><a href="?page=<?php echo $_GET['page']; if(isset($_GET['category'])) { echo "&category=".$_GET['category'];}?>&action=removeItem&productID=<?php echo $cartItem['productID']; ?>"><i class="material-icons red-text">remove_shopping_cart</i></a></td>
@@ -24,21 +24,21 @@ include_once ("./indexPageControllers/shoppingCartViewController.php"); ?>
                 <?php }} elseif(!isset($_SESSION['shoppingCart'])) { ?>
                     <tr>
                         <td></td>
-                        <td>Your shopping cart is empty</td>
+                        <td class="strong-text">Your shopping cart is empty</td>
                         <td></td>
                         <td></td>
                     </tr>
                <?php } ?>
                 <tr>
-                    <td>Total Price:</td>
+                    <td class="strong-text">Total Price:</td>
                     <td></td>
+                    <td class="strong-text"><?php if (isset($_SESSION['shoppingCart'])) {echo $sc->cartTotal();} ?>,- dkk</td>
                     <td></td>
-                    <td><?php if(isset($_SESSION['shoppingCart'])) { echo $sc->cartTotal(); }?>,- DKK</td>
                 </tr>
                 </tbody>
             </table>
             </div>
-            <a class="red-text" href="?action=emptyCart"><h5>Empty your cart</h5></a>
+            <a href="?action=emptyCart"><i class="material-icons red-text large tooltipped" data-position="right" data-tooltip="Press to empty your cart">delete_sweep</i></a>
         </div>
     </div>
 </div>
