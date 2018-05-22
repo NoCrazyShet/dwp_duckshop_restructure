@@ -45,7 +45,13 @@ switch ($productCase) {
                         <div class="row">
                             <div class="input-field col s12 m12">
                                 <textarea id="productStock" name="productStock" class="materialize-textarea" required></textarea>
-                                <label for="productStock">Product stock</label>
+                                <label for="productStock">Product Stock</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m12">
+                                <textarea name="productSpecial" id="productSpecial" class="materialize-textarea"></textarea>
+                                <label for="productSpecial">Product Special Price</label>
                             </div>
                         </div>
                         <div class="row">

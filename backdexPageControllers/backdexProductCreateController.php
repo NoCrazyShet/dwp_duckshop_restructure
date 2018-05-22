@@ -16,10 +16,16 @@ if(isset($_GET['action'])) {
         $productStock = $_POST['productStock'];
         $productPrice = $_POST['productPrice'];
         $productName = $_POST['productName'];
+        $productSpecial = $_POST['productSpecial'];
 
+        if($productSpecial != NULL) {
+            $values = array('productIMG' => 'egg.jpg', 'categoryID' => $categoryID, 'productDescription' => $productDescription, 'productStock' => $productStock, 'productPrice' => $productPrice, 'productName' => $productName, 'productSpecial' => $productSpecial);
+            $db->boundQuery("INSERT INTO product (productIMG, categoryID, productDescription, productStock, productPrice, productName, productSpecial) VALUES (:productIMG, :categoryID, :productDescription, :productStock, :productPrice, :productName, :productSpecial)", $values);
+        }else {
+            $values = array('productIMG' => 'egg.jpg', 'categoryID' => $categoryID, 'productDescription' => $productDescription, 'productStock' => $productStock, 'productPrice' => $productPrice, 'productName' => $productName);
+            $db->boundQuery("INSERT INTO product (productIMG, categoryID, productDescription, productStock, productPrice, productName, productSpecial) VALUES (:productIMG, :categoryID, :productDescription, :productStock, :productPrice, :productName, NULL)", $values);
+        }
 
-        $values = array('productIMG' => 'egg.jpg', 'categoryID' => $categoryID, 'productDescription' => $productDescription, 'productStock' => $productStock, 'productPrice' => $productPrice, 'productName' => $productName);
-        $db->boundQuery("INSERT INTO product (productIMG, categoryID, productDescription, productStock, productPrice, productName) VALUES (:productIMG, :categoryID, :productDescription, :productStock, :productPrice, :productName)", $values);
         $id = $db->connection->lastInsertId();
 
 

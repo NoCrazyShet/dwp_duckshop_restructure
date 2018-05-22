@@ -34,24 +34,24 @@ require_once("./indexPageControllers/productDetailsController.php");
 
     <div class="row">
         <h2 class="center">Recommended products</h2>
-        <?php foreach ($recommended as $key){
-            foreach ($key as $value){?>
+        <?php foreach ($recommended as $key){?>
+
         <div class="col s12 m4">
             <div class="card">
                 <div class="card-image">
-                    <img src="./images/<?php echo $value['productIMG']?>" alt="">
+                    <img src="./images/<?php echo $key['productIMG']?>" alt="">
                 </div>
                 <div class="card-content">
                     <p>
-                        <?php echo $value['productName']?>
+                        <?php echo $key['productName']?>
                     </p>
                 </div>
                 <div class="card-action">
-                    <a href="./index.php?page=productDetails&productID=<?php echo $value['productID']?>">See this product!</a>
+                    <a href="./index.php?page=productDetails&productID=<?php echo $key['productID']?>">See this product!</a>
                 </div>
             </div>
         </div>
-        <?php }
+        <?php
         }
         ?>
     </div>

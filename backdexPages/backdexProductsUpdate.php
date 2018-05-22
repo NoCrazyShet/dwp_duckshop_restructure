@@ -58,6 +58,12 @@ require_once ('./backdexPageControllers/backdexProductUpdateController.php');
                         </div>
                     </div>
                     <div class="row">
+                        <div class="input-field col s12 m12">
+                            <textarea name="productSpecial" id="productSpecial" class="materialize-textarea"><?php if($updateProduct['productSpecial'] != NULL) {echo $updateProduct['productSpecial'];} ?></textarea>
+                            <label for="productSpecial">Product Special Price</label>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="card-action">
                             <button class="waves-effect waves-light btn-large" type="submit" name="Submit" value="Submit">Update Product</button>
                         </div>

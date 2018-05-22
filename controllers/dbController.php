@@ -48,7 +48,7 @@ class dbController
             //$this->connection = NULL;
             return $stmt;
         }}catch (PDOException $e){
-            throw new Exception($e->getMessage(), $e->getCode());
+            throw new Exception($e->getMessage(), (int)$e->getCode());
         }
 
     }
