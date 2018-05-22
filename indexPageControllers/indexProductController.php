@@ -1,5 +1,8 @@
 <?php
 require_once("./controllers/shoppingCartController.php");
+require_once("./controllers/paginationController.php");
+$pag = new paginationController();
+
 
 $searchString = "";
 if(isset($_POST['search'])){
@@ -20,13 +23,12 @@ if(isset($_GET['action'])) {
     $values = array('categoryID' => $categoryID);
 }
 
-$products = $db->boundQuery($query, $values, 'fetchAll', PDO::FETCH_ASSOC, NULL);
 $rowCount = 0;
+$data = $db->boundQuery($query, $values, 'fetchAll', PDO::FETCH_ASSOC, NULL);
+$numbers = $pag->paginate($data, 12);
+$product = $pag->fetchResult();
 
 
 
 
-?>
 
-
-<div class="row">

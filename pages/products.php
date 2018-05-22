@@ -1,13 +1,15 @@
-<div class="container">
+
 <?php
 require_once ('./indexPageControllers/indexProductController.php');
 
 ?>
+<div class="container">
     <div class="row">
-<h1 class="center">These are the producks</h1>
-    </div>
+        <div class="row">
+            <h1 class="center">These are the producks</h1>
+        </div>
 <?PHP
-    foreach ($products as $row) {
+    foreach ($product as $row) {
         $rowCount++;
         ?>
         <div class="col s6 m3">
@@ -29,8 +31,19 @@ require_once ('./indexPageControllers/indexProductController.php');
                 </div>
             </div>
         </div>
-<?php
-    if ($rowCount % 4 == 0) echo '</div><div class="row">';
-}?>
+    <?php
+        if ($rowCount % 4 == 0) echo '</div><div class="row">';
+    }?>
 </div>
 
+<div class="row center">
+    <ul class="pagination">
+        <li><a href="index.php?page=products&pager=<?php if(isset($_GET['pager']) && $_GET['pager'] != 1){echo $_GET['pager']-1;} else {echo 1;} ?>"><i class="material-icons">chevron_left</i></a></li>
+            <?php
+                foreach ($numbers as $num) {
+                        echo '<li class="waves-effect"><a href="./index.php?page=products&pager=' . $num . '">' . $num . '</a></li>';
+                }
+            ?>
+        <li><a href="index.php?page=products&pager=<?php if(isset($_GET['pager']) && $_GET['pager'] != count($numbers)){echo $_GET['pager']+1;} else {echo count($numbers);}?>"><i class="material-icons">chevron_right</i></a></li>
+    </ul>
+</div>
