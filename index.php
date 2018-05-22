@@ -7,6 +7,7 @@ require_once("./controllers/shoppingCartController.php");
 require_once("./indexPageControllers/indexController.php");
 require_once ("./indexPageControllers/indexCompanyController.php");
 require_once("./controllers/exceptionHandler.php");
+
 $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll', PDO::FETCH_ASSOC);
 
 
@@ -29,11 +30,24 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
                     <img src="./images/top-duck.svg" style="height: 64px;">
                 </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
+
                     <li><a class="dropdown-button btn-flat white-text" href="?page=products" data-target="products">Products</a></li>
                     <li><a href="./index.php?page=cart" class="dropdown-button btn-flat white-text" data-target="shoppingCart"><i class="material-icons right">shopping_cart</i>Shopping Cart <b class="teal-text"><?php echo $sc->totalItems();?></b></a></li>
                     <li><?php if(!logged_in()) {?><a href="index.php?page=loginPage"><i class="large material-icons right">account_box</i><?php echo 'LOG IN';} else{?><a href="index.php?page=userPage"><i class="large material-icons">account_box</i><?php }?> </a></li>
+
                 </ul>
+
+                <form class="hide-on-med-and-down" method="post" id="form1" action="./index.php?page=products&action=search">
+                    <div class="input-field" style="max-width: 400pt;">
+                        <input id="search" name="search" type="search" required>
+                        <label class="label-icon " for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+
             </div>
+
+
         </div>
     </nav>
     <ul id='products' class='dropdown-content productDrop'>

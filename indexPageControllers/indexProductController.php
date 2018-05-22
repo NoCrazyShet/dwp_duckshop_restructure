@@ -1,7 +1,18 @@
 <?php
 require_once("./controllers/shoppingCartController.php");
 
-if(!isset($_GET['category'])){
+$searchString = "";
+if(isset($_POST['search'])){
+    $searchString = $_POST['search'];
+    var_dump($searchString);
+}
+
+if(isset($_GET['action'])) {
+    if($_GET['action'] == 'search') {
+        $query = "SELECT * FROM product WHERE productName OR productDescription LIKE CONCAT( '%' :search '%') ";
+        $values = array('search' => $searchString);
+    }
+} elseif(!isset($_GET['category']) && !isset($_GET['action'])){
     $query = "SELECT * FROM product";
     $values = NULL;
 } elseif(isset($_GET['category'])) {
@@ -12,6 +23,9 @@ if(!isset($_GET['category'])){
 
 $products = $db->boundQuery($query, $values, 'fetchAll', PDO::FETCH_ASSOC, NULL);
 $rowCount = 0;
+
+
+
 
 ?>
 
