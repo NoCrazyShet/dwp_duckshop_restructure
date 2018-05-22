@@ -18,6 +18,7 @@ $slider_classes = array("left-align", "center-align", "right-align");
 </div>
 
 <div class="container" style="margin-bottom: 100px;">
+    <?php if($dailySpecial != FALSE){?>
     <div class="col s12">
         <h2 class="header center">Top Ducks' daily special!</h2>
         <a href="./index.php?page=productDetails&productID=<?php echo $dailySpecial['productID']?>">
@@ -47,4 +48,27 @@ $slider_classes = array("left-align", "center-align", "right-align");
         </div>
         </a>
     </div>
+    <?php }else { ?>
+        <div class="row">
+        <h2 class="center">Sorry! There seem to be no daily specials! </h2>
+            <h3 class="center">Here are some recommendations instead</h3>
+        <?php foreach ($recommended as $key){?>
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="./images/<?php echo $key['productIMG']?>" alt="">
+                </div>
+                <div class="card-content">
+                    <p>
+                        <?php echo $key['productName']?>
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a href="./index.php?page=productDetails&productID=<?php echo $key['productID']?>">See this product!</a>
+                </div>
+            </div>
+        </div>
+    <?php
+    }}
+    ?>
 </div>

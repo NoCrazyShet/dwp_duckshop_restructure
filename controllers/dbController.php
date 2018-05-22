@@ -33,20 +33,19 @@ class dbController
                     }
                 }
             }
-        $stmt->execute();
+        $done = $stmt->execute();
         if($fetchType != NULL){
             $stored = $stmt->$fetchType($arrayType);
+            if(!is_bool($stored)){
             array_walk_recursive($stored, function(&$value){
                 $value = trim(filter_var($value, FILTER_SANITIZE_STRING));
             });
+            }
             //$this->connection = NULL;
             return $stored;
         } else {
-            array_walk_recursive($stmt, function (&$value){
-                $value = trim(filter_var($value, FILTER_SANITIZE_STRING));
-            });
             //$this->connection = NULL;
-            return $stmt;
+            return $done;
         }}catch (PDOException $e){
             throw new Exception($e->getMessage(), (int)$e->getCode());
         }

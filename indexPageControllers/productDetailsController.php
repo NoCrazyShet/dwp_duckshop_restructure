@@ -8,9 +8,9 @@ $product = $db->boundQuery($query, $values, 'fetch', PDO::FETCH_ASSOC);
 
 //Adding cartItems to session and choosing recommended products
 $rc->addToSession($product['productID']);
-$wat = $rc->selectRecommended($product['categoryID'], $product['productID']);
+$reco = $rc->selectRecommended($product['categoryID'], $product['productID']);
 $things = array();
-foreach ($wat as $key) {
+foreach ($reco as $key) {
     array_push($things, $key);
 }
 $recommended = $db->boundQuery("SELECT * FROM product WHERE productID IN (:0, :1, :2)", $things, 'fetchAll', PDO::FETCH_ASSOC);
