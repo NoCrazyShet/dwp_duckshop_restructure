@@ -37,10 +37,6 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
         </div>
     </nav>
     <ul id='products' class='dropdown-content productDrop'>
-        <li>
-            <a href="index.php?page=products">Products</a>
-        </li>
-        <li class="divider"></li>
             <?php foreach ($categories as $category) {?>
         <li>
             <a href="index.php?page=products&category=<?php echo $category['categoryID']?>">
