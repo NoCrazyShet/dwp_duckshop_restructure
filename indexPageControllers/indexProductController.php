@@ -4,7 +4,6 @@ require_once("./controllers/shoppingCartController.php");
 $searchString = "";
 if(isset($_POST['search'])){
     $searchString = $_POST['search'];
-    var_dump($searchString);
 }
 
 if(isset($_GET['action'])) {

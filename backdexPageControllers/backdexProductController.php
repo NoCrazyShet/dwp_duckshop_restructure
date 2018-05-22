@@ -1,5 +1,20 @@
 <?php
+
+$searchString = "";
+if(isset($_POST['search'])){
+    $searchString = $_POST['search'];
+}
+
+if(isset($_GET['action'])) {
+    if($_GET['action'] == 'search') {
+        $query = "SELECT * FROM product WHERE productName OR productDescription LIKE CONCAT( '%' :search '%') ";
+        $values = array('search' => $searchString);
+        $products = $db->boundQuery($query, $values, 'fetchAll', PDO::FETCH_ASSOC);
+    }
+}else {
 $products = $db->boundQuery("SELECT * FROM product", NULL, 'fetchAll', PDO::FETCH_ASSOC, NULL);
+}
+
 $rowCount = 1;
 //Delete product try here
 if(isset($_GET['delete'])) {
@@ -13,7 +28,6 @@ if(isset($_GET['delete'])) {
 
 ?>
     <div class="row">
-
         <div class="col s6 m3">
             <a href="./backdex.php?page=backdexProductsCreate">
                 <div class="card">

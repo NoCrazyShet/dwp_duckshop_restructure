@@ -35,6 +35,13 @@ $login = new loginController();
                         echo '</form></li>';
                     }?>
                 </ul>
+                <form class="hide-on-med-and-down" method="post" id="form1" action="./backdex.php?page=backdexProducts&action=search">
+                    <div class="input-field" style="max-width: 400pt;">
+                        <input id="search" name="search" type="search" required>
+                        <label class="label-icon " for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
             </div>
         </div>
     </nav>
