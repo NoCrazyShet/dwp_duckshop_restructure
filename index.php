@@ -10,7 +10,10 @@ require_once("./controllers/exceptionHandler.php");
 
 $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll', PDO::FETCH_ASSOC);
 
-
+//stored procedure call
+//$values = array('catID' => 1);
+//$floouf = $db->boundQuery("CALL proc_get_category(:catID)", $values, 'fetchAll');
+//var_dump($floouf);
 ?>
 
 <html>
