@@ -23,6 +23,6 @@ function confirm_admin() {
 
 function admin_level($aL) {
     if($_SESSION['acLe'] > $aL) {
-        throw new Exception("You don't have access to this page");
+        throw new Exception("You don't have access to this page, your clearance is not high enough. Contact your system administrator!");
     }
 }
