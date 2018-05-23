@@ -25,10 +25,13 @@ if(isset($_POST['submit']) && !empty($_POST['submit'])) {
                     echo 'alert("Your message was succesfully sent")';
                     echo '</script>';
                 }
-            }
+            }else{
             throw new Exception('Something went wrong, please try again');
-        }
+            }
+        }else {
         throw new Exception('It seems like reCaptcha is broken');
-    }
+        }
+    }else {
     throw new Exception('Blep blop, show me you are no robot');
+    }
 }
