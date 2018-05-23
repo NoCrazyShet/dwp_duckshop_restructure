@@ -23,7 +23,11 @@ $login = new loginController();
     <nav>
         <div class="container">
             <div class="nav-wrapper">
-                <a href="./backdex.php" class="brand-logo">Logo</a>
+                <a href="./backdex.php" class="brand-logo">
+                    <a href="./index.php" class="brand-logo">
+                        <img src="./images/top-duck.svg" style="height: 64px;">
+                    </a>
+                </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down valign-wrapper">
                     <li><a href="backdex.php?page=backdexCompany">Edit Company</a></li>
                     <li><a href="backdex.php?page=backdexProducts">Edit products</a></li>
@@ -35,13 +39,6 @@ $login = new loginController();
                         echo '</form></li>';
                     }?>
                 </ul>
-                <form class="hide-on-med-and-down" method="post" id="form1" action="./backdex.php?page=backdexProducts&action=search">
-                    <div class="input-field" style="max-width: 400pt;">
-                        <input id="search" name="search" type="search" required>
-                        <label class="label-icon " for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
-                    </div>
-                </form>
             </div>
         </div>
     </nav>

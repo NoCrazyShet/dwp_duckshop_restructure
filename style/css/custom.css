@@ -1,3 +1,4 @@
+html { font-family: 'Oswald', sans-serif; }
 body {
   display: flex;
   min-height: 100vh;
@@ -14,8 +15,5 @@ main {
 
 .carousel-item h2 {
   margin-top: 200px; }
-
-#form1 {
-  margin-left: 200px; }
 
 /*# sourceMappingURL=custom.css.map */
