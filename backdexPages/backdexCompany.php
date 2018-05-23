@@ -56,7 +56,7 @@ if(isset($upmsg)){
                                         </div>
                                         <!-- UPDATE COMPANY INFORMATION button -->
                                         <div class="card-action center" style="border-top: 0;">
-                                            <button class="waves-effect waves-light btn-large" type="submit" name="Submit" value="Submit">Update Company Information</button>
+                                            <button class="waves-effect waves-light btn-large indigo lighten-1" type="submit" name="Submit" value="Submit">Update Company Information</button>
                                         </div>
                                     </form>
             </div>
@@ -70,14 +70,14 @@ if(isset($upmsg)){
                         <form name="imgup" method="post" action="./backdex.php?action=logo&page=backdexCompany" enctype="multipart/form-data">
                             <div class="file-field input-field">
                                 <div class="card-content" style="min-height: 150px;">
-                                    <div class="btn" style="background-color: lightgrey"><i class="material-icons right">camera_alt</i>
+                                    <div class="btn indigo grey"><i class="material-icons right">camera_alt</i>
                                         <span>Change image</span>
                                         <input type="file" name="image" value="">
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text" placeholder="Select a file to upload">
                                     </div>
-                                    <button class="btn waves-effect waves-light" type="submit" name="submit" value="submit"><i class="material-icons right">check_box</i>Upload new image</button>
+                                    <button class="btn waves-effect waves-light indigo lighten-1" type="submit" name="submit" value="submit"><i class="material-icons right">check_box</i>Upload new image</button>
                                 </div>
                             </div>
                         </form>
@@ -103,7 +103,7 @@ if(isset($upmsg)){
                                     <td class="col s4 openHrs"><?php echo $openInfo['openHours']; ?></td>
                                     <td class="id" hidden><?php echo $openInfo['contactID']; ?></td>
                                     <!-- Modal Trigger -->
-                                    <td class="col s2 editHrs" id="<?php echo $openInfo['contactID'];?>"><a class="btn modal-trigger modalopening" href="#modal1" dir="<?php echo $openInfo['contactID'] ?>">Edit</a></td>
+                                    <td class="col s2 editHrs" id="<?php echo $openInfo['contactID'];?>"><a class="btn modal-trigger modalopening indigo lighten-1" href="#modal1" dir="<?php echo $openInfo['contactID'] ?>">Edit</a></td>
                               </tr>
                         </div>
                     <?php } ?>
@@ -127,11 +127,11 @@ if(isset($upmsg)){
                                         <input name="contactID" class="contactID" value="">
                                     </div>
                                 </div>
-                                <button class="modal-close btn waves-effect waves-light" type="submit" name="submit" value="submit"><i class="material-icons right">check_box</i>Update hours</button>
+                                <button class="modal-close btn waves-effect waves-light indigo lighten-1" type="submit" name="submit" value="submit"><i class="material-icons right">check_box</i>Update hours</button>
                         </div>
                     </form>
                     <div class="container center" style="margin-bottom: 20px;">
-                        <button class="modal-close btn waves-effect waves-light modal-close" style="background-color:#ef5350;"><i class="material-icons right">cancel</i>Discard Changes</button>
+                        <button class="modal-close btn waves-effect waves-light modal-close red" style="background-color:#ef5350;"><i class="material-icons right">cancel</i>Discard Changes</button>
                     </div>
             </div>
         </li>

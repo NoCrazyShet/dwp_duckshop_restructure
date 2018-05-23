@@ -23,7 +23,7 @@ require_once("./indexPageControllers/productDetailsController.php");
                                 <input id="quantity" name="quantity" type="text" class="validate" value="1">
                                 <label for="Quantity">Quantity</label>
                             </div>
-                            <button type="submit" class="btn-small">ADD TO CART<i class="material-icons right">shopping_cart</i></button>
+                            <button type="submit" class="btn-small indigo lighten-1">ADD TO CART<i class="material-icons right">shopping_cart</i></button>
                         </div>
                         <h6 class="right-align"><?php echo $product['productStock']?> in stock (delivery time 1-2 working days)</h6>
                     </form>
@@ -47,7 +47,7 @@ require_once("./indexPageControllers/productDetailsController.php");
                     </p>
                 </div>
                 <div class="card-action">
-                    <a href="./index.php?page=productDetails&productID=<?php echo $key['productID']?>">See this product!</a>
+                    <a class="indigo-text text-lighten-1" href="./index.php?page=productDetails&productID=<?php echo $key['productID']?>">See this product!</a>
                 </div>
             </div>
         </div>

@@ -20,7 +20,7 @@ include_once ('./indexPageControllers/indexNewUserController.php');
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <button class="waves-effect waves-light btn-large" name="submit" type="submit" value="Create">Create user</button>
+                    <button class="waves-effect waves-light btn-large indigo lighten-1" name="submit" type="submit" value="Create">Create user</button>
                 </div>
             </div>
         </form>

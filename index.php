@@ -23,7 +23,7 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
 </head>
 <body>
 <header>
-    <nav id="nav" class="nav-extended">
+    <nav id="nav" class="nav-extended blue-grey lighten-2">
         <div class="container">
             <div class="nav-wrapper">
                 <a href="./index.php" class="brand-logo">
@@ -49,7 +49,7 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
                         </div>
                     </div>
                     <li><a class="dropdown-button btn-flat white-text" href="?page=products" data-target="products">Products</a></li>
-                    <li><a href="./index.php?page=cart" class="dropdown-button btn-flat white-text" data-target="shoppingCart"><i class="material-icons right">shopping_cart</i>Shopping Cart <b class="teal-text"><?php echo $sc->totalItems();?></b></a></li>
+                    <li><a href="./index.php?page=cart" class="dropdown-button btn-flat white-text" data-target="shoppingCart"><i class="material-icons right">shopping_cart</i>Shopping Cart <b class="indigo-text text-lighten-1"><?php echo $sc->totalItems();?></b></a></li>
                     <li><?php if(!logged_in()) {?><a href="index.php?page=loginPage"><i class="large material-icons right">account_box</i><?php echo 'LOG IN';} else{?><a href="index.php?page=userPage"><i class="large material-icons">account_box</i><?php }?> </a></li>
 
                 </ul>
@@ -76,7 +76,7 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
 
 </main>
 
-<footer class="page-footer">
+<footer class="page-footer blue-grey lighten-2">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
@@ -113,14 +113,14 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
                     <li><?php echo $compInfo['phone'] ?></li>
                     <li><?php echo $compInfo['eMail'] ?></li>
                 <br>
-                    <a class="btn-floating btn-large indigo lighten-1 pulse" href="./index.php?page=contact"><i class="material-icons">edit</i></a>
+                    <a class="btn-floating btn-large indigo lighten-1 pulse" href="./index.php?page=contact"><i class="material-icons tooltipped" data-position="right" data-tooltip="Send us a message!">edit</i></a>
                 </ul>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container">
-            © 201 Copyright @ Top Duck Shop
+            © 2018 Copyright @ Top Duck Shop
         </div>
     </div>
 </footer>

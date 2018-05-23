@@ -30,9 +30,9 @@ include_once ("./indexPageControllers/shoppingCartViewController.php"); ?>
                     </tr>
                <?php } ?>
                 <tr>
-                    <td class="strong-text">Total Price:</td>
+                    <td><p class="strongtext">Total Price:</p></td>
                     <td></td>
-                    <td class="strong-text"><?php if (isset($_SESSION['shoppingCart'])) {echo $sc->cartTotal();} ?>,- dkk</td>
+                    <td><p class="strongtext"><?php if (isset($_SESSION['shoppingCart'])) {echo $sc->cartTotal();} ?>,- dkk</p></td>
                     <td></td>
                 </tr>
                 </tbody>

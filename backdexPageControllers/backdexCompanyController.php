@@ -12,7 +12,7 @@ admin_level(1);
                     // SELECT * From companyInfo;
                 // END
 
-    //$statement= "CALL proc_get_compInfo";
+    $statement= "CALL proc_get_compInfo";
     //The $statement variable would then be injected as a parameter in our runQuery function shown below.
 
     $compInfo = $db->boundQuery("SELECT * FROM companyInfo", NULL, 'fetch', PDO::FETCH_ASSOC, NULL);

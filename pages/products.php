@@ -31,7 +31,7 @@ require_once ('./indexPageControllers/indexProductController.php');
                         <h5 ><?php echo $row['productPrice']?>,-</h5>
                         <?php } ?>
 
-                        <button type="submit" class="btn-small">ADD TO CART<i class="material-icons right">shopping_cart</i></button>
+                        <button type="submit" class="btn-small indigo lighten-1">ADD TO CART<i class="material-icons right">shopping_cart</i></button>
                     </form>
                 </div>
             </div>

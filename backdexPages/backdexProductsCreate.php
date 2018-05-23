@@ -57,7 +57,7 @@ switch ($productCase) {
                         </div>
                         <div class="row">
                             <div class="card-action">
-                                <button class="waves-effect waves-light btn-large" type="submit" name="Submit" value="Submit">Save changes and chose product image</button>
+                                <button class="waves-effect waves-light btn-large indigo lighten-1" type="submit" name="Submit" value="Submit">Save changes and chose product image</button>
                             </div>
                         </div>
                     </form>
@@ -76,7 +76,7 @@ switch ($productCase) {
 
                 <div class="card-content">
                     <div class="file-field input-field">
-                    <div class="btn">
+                    <div class="btn grey">
                         <span>Change image</span>
                         <input type="file" name="image" value="">
                     </div>
@@ -85,7 +85,7 @@ switch ($productCase) {
                         <input class="file-path validate" type="text" placeholder="Select a file to upload">
                     </div>
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit" name="submit" value="submit">Upload new image</button>
+                    <button class="btn waves-effect waves-light indigo lighten-1" type="submit" name="submit" value="submit">Upload new image</button>
                 </div>
 
         </form>

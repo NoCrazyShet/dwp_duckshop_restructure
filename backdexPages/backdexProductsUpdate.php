@@ -10,7 +10,7 @@ confirm_admin();
             <form name="imgup" method="post" action="./backdex.php?action=productImage&page=backdexProductsUpdate&id=<?php echo $_GET['id']?>" enctype="multipart/form-data">
                 <div class="file-field input-field">
                     <div class="card-content">
-                        <div class="btn">
+                        <div class="btn grey">
                             <span>Change image</span>
                             <input type="file" name="image" value="">
                         </div>
@@ -19,7 +19,7 @@ confirm_admin();
                             <input class="file-path validate" type="text" placeholder="Select a file to upload">
                         </div>
 
-                        <button class="btn waves-effect waves-light" type="submit" name="submit" value="submit">Upload new image</button>
+                        <button class="btn waves-effect waves-light indigo lighten-1" type="submit" name="submit" value="submit">Upload new image</button>
                     </div>
                 </div>
             </form>
@@ -65,7 +65,7 @@ confirm_admin();
                     </div>
                     <div class="row">
                         <div class="card-action">
-                            <button class="waves-effect waves-light btn-large" type="submit" name="Submit" value="Submit">Update Product</button>
+                            <button class="waves-effect waves-light btn-large indigo lighten-1" type="submit" name="Submit" value="Submit">Update Product</button>
                         </div>
                     </div>
                 </form>

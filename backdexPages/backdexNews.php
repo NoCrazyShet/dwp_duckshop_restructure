@@ -26,12 +26,12 @@ switch ($newsCase) {
                         <div class="row">
                             <div class="input-field col s12 m12">
                                 <textareaz id="articleText" name="articleText" class="materialize-textarea" required></textareaz>
-                                <label for="articleText">Hi</label>
+                                <label for="articleText"></label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="card-action">
-                                <button class="waves-effect waves-light btn-large" type="submit" name="Submit" value="Submit">Save article and chose article image</button>
+                                <button class="waves-effect waves-light btn-large indigo lighten-1" type="submit" name="Submit" value="Submit">Save article and chose article image</button>
                             </div>
                         </div>
                     </form>

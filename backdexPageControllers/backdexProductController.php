@@ -57,7 +57,7 @@ foreach ($products as $row) {
                     <?php echo $row['productName'] ?>
                 </div>
                 <div class="card-action">
-                    <a href="./backdex.php?page=backdexProductsUpdate&id=<?php echo $row['productID']?>">Update product</a>
+                    <a class="indigo-text text-lighten-1" href="./backdex.php?page=backdexProductsUpdate&id=<?php echo $row['productID']?>">Update product</a>
                 </div>
                    <div class="card-action">
                     <a href="./backdex.php?page=backdexProducts&id=<?php echo $row['productID']?>&delete=true" style="color: red;">Delete product</a>

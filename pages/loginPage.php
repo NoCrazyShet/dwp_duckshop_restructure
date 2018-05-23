@@ -20,12 +20,12 @@ require_once("./pagecontrol/gateController.php");
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <button class="waves-effect waves-light btn-large" name="Submit" type="submit" value="Submit">Login</button>
+                    <button class="waves-effect waves-light btn-large indigo lighten-1" name="Submit" type="submit" value="Submit">Login</button>
                 </div>
             </div>
         </form>
         <form class="col s12 m12" method="post" action="./index.php?page=newUser">
-            <button type="submit" class="waves-effect waves-light btn-large">Create New User</button>
+            <button type="submit" class="waves-effect waves-light btn-large indigo lighten-1">Create New User</button>
         </form>
         <form class="col s12 m12" method="post" action="./index.php">
             <button type="submit" class="waves-effect waves-light btn-large red">Cancel</button>

@@ -1,5 +1,5 @@
 <?php
-require_once ('./pagecontrol/userPageController.php');
+require_once ('./indexPageControllers/userPageController.php');
 require_once("./pagecontrol/yardController.php");
 ?>
 <div class="container center" style="margin-top: 50px;">
@@ -57,7 +57,7 @@ require_once("./pagecontrol/yardController.php");
                                     <label for="CVC">CVC</label>
                                 </div>
                             </div>
-                            <button type="submit" class="waves-effect waves-light btn-large">Update information</button>
+                            <button type="submit" class="waves-effect waves-light btn-large indigo lighten-1">Update information</button>
                         </form>
                         <form class="col s12 m12" method="post" action="./index.php?page=userPage&login=false">
                             <button type="submit" class="waves-effect waves-light btn-large red">Log Out</button>

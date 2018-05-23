@@ -23,7 +23,7 @@ if(isset($_GET['page']) != 'backdexGate') {
 </head>
 <body>
 <header>
-    <nav>
+    <nav class="grey">
         <div class="container">
             <div class="nav-wrapper">
                 <a href="./backdex.php" class="brand-logo">
@@ -38,7 +38,7 @@ if(isset($_GET['page']) != 'backdexGate') {
                     <!-- <li><a href="index.php?page=login">Login to your account</a></li> -->
                     <?php if(isset($_SESSION['userID'])){
                         echo '<li><form action="./backdex.php?action=logout" method="post" style="margin-bottom: 0; display: inherit;">';
-                        echo '<button type="submit" class="waves-effect waves-light btn">Log Out</button>';
+                        echo '<button type="submit" class="waves-effect waves-light btn indigo lighten-1">Log Out</button>';
                         echo '</form></li>';
                     }?>
                 </ul>
@@ -53,7 +53,7 @@ if(isset($_GET['page']) != 'backdexGate') {
     </div>
 </main>
 
-<footer class="page-footer">
+<footer class="page-footer grey">
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="style/js/bin/materialize.min.js"></script>
