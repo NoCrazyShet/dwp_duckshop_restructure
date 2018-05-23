@@ -21,6 +21,7 @@ if(isset($_GET['action'])) {
         $productSpecial = $_POST['productSpecial'];
 
         if($productSpecial != NULL) {
+            $db->boundQuery("UPDATE product SET productSpecial = NULL WHERE productSpecial IS NOT NULL");
             $values = array('productIMG' => 'egg.jpg', 'categoryID' => $categoryID, 'productDescription' => $productDescription, 'productStock' => $productStock, 'productPrice' => $productPrice, 'productName' => $productName, 'productSpecial' => $productSpecial);
             $db->boundQuery("INSERT INTO product (productIMG, categoryID, productDescription, productStock, productPrice, productName, productSpecial) VALUES (:productIMG, :categoryID, :productDescription, :productStock, :productPrice, :productName, :productSpecial)", $values);
         }else {
