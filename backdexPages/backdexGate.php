@@ -1,5 +1,5 @@
 <?php
-require_once("./pagecontrol/gateController.php");
+require_once("./backdexPageControllers/backdexGateController.php");
 ?>
 
 

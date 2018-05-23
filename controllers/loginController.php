@@ -11,25 +11,28 @@ class loginController
                 $values = array('eMail' => $eMail);
 
                 $result = $db->boundQuery("SELECT userID, eMail, password, accessLevel FROM admin WHERE eMail = :eMail LIMIT 1", $values, 'fetch', PDO::FETCH_ASSOC);
-                if(count($result) == 4) {
-                    if(password_verify($password, $result['password'])){
-                        $_SESSION['userID'] = $result['userID'];
-                        $_SESSION['eMail'] = $result['eMail'];
-                        $_SESSION['acLe'] = intval($result['accessLevel']);
+                if(!is_bool($result)){
+                    if(count($result) == 4) {
+                        if(password_verify($password, $result['password'])){
+                            $_SESSION['userID'] = $result['userID'];
+                            $_SESSION['eMail'] = $result['eMail'];
+                            $_SESSION['acLe'] = intval($result['accessLevel']);
 
-                        redirect_to("backdex.php?");
-
-                    }
-                    else {
-                        throw new Exception('Your login information seems to be incorrect, please try again');
+                            redirect_to("backdex.php?");
+                        }else {
+                            throw new Exception('Your password seems to be incorrect, please try again');
+                        }
+                    }else {
+                        throw new Exception("Something fishy is going on");
                     }
                 }
                 else {
-                    throw new Exception('Your login information could not be verified, please try again');
+                    throw new Exception("User doesn't exist");
                 }
             }
         }
     }
+
     function loginUser(){
         if(isset($_POST['eMail']) || isset($_POST['password'])){
             $eMail = trim(htmlspecialchars($_POST['eMail']));
@@ -38,23 +41,26 @@ class loginController
                 $db = new dbController();
                 $values = array('eMail' => $eMail);
                 $result = $db->boundQuery("SELECT customerID, eMail, firstName, lastName, password FROM customer WHERE eMail = :eMail LIMIT 1", $values, 'fetch', PDO::FETCH_ASSOC);
-                if(count($result) == 5) {
-                    if(password_verify($password, $result['password'])){
-                        $_SESSION['customerID'] = $result['customerID'];
-                        $_SESSION['eMail'] = $result['eMail'];
-                        $_SESSION['firstName'] = $result['firstName'];
-                        $_SESSION['lastName'] = $result['lastName'];
+                if(is_bool($result)){
+                    if(count($result) == 5) {
+                        if(password_verify($password, $result['password'])){
+                            $_SESSION['customerID'] = $result['customerID'];
+                            $_SESSION['eMail'] = $result['eMail'];
+                            $_SESSION['firstName'] = $result['firstName'];
+                            $_SESSION['lastName'] = $result['lastName'];
 
 
-                        redirect_to("./index.php");
+                            redirect_to("./index.php");
 
-                    }
-                    else {
-                        throw new Exception('Your login information seems to be incorrect, please try again!');
+                        }else {
+                            throw new Exception('Your login information seems to be incorrect, please try again!');
+                        }
+                    }else {
+                        throw new Exception("Something fishy is going on");
                     }
                 }
                 else {
-                    throw new Exception('Your login information could not be verified, please try again');
+                    throw new Exception("The user doesn't exist");
                 }
             }
         }

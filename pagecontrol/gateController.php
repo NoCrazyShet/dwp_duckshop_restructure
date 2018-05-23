@@ -3,12 +3,6 @@ if(logged_in()) {
     redirect_to("index.php?page=yard");
 }
 
-if(!empty($_GET['login'])){
-    if($_GET['login']=='true'){
-        $login->loginAdmin();
-    }
-}
-
 if(!empty($_GET['loginStatus'])) {
     if($_GET['loginStatus']=='incorrect'){
         $_GET['loginStatus'] = '';
