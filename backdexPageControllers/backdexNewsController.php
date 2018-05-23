@@ -1,5 +1,6 @@
 <?php
 confirm_admin();
+admin_level(2);
 $newsInfo = $db->boundQuery("SELECT * FROM news ORDER BY articleID DESC LIMIT 3", NULL, 'fetchAll', PDO::FETCH_ASSOC);
 
 if(!isset($_GET['case'])) {
