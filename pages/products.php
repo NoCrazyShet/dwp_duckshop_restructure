@@ -35,15 +35,20 @@ require_once ('./indexPageControllers/indexProductController.php');
         if ($rowCount % 4 == 0) echo '</div><div class="row">';
     }?>
 </div>
-
+    <?php
+    if(!isset($_GET['action'])) {
+    ?>
 <div class="row center">
     <ul class="pagination">
         <li><a href="index.php?page=products&pager=<?php if(isset($_GET['pager']) && $_GET['pager'] != 1){echo $_GET['pager']-1;} else {echo 1;} ?>"><i class="material-icons">chevron_left</i></a></li>
             <?php
+            if(isset($numbers) && $numbers > 0){
                 foreach ($numbers as $num) {
                         echo '<li class="waves-effect"><a href="./index.php?page=products&pager=' . $num . '">' . $num . '</a></li>';
                 }
+            }
             ?>
         <li><a href="index.php?page=products&pager=<?php if(isset($_GET['pager']) && $_GET['pager'] != count($numbers)){echo $_GET['pager']+1;} else {echo count($numbers);}?>"><i class="material-icons">chevron_right</i></a></li>
     </ul>
 </div>
+    <?php }

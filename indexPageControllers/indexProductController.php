@@ -11,8 +11,9 @@ if(isset($_POST['search'])){
 
 if(isset($_GET['action'])) {
     if($_GET['action'] == 'search') {
-        $query = "SELECT * FROM product WHERE productName OR productDescription LIKE CONCAT( '%' :search '%') ";
+        $query = "SELECT * FROM product WHERE productName LIKE CONCAT( '%' :search '%') or productDescription LIKE CONCAT ( '%' :search '%')";
         $values = array('search' => $searchString);
+        $_SESSION['searchString'] = $searchString;
     }
 } elseif(!isset($_GET['category']) && !isset($_GET['action'])){
     $query = "SELECT * FROM product";

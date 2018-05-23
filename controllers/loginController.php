@@ -17,7 +17,7 @@ class loginController
                         $_SESSION['eMail'] = $result['eMail'];
                         $_SESSION['acLe'] = intval($result['accessLevel']);
 
-                        redirect_to("backdex.php?page=backdexYard");
+                        redirect_to("backdex.php?");
 
                     }
                     else {

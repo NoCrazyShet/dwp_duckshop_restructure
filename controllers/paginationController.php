@@ -20,7 +20,11 @@ class paginationController
         for($x=1; $x <= $counts; $x++){
             $numbers[] = $x;
         }
+        if(isset($numbers)) {
         return $numbers;
+        } else {
+            throw new Exception('You search returned no results, please try something else.');
+        }
     }
 
     function fetchResult() {

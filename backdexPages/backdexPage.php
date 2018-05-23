@@ -1,4 +1,10 @@
 <?php
+confirm_admin_level();
+if(isset($_GET['action'])) {
+    if($_GET['action'] == 'logout') {
+        $login->logout();
+    }
+}
 
 ?>
 

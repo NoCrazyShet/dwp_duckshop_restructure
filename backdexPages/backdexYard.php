@@ -1,2 +1,2 @@
 <?php
-echo "<h1>HAARHAHAHRHARH</h1>";
+confirm_admin_level();

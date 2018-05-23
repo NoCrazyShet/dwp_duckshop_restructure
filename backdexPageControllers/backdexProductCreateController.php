@@ -1,4 +1,5 @@
 <?php
+confirm_admin_level();
 $categorySelect = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll', PDO::FETCH_ASSOC);
 
 

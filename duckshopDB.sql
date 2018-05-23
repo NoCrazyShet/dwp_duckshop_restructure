@@ -73,6 +73,7 @@ productDescription varchar(300),
 productStock int (10),
 productPrice int(10),
 productName varchar(100),
+productSpecial int(10),
 FOREIGN KEY (categoryID) REFERENCES productCategory (categoryID)
 );
 

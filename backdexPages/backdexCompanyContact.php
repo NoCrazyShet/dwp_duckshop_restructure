@@ -1,2 +1,2 @@
 <?php
-echo "hello";
+confirm_admin_level();

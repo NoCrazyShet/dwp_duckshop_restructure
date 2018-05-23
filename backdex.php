@@ -6,6 +6,8 @@ require_once("./controllers/loginController.php");
 require_once("./controllers/exceptionHandler.php");
 $db = new dbController();
 $login = new loginController();
+confirm_admin_level();
+var_dump($_SESSION)
 ?>
 
 <html>
@@ -30,7 +32,7 @@ $login = new loginController();
                     <li><a href="backdex.php?page=backdexNews">Edit news</a></li>
                     <!-- <li><a href="index.php?page=login">Login to your account</a></li> -->
                     <?php if(isset($_SESSION['userID'])){
-                        echo '<li><form action="index.php?page=yard&login=false" method="post" style="margin-bottom: 0; display: inherit;">';
+                        echo '<li><form action="./backdex.php?action=logout" method="post" style="margin-bottom: 0; display: inherit;">';
                         echo '<button type="submit" class="waves-effect waves-light btn">Log Out</button>';
                         echo '</form></li>';
                     }?>

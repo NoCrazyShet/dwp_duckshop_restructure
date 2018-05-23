@@ -1,5 +1,6 @@
 <?php
 require_once("./controllers/imageResizer.php");
+confirm_admin_level();
     //For a stored procedure we would first create the procedure within the DB and then call it from within this controller.
     //The stored procedure would look as such
 

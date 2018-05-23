@@ -11,11 +11,9 @@ if(!empty($_GET['login'])){
 
 if(!empty($_GET['loginStatus'])) {
     if($_GET['loginStatus']=='incorrect'){
-        echo "<p>Your password/email combination seems to be incorrect. <br>Please try again!</p>";
         $_GET['loginStatus'] = '';
     }
     else if($_GET['loginStatus']=='logout') {
-        echo "<p>You are logged out</p>";
         $_GET['loginStatus'] = '';
     }
 }

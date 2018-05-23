@@ -6,7 +6,7 @@ function logged_in(){
 }
 
 function logged_in_admin(){
-    return isset($_SESSION['userID']);
+    return isset($_SESSION['acLe']);
 }
 
 function confirm_logged_in(){
@@ -24,7 +24,9 @@ function is_admin() {
 }
 
 function confirm_admin_level() {
-    if(!is_admin()) {
+    if(!logged_in_admin()) {
+        throw new Exception('You do not have access to this page');
         redirect_to("./index.php");
+
     }
 }

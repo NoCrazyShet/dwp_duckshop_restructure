@@ -1,5 +1,5 @@
 <?php
-
+confirm_admin_level();
 $searchString = "";
 if(isset($_POST['search'])){
     $searchString = $_POST['search'];
