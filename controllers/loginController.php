@@ -41,7 +41,7 @@ class loginController
                 $db = new dbController();
                 $values = array('eMail' => $eMail);
                 $result = $db->boundQuery("SELECT customerID, eMail, firstName, lastName, password FROM customer WHERE eMail = :eMail LIMIT 1", $values, 'fetch', PDO::FETCH_ASSOC);
-                if(is_bool($result)){
+                if(!is_bool($result)){
                     if(count($result) == 5) {
                         if(password_verify($password, $result['password'])){
                             $_SESSION['customerID'] = $result['customerID'];
