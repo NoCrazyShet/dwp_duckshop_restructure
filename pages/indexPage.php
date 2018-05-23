@@ -50,10 +50,10 @@ $slider_classes = array("left-align", "center-align", "right-align");
     </div>
     <?php }else { ?>
         <div class="row">
-        <h2 class="center">Sorry! There seem to be no daily specials! </h2>
-            <h3 class="center">Here are some recommendations instead</h3>
+        <h4 class="center">Sorry! There seem to be no daily specials! </h4>
+            <h5 class="center">Here are some recommendations instead</h5>
         <?php foreach ($recommended as $key){?>
-        <div class="col s12 m4">
+        <div class="col s12 m4" style="margin-top: 30px;">
             <div class="card">
                 <div class="card-image">
                     <img src="./images/<?php echo $key['productIMG']?>" alt="">

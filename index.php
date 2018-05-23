@@ -31,23 +31,29 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
                 </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
 
+                    <li><a class="modal-trigger" href="$modal1"><i class="material-icons right">search</i></a></li>
+                    <!-- Modal Structure -->
+                    <div id="modal1" class="modal">
+                        <div class="modal-content black-text">
+                            <div class="row">
+                                    <div class="row">
+                                        <form class="" method="post" action="./index.php?page=products&action=search">
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">search</i>
+                                                <input id="search" type="text" name="search" class="validate">
+                                                <label for="search">Search Products ...</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
                     <li><a class="dropdown-button btn-flat white-text" href="?page=products" data-target="products">Products</a></li>
                     <li><a href="./index.php?page=cart" class="dropdown-button btn-flat white-text" data-target="shoppingCart"><i class="material-icons right">shopping_cart</i>Shopping Cart <b class="teal-text"><?php echo $sc->totalItems();?></b></a></li>
                     <li><?php if(!logged_in()) {?><a href="index.php?page=loginPage"><i class="large material-icons right">account_box</i><?php echo 'LOG IN';} else{?><a href="index.php?page=userPage"><i class="large material-icons">account_box</i><?php }?> </a></li>
 
                 </ul>
-
-                <form class="hide-on-med-and-down" method="post" id="form1" action="./index.php?page=products&action=search">
-                    <div class="input-field" style="max-width: 400pt;">
-                        <input id="search" name="search" type="search" required>
-                        <label class="label-icon " for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
-                    </div>
-                </form>
-
             </div>
-
-
         </div>
     </nav>
     <ul id='products' class='dropdown-content productDrop'>
@@ -114,7 +120,7 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
     </div>
     <div class="footer-copyright">
         <div class="container">
-            © 2014 Copyright @ Top Duck Shop
+            © 201 Copyright @ Top Duck Shop
         </div>
     </div>
 </footer>
