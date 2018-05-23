@@ -60,7 +60,7 @@ require_once("./pagecontrol/yardController.php");
                             <button type="submit" class="waves-effect waves-light btn-large">Update information</button>
                         </form>
                         <form class="col s12 m12" method="post" action="./index.php?page=userPage&login=false">
-                            <button type="submit" class="waves-effect waves-light btn-large">Log Out</button>
+                            <button type="submit" class="waves-effect waves-light btn-large red">Log Out</button>
                         </form>
                     </div>
                 </div>

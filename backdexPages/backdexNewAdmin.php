@@ -4,7 +4,7 @@ require_once("./backdexPageControllers/backdexNewAdminController.php");
 
 <div class="container center">
     <div class="row">
-        <h2>Create login</h2>
+        <h2>Create New Admin</h2>
         <form class="col s12" action="" method="post">
             <div class="row">
                 <div class="input-field col s12">

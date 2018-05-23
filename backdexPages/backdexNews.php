@@ -26,7 +26,7 @@ switch ($newsCase) {
                         <div class="row">
                             <div class="input-field col s12 m12">
                                 <textareaz id="articleText" name="articleText" class="materialize-textarea" required></textareaz>
-                                <label for="articleText"></label>
+                                <label for="articleText">Hi</label>
                             </div>
                         </div>
                         <div class="row">

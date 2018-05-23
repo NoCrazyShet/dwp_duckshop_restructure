@@ -24,8 +24,11 @@ require_once("./pagecontrol/gateController.php");
                 </div>
             </div>
         </form>
-        <div class="input-field col s12">
-            <a href="./index.php?page=newUser"><button class="waves-effect waves-light btn-large">Create user</button></a>
-        </div>
+        <form class="col s12 m12" method="post" action="./index.php?page=newUser">
+            <button type="submit" class="waves-effect waves-light btn-large">Create New User</button>
+        </form>
+        <form class="col s12 m12" method="post" action="./index.php">
+            <button type="submit" class="waves-effect waves-light btn-large red">Cancel</button>
+        </form>
     </div>
 </div>

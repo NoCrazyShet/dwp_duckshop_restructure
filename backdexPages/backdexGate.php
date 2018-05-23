@@ -1,5 +1,7 @@
 <?php
-require_once("./pagecontrol/gateController.php"); ?>
+require_once("./pagecontrol/gateController.php");
+?>
+
 
 <div class="container center">
     <div class="row">
@@ -22,6 +24,9 @@ require_once("./pagecontrol/gateController.php"); ?>
                     <button class="waves-effect waves-light btn-large" name="Submit" type="submit" value="Submit">Login</button>
                 </div>
             </div>
+        </form>
+        <form class="col s12 m12" method="post" action="./index.php">
+            <button type="submit" class="waves-effect waves-light btn-large red">Cancel</button>
         </form>
     </div>
 </div>

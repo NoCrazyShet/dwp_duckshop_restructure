@@ -4,7 +4,7 @@ include_once ('./indexPageControllers/indexNewUserController.php');
 ?>
 <div class="container center">
     <div class="row">
-        <h2>Create login</h2>
+        <h2>Create User</h2>
         <form class="col s12" action="" method="post">
             <div class="row">
                 <div class="input-field col s12">
@@ -24,8 +24,8 @@ include_once ('./indexPageControllers/indexNewUserController.php');
                 </div>
             </div>
         </form>
-        <div class="input-field col s12">
-            <a href="./index.php"><button class="waves-effect waves-light btn-large">Cancel</button></a>
-        </div>
+        <form class="col s12 m12" method="post" action="./index.php">
+            <button type="submit" class="waves-effect waves-light btn-large red">Cancel</button>
+        </form>
     </div>
 </div>
