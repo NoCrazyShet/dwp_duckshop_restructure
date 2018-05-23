@@ -6,6 +6,9 @@ require_once("./controllers/loginController.php");
 require_once("./controllers/exceptionHandler.php");
 $db = new dbController();
 $login = new loginController();
+if(isset($_GET['page']) != 'backdexGate') {
+    admin_level(3);
+}
 ?>
 
 <html>

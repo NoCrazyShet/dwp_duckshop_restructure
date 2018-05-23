@@ -42,14 +42,14 @@ if(isset($_GET['action'])) {
 
 <div class="row">
     <div class="col s12 m6">
-        <a href="./backdex.php?page=backdexCompanyContact">
+        <a href="./backdex.php?page=backdexNews">
         <div class="card horizontal green white-text">
             <div class="card-image">
                 <span><i class="material-icons large" style="font-size: 200px">add</i></span>
             </div>
             <div class="card-stacked">
                 <div class="card-content valign-wrapper">
-                    <h3 class="compLinks">Edit business hours</h3>
+                    <h3 class="compLinks">Edit News</h3>
                 </div>
             </div>
         </div>

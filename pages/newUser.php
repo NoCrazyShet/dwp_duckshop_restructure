@@ -1,6 +1,6 @@
 <?php
 include_once ('./indexPageControllers/indexNewUserController.php');
-if (!empty($message)){echo "<p>". $message. "</p>";}
+
 ?>
 <div class="container center">
     <div class="row">
