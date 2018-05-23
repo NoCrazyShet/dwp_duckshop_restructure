@@ -1,6 +1,6 @@
 <?php
 include_once("./backdexPageControllers/backdexNewsController.php");
-confirm_admin_level();
+confirm_admin();
 ?>
 
 

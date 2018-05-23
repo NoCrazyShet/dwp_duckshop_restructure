@@ -1,6 +1,5 @@
 <?php
 require_once("./backdexPageControllers/backdexCompanyController.php");
-confirm_admin_level();
 if(isset($upmsg)){
     foreach($upmsg as $msg){echo '<div class="col s12"><h1>'.$msg.'</h1></div>';
     }

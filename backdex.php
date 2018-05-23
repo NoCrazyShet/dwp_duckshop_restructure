@@ -6,8 +6,6 @@ require_once("./controllers/loginController.php");
 require_once("./controllers/exceptionHandler.php");
 $db = new dbController();
 $login = new loginController();
-confirm_admin_level();
-var_dump($_SESSION)
 ?>
 
 <html>

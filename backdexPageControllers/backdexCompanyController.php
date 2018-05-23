@@ -1,6 +1,8 @@
 <?php
 require_once("./controllers/imageResizer.php");
-confirm_admin_level();
+confirm_admin();
+admin_level(1);
+
     //For a stored procedure we would first create the procedure within the DB and then call it from within this controller.
     //The stored procedure would look as such
 
@@ -23,14 +25,14 @@ if(isset($_GET['action'])) {
     $action = $_GET['action'];
     if ($action == "update") {
 
-        $logoText = htmlspecialchars(trim($_POST["logoText"]));
-        $aboutUs = htmlspecialchars(trim($_POST['aboutUs']));
-        $street = htmlspecialchars(trim($_POST['street']));
-        $streetNr = htmlspecialchars(trim($_POST['streetNumber']));
-        $zip = htmlspecialchars(trim($_POST['zipCode']));
-        $eMail = htmlspecialchars(trim($_POST['eMail']));
-        $phone = htmlspecialchars(trim($_POST['phone']));
-        $CVR = htmlspecialchars(trim($compInfo['CVR']));
+        $logoText = $_POST["logoText"];
+        $aboutUs = $_POST['aboutUs'];
+        $street = $_POST['street'];
+        $streetNr = $_POST['streetNumber'];
+        $zip = $_POST['zipCode'];
+        $eMail = $_POST['eMail'];
+        $phone = $_POST['phone'];
+        $CVR = $compInfo['CVR'];
 
 
         $values = array('logoText' => $logoText, 'aboutUs' => $aboutUs, 'street' => $street, 'streetNumber' => $streetNr, 'zipCode' => $zip, 'eMail' => $eMail, 'phone' => $phone, 'CVR' => $CVR);

@@ -1,11 +1,11 @@
 <?php
-confirm_admin_level();
+
+
 if(isset($_GET['action'])) {
     if($_GET['action'] == 'logout') {
         $login->logout();
     }
 }
-
 ?>
 
 <div class="row">
@@ -56,17 +56,18 @@ if(isset($_GET['action'])) {
     </div>
 
     <div class="col s12 m6">
-        <h2 class="header">Thing</h2>
-        <div class="card horizontal">
-            <div class="card-image">
-                <span><i class="material-icons large">add</i></span>
-            </div>
-            <div class="card-stacked">
-                <div class="card-content">
-                    <p>This is the card</p>
+        <a href="./backdex.php?page=newAdmin">
+            <div class="card horizontal red white-text">
+                <div class="card-image">
+                    <span><i class="material-icons large" style="font-size: 200px;">add</i></span>
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content valign-wrapper">
+                        <h3 class="compLinks">Add new admin</h3>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 

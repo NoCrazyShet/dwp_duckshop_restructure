@@ -1,6 +1,6 @@
 <?php
 require_once ('./backdexPageControllers/backdexProductUpdateController.php');
-confirm_admin_level();
+confirm_admin();
 ?>
 
 <div class="row" style="margin-top: 50px;">

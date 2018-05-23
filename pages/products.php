@@ -25,7 +25,12 @@ require_once ('./indexPageControllers/indexProductController.php');
                 <div class="card-action">
 
                     <form method="post" action="./index.php?page=products<?php if(isset($_GET['category'])) {echo "&category=".$_GET['category'];}?>&productID=<?php echo $row['productID'];?>&action=addCart">
-                        <h5><?php echo $row['productPrice']?>,-</h5>
+                        <?php if(($row['productSpecial']) != NULL){ ?>
+                            <h5 class="red-text"><?php echo $row['productSpecial'];?>,-</h5>
+                        <?php } else {?>
+                        <h5 ><?php echo $row['productPrice']?>,-</h5>
+                        <?php } ?>
+
                         <button type="submit" class="btn-small">ADD TO CART<i class="material-icons right">shopping_cart</i></button>
                     </form>
                 </div>
