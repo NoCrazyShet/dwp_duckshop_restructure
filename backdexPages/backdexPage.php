@@ -57,7 +57,7 @@ if(isset($_GET['action'])) {
     </div>
 
     <div class="col s12 m6">
-        <a href="./backdex.php?page=newAdmin">
+        <a href="./backdex.php?page=backdexNewAdmin">
             <div class="card horizontal red white-text">
                 <div class="card-image">
                     <span><i class="material-icons large" style="font-size: 200px;">add</i></span>
