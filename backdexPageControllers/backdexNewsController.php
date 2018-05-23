@@ -18,10 +18,10 @@ if(isset($_GET['action'])) {
         $articleSubTitle = $_POST['articleSubTitle'];
         $articleIMG = $_POST['articleIMG'];
 
-$values = array('articleText' => $articleText, 'articleTitle' => $articleTitle, 'articleSubTitle' => $articleSubTitle, 'articleIMG' => 'egg.jpg');
-$db->boundQuery("INSERT INTO news (articleText, articleTitle, articleSubTitle, articleIMG) VALUES (:articleText, :articleTitle, :articleSubTitle, :articleIMG)", $values);
-$id = $db->connection->lastInsertId();
-redirect_to("./backdex.php?page=backdexNews&id=$id&case=picture");
+    $values = array('articleText' => $articleText, 'articleTitle' => $articleTitle, 'articleSubTitle' => $articleSubTitle, 'articleIMG' => 'egg.jpg');
+    $db->boundQuery("INSERT INTO news (articleText, articleTitle, articleSubTitle, articleIMG) VALUES (:articleText, :articleTitle, :articleSubTitle, :articleIMG)", $values);
+    $id = $db->connection->lastInsertId();
+    redirect_to("./backdex.php?page=backdexNews&id=$id&case=picture");
     }
     elseif ($action == "newsImage") {
         require_once ('./controllers/imageUploadController.php');

@@ -21,7 +21,6 @@ $slider_classes = array("left-align", "center-align", "right-align");
     <?php if($dailySpecial != FALSE){?>
     <div class="col s12">
         <h2 class="header center">Top Ducks' daily special!</h2>
-        <a href="./index.php?page=productDetails&productID=<?php echo $dailySpecial['productID']?>">
         <div class="card horizontal" style="padding: 10px;">
             <div class="card-image">
                 <img src="./images/<?php echo $dailySpecial['productIMG'];?>">
@@ -46,7 +45,6 @@ $slider_classes = array("left-align", "center-align", "right-align");
                 </div>
             </div>
         </div>
-        </a>
     </div>
     <?php }else { ?>
         <div class="row">
