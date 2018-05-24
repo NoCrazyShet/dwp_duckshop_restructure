@@ -125,7 +125,7 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
     </div>
     <div class="footer-copyright">
         <div class="container">
-            © 2018 Copyright @ Top Duck Shop
+            2018 Copyright @ Top Duck Shop
         </div>
     </div>
 </footer>

@@ -38,7 +38,7 @@ $slider_classes = array("left-align", "center-align", "right-align");
                                 <input id="quantity" name="quantity" type="text" class="validate" value="1">
                                 <label for="Quantity">Quantity</label>
                             </div>
-                            <button type="submit" class="btn-small">ADD TO CART<i class="material-icons right">shopping_cart</i></button>
+                            <button type="submit" class="btn-small indigo lighten-1">ADD TO CART<i class="material-icons right">shopping_cart</i></button>
                         </div>
                         <h6 class="right-align"><?php echo $dailySpecial['productStock']?> in stock (delivery time 1-2 working days)</h6>
                     </form>
