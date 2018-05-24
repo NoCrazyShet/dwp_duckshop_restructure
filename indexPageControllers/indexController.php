@@ -1,4 +1,5 @@
 <?php
+require_once("./controllers/redirectController.php");
 $db = new dbController();
 $login = new loginController();
 $sc = new shoppingCartController();

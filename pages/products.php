@@ -45,15 +45,30 @@ require_once ('./indexPageControllers/indexProductController.php');
     ?>
 <div class="row center">
     <ul class="pagination">
+    <?php if(!isset($_GET['category'])){?>
         <li><a href="index.php?page=products&pager=<?php if(isset($_GET['pager']) && $_GET['pager'] != 1){echo $_GET['pager']-1;} else {echo 1;} ?>"><i class="material-icons">chevron_left</i></a></li>
-            <?php
+            <?php }else {?>
+            <li><a href="index.php?page=products&category=<?php echo $categoryID; ?>&pager=<?php if(isset($_GET['pager']) && $_GET['pager'] != 1){echo $_GET['pager']-1;} else {echo 1;} ?>"><i class="material-icons">chevron_left</i></a></li>
+            <?php }
             if(isset($numbers) && $numbers > 0){
                 foreach ($numbers as $num) {
+                    if(isset($_GET['pager']) && $num == $_GET['pager']){
+                        echo '<li class="waves-effect"><a href="./index.php?page=products&pager=' . $num . '"><b><u>' . $num . '</b></u></a></li>';
+                    }elseif (!isset($_GET['pager']) && $num==1){
+                        echo '<li class="waves-effect"><a href="./index.php?page=products&pager=' . $num . '"><b><u>' . $num . '</b></u></a></li>';
+                    }elseif(!isset($_GET['category'])){
                         echo '<li class="waves-effect"><a href="./index.php?page=products&pager=' . $num . '">' . $num . '</a></li>';
+                    }else {
+                        echo '<li class="waves-effect"><a href="./index.php?page=products&category='.$categoryID.'&pager=' . $num . '">' . $num . '</a></li>';
+                    }
                 }
             }
             ?>
-        <li><a href="index.php?page=products&pager=<?php if(isset($_GET['pager']) && $_GET['pager'] != count($numbers)){echo $_GET['pager']+1;} else {echo count($numbers);}?>"><i class="material-icons">chevron_right</i></a></li>
+            <?php if(!isset($_GET['category'])){?>
+        <li><a href="index.php?page=products&pager=<?php if(isset($_GET['pager']) && $_GET['pager'] != count($numbers)){echo $_GET['pager']+1;} else {echo 2;}?>"><i class="material-icons">chevron_right</i></a></li>
+            <?php }else {?>
+            <li><a href="index.php?page=products&category=<?php echo $categoryID;?>&pager=<?php if(isset($_GET['pager']) && $_GET['pager'] != count($numbers)){echo $_GET['pager']+1;} else {echo 2;}?>"><i class="material-icons">chevron_right</i></a></li>
+            <?php }?>
     </ul>
 </div>
     <?php }

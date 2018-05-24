@@ -7,21 +7,21 @@ confirm_admin();
             <div class="card horizontal" style="padding: 10px;">
                 <div class="card-image">
                     <img src="./images/egg.jpg">
+                    <div class="row">
+                        <div class="file-field input-field col s12 m12">
+                            <div class="btn grey">
+                                <span>Change image</span>
+                                <input type="file" name="image">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Select a file to upload">
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card-stacked">
                     <div class="card-content">
-                        <div class="row">
-                            <div class="file-field input-field">
-                                <div class="btn grey">
-                                    <span>Change image</span>
-                                    <input type="file" name="image">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Select a file to upload">
-                                </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="input-field col s12 m12">
                                 <select name="categoryID">
@@ -63,15 +63,14 @@ confirm_admin();
                                 <label for="productSpecial">Product Special Price</label>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="card-action">
-                        <button  type="submit" name="submit" value="submit" class="btn-small indigo lighten-1 right">Create product<i class="material-icons right">add_box</i></button>
+                        <div class="card-action">
+                            <button  type="submit" name="submit" value="submit" class="btn-small indigo lighten-1 right">Create product<i class="material-icons right">add_box</i></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </form>
-    </div>
+
 
 
 

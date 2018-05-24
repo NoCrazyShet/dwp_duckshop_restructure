@@ -36,15 +36,6 @@ class imageUploadController {
                             $resObj->cutOrFill(1920, 1080);
                         }
                         $resObj->save($newName);
-//                        $db = new dbController();
-//                        $result = $db->boundQuery($selectQuery,$selectVal, 'fetch', PDO::FETCH_ASSOC);
-//
-//                        $resKey = $result["{$key}"];
-//                        $resTarg = $key;
-//
-//                        $values = array($target => $iName , $resTarg => $resKey);
-//                        $db->boundQuery($changeQuery, $values);
-//                        redirect_to("./backdex.php?page=$redTarg");
                         return $iName;
                     }else  {
                         throw new Exception('Image to big! Max 3mb.');

@@ -42,4 +42,6 @@ $( document ).ready(function() {
         $('#openDay').val(openDay);
     });
 
+    $('.richNews').richText();
+
 });

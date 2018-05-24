@@ -1,5 +1,12 @@
 <?php
 require_once("./pagecontrol/gateController.php");
+
+if(isset($_GET['res'])){
+    $res = $_GET['res'];
+    if($res == 'success') {
+        echo "<script>alert('User created successfully!');</script>";
+    }
+}
 ?>
 
 <div class="container center">

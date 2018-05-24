@@ -28,8 +28,3 @@ $rowCount = 0;
 $data = $db->boundQuery($query, $values, 'fetchAll', PDO::FETCH_ASSOC, NULL);
 $numbers = $pag->paginate($data, 12);
 $product = $pag->fetchResult();
-
-
-
-
-

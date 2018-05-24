@@ -2,6 +2,13 @@
 confirm_admin();
 admin_level(3);
 
+if(isset($_GET['res'])){
+    $res = $_GET['res'];
+    if($res == 'success') {
+        echo "<script>alert('Admin profile created successfully!');</script>";
+    }
+}
+
 if(isset($_GET['action'])) {
     if($_GET['action'] == 'logout') {
         $login->logout();
@@ -42,7 +49,7 @@ if(isset($_GET['action'])) {
 
 <div class="row">
     <div class="col s12 m6">
-        <a href="./backdex.php?page=backdexNews">
+        <a href="./backdex.php?page=backdexNewsEdit">
         <div class="card horizontal green white-text">
             <div class="card-image">
                 <span><i class="material-icons large" style="font-size: 200px">add</i></span>

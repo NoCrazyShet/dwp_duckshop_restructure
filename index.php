@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once("./permanents/session.php");
 require_once("./controllers/redirectController.php");
 require_once("./controllers/dbController.php");
@@ -18,6 +19,7 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
 
 <html>
 <head>
+    <meta name="robots" content="noindex">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

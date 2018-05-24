@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once("./permanents/session.php");
 require_once("./controllers/redirectController.php");
 require_once("./controllers/dbController.php");
@@ -13,13 +14,14 @@ if(isset($_GET['page']) != 'backdexGate') {
 
 <html>
 <head>
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-    <script>tinymce.init({ selector:'textareaz' });</script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="robots" content="noindex">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style/css/materialize.css">
     <link rel="stylesheet" type="text/css" href="style/css/custom.css">
     <script src="style/js/bin/materialize.min.js"></script>
+    <link rel="stylesheet" href="style/richtext/richtext.min.css">
 </head>
 <body>
 <header>
@@ -27,14 +29,14 @@ if(isset($_GET['page']) != 'backdexGate') {
         <div class="container">
             <div class="nav-wrapper">
                 <a href="./backdex.php" class="brand-logo">
-                    <a href="./index.php" class="brand-logo">
+                    <a href="./backdex.php" class="brand-logo">
                         <img src="./images/top-duck.svg" style="height: 64px;">
                     </a>
                 </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down valign-wrapper">
                     <li><a href="backdex.php?page=backdexCompany">Edit Company</a></li>
                     <li><a href="backdex.php?page=backdexProducts">Edit products</a></li>
-                    <li><a href="backdex.php?page=backdexNews">Edit news</a></li>
+                    <li><a href="backdex.php?page=backdexNewsEdit">Edit news</a></li>
                     <!-- <li><a href="index.php?page=login">Login to your account</a></li> -->
                     <?php if(isset($_SESSION['userID'])){
                         echo '<li><form action="./backdex.php?action=logout" method="post" style="margin-bottom: 0; display: inherit;">';
@@ -57,6 +59,7 @@ if(isset($_GET['page']) != 'backdexGate') {
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="style/js/bin/materialize.min.js"></script>
+<script src="style/richtext/jquery.richtext.min.js"></script>
 <script src="style/js/custom.js"></script>
 </body>
 </html>

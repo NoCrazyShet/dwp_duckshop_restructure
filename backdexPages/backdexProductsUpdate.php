@@ -7,23 +7,23 @@ confirm_admin();
     <div class="card horizontal" style="padding: 10px;">
         <div class="card-image">
             <img src="./images/<?php echo $updateProduct['productIMG']?>">
+            <div class="row">
+                <div class="file-field input-field col s12 m12">
+                    <div class="btn grey">
+                        <span>Change image</span>
+                        <input type="file" name="image">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Select a file to upload">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="card-stacked">
             <div class="card-content">
                 <div class="row">
-                    <div class="file-field input-field">
-                        <div class="btn grey">
-                            <span>Change image</span>
-                            <input type="file" name="image">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" placeholder="Select a file to upload">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m12">
+                    <div class="input-field col s10 m10">
                         <select name="categoryID">
                             <option value="categoryID" name="categoryID" disabled selected>Choose product category</option>
                             <?php foreach ($categorySelect as $category) { ?>

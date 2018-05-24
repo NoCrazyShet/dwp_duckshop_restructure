@@ -18,7 +18,7 @@ class loginController
                             $_SESSION['eMail'] = $result['eMail'];
                             $_SESSION['acLe'] = intval($result['accessLevel']);
 
-                            redirect_to("backdex.php?");
+                            redirect_to("./backdex.php");
                         }else {
                             throw new Exception('Your password seems to be incorrect, please try again');
                         }
