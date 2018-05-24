@@ -18,9 +18,10 @@ if(isset($_GET['action'])){
         }elseif (isset($_GET['page']) && $_GET['page']=='productDetails'){
             $productID = $_GET['productID'];
             redirect_to("./index.php?page=productDetails&productID=$productID");
-        }
-        else{
+        }elseif (isset($_GET['page']) && $_GET['page'] == 'proucts'){
             redirect_to("./index.php?page=products");
+        }else {
+            redirect_to("./index.php");
         }
     }elseif ($_GET['action']=='emptyCart'){
         $sc->emptyCart();

@@ -18,7 +18,7 @@ include_once ("./indexPageControllers/shoppingCartViewController.php"); ?>
                 <tr>
                     <td><a href="./index.php?page=productDetails&productID=<?php echo $cartItem['productID'] ?>"><?php echo $cartItem['productName'] ?></a></td>
                     <td><?php echo $cartItem['qty'] ?></td>
-                    <td><?php echo $cartItem['productPrice'] ?>,-</td>
+                    <td><?php if(isset($cartItem['productSpecial']) && $cartItem['productSpecial'] != NULL){ echo $cartItem['productSpecial'];}else{ echo $cartItem['productPrice'];} ?>,-</td>
                     <td><a href="?page=<?php echo $_GET['page']; if(isset($_GET['category'])) { echo "&category=".$_GET['category'];}?>&action=removeItem&productID=<?php echo $cartItem['productID']; ?>"><i class="material-icons red-text">remove_shopping_cart</i></a></td>
                 </tr>
                 <?php }} elseif(!isset($_SESSION['shoppingCart'])) { ?>

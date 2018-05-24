@@ -17,7 +17,7 @@ require_once("./indexPageControllers/productDetailsController.php");
                 </div>
                 <div class="card-action">
                     <form method="post" action="./index.php?page=productDetails&productID=<?php echo $product['productID'];?>&action=addCart">
-                        <h5 class="right-align"><?php echo $product['productPrice']?>,-</h5>
+                        <h5 class="right-align <?php if(isset($product['productSpecial']) && $product['productSpecial'] != NULL){ echo "red-text";}?>"><?php if(isset($product['productSpecial']) && $product['productSpecial'] != NULL){ echo $product['productSpecial'];}else{ echo $product['productPrice'];}?>,-</h5>
                         <div class="row valign-wrapper">
                             <div class="input-field col s2">
                                 <input id="quantity" name="quantity" type="text" class="validate" value="1">

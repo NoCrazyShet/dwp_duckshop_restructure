@@ -15,7 +15,7 @@ class shoppingCartController
             $currentQty = $x;
         }
 
-        $_SESSION['shoppingCart'][$_GET['productID']] = array('qty' => $currentQty, 'productName' => $product['productName'], 'productIMG' => $product['productIMG'], 'productPrice' => $product['productPrice'], 'productID' => $product['productID']);
+        $_SESSION['shoppingCart'][$_GET['productID']] = array('qty' => $currentQty, 'productName' => $product['productName'], 'productIMG' => $product['productIMG'], 'productPrice' => $product['productPrice'], 'productID' => $product['productID'], 'productSpecial' => $product['productSpecial']);
         $product = "";
         $db->disconnetDB();
         }
@@ -24,7 +24,11 @@ class shoppingCartController
     public function cartTotal(){
         $grandTotal = 0;
         foreach ($_SESSION['shoppingCart'] as $cartItem) {
+            if(isset($cartItem['productSpecial']) && $cartItem['productSpecial'] != NULL) {
+                $total = $cartItem['qty'] * $cartItem['productSpecial'];
+            }else{
             $total = $cartItem['qty'] * $cartItem['productPrice'];
+            }
             $grandTotal = $grandTotal + $total;
         }
         return $grandTotal;

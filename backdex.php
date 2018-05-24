@@ -10,8 +10,8 @@ $login = new loginController();
 if(isset($_GET['page']) != 'backdexGate') {
     admin_level(3);
 }
-?>
 
+?>
 <html>
 <head>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,17 +33,20 @@ if(isset($_GET['page']) != 'backdexGate') {
                         <img src="./images/top-duck.svg" style="height: 64px;">
                     </a>
                 </a>
+
                 <ul id="nav-mobile" class="right hide-on-med-and-down valign-wrapper">
+                    <?php if(isset($_SESSION['userID'])){?>
                     <li><a href="backdex.php?page=backdexCompany">Edit Company</a></li>
                     <li><a href="backdex.php?page=backdexProducts">Edit products</a></li>
                     <li><a href="backdex.php?page=backdexNewsEdit">Edit news</a></li>
                     <!-- <li><a href="index.php?page=login">Login to your account</a></li> -->
-                    <?php if(isset($_SESSION['userID'])){
+                    <?php
                         echo '<li><form action="./backdex.php?action=logout" method="post" style="margin-bottom: 0; display: inherit;">';
                         echo '<button type="submit" class="waves-effect waves-light btn indigo lighten-1">Log Out</button>';
                         echo '</form></li>';
                     }?>
                 </ul>
+
             </div>
         </div>
     </nav>
@@ -51,7 +54,7 @@ if(isset($_GET['page']) != 'backdexGate') {
 
 <main>
     <div class="container" style="margin-top: 50px;">
-        <?php if(isset($_GET['page'])) {include("backdexPageControllers/backdexViewController.php");} else {include("./backdexPages/backdexPage.php");};?>
+        <?php if(isset($_GET['page'])) {include("backdexPageControllers/backdexViewController.php");} else {include("./backdexPages/backdexGate.php");};?>
     </div>
 </main>
 

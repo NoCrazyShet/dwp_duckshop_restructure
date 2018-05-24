@@ -31,7 +31,7 @@ $slider_classes = array("left-align", "center-align", "right-align");
                     <p><?php echo $dailySpecial['productDescription'];?></p>
                 </div>
                 <div class="card-action">
-                    <form method="post" action="./index.php?page=productDetails&productID=<?php echo $dailySpecial['productID'];?>&action=addCart">
+                    <form method="post" action="./index.php?productID=<?php echo $dailySpecial['productID'];?>&action=addCart">
                         <h5 class="right-align red-text"><?php echo $dailySpecial['productSpecial']?>,-</h5>
                         <div class="row valign-wrapper">
                             <div class="input-field col s2">
@@ -46,7 +46,7 @@ $slider_classes = array("left-align", "center-align", "right-align");
             </div>
         </div>
     </div>
-    <?php }else { ?>
+    <?php }elseif($dailySpecial == FALSE) { ?>
         <div class="row">
         <h4 class="center">Sorry! There seem to be no daily specials! </h4>
             <h5 class="center">Here are some recommendations instead</h5>
@@ -65,6 +65,7 @@ $slider_classes = array("left-align", "center-align", "right-align");
                     <a class="indigo-text text-lighten-1" href="./index.php?page=productDetails&productID=<?php echo $key['productID']?>">See this product!</a>
                 </div>
             </div>
+        </div>
         </div>
     <?php
     }}
