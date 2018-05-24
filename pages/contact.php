@@ -34,7 +34,7 @@ include_once ('./indexPageControllers/contactFormController.php');
                             <div class="g-recaptcha" data-sitekey="6LeghlkUAAAAAN-U0DbWdn-rvvXxmJ9dbXE6yby7"></div>
                         </div>
                         <div class="input-field col s12">
-                        <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="SUBMIT">Submit your message</button>
+                        <button class="btn btn-lg btn-primary btn-block indigo lighten-1" type="submit" name="submit" value="SUBMIT">Submit your message</button>
                         </div>
                     </div>
                 </div>
