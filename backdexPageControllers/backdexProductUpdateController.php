@@ -8,29 +8,36 @@ $categorySelect = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchA
 
 if(isset($_GET['action'])) {
     $action = $_GET['action'];
-    if ($action == "update") {
+    if ($action == 'update') {
+        if($_FILES['image']['name']){
+        require_once ('./controllers/imageUploadController.php');
+        require_once("./controllers/imageResizer.php");
+        $imgCnt = new imageUploadController();
+        $productIMG = $imgCnt->imageUpload("cut");
+        }else {
+            $productIMG = $updateProduct['productIMG'];
+        }
 
         $categoryID = $_POST["categoryID"];
         $productDescription = $_POST['productDescription'];
+        $productStock = $_POST['productStock'];
         $productPrice = $_POST['productPrice'];
         $productName = $_POST['productName'];
-        $productID = $updateProduct['productID'];
         $productSpecial = $_POST['productSpecial'];
+        $productID = $updateProduct['productID'];
 
         if($productSpecial != NULL) {
             $db->boundQuery("UPDATE product SET productSpecial = NULL WHERE productSpecial IS NOT NULL");
-            $values = array('categoryID' => $categoryID, 'productDescription' => $productDescription, 'productPrice' => $productPrice, 'productName' => $productName, 'productID' => $productID, 'productSpecial' => $productSpecial);
-            $stmt = $db->boundQuery("UPDATE product SET categoryID = :categoryID, productDescription = :productDescription, productPrice = :productPrice, productName = :productName, productSpecial = :productSpecial WHERE productID = :productID", $values);
+            $values = array('productIMG' => $productIMG, 'categoryID' => $categoryID, 'productDescription' => $productDescription, 'productPrice' => $productPrice, 'productName' => $productName, 'productID' => $productID, 'productStock' => $productStock, 'productSpecial' => $productSpecial);
+            $stmt = $db->boundQuery("UPDATE product SET productIMG = :productIMG, categoryID = :categoryID, productDescription = :productDescription, productPrice = :productPrice, productName = :productName, productStock = :productStock, productSpecial = :productSpecial WHERE productID = :productID", $values);
         } else {
-            $values = array('categoryID' => $categoryID, 'productDescription' => $productDescription, 'productPrice' => $productPrice, 'productName' => $productName, 'productID' => $productID);
-            $stmt = $db->boundQuery("UPDATE product SET categoryID = :categoryID, productDescription = :productDescription, productPrice = :productPrice, productName = :productName, productSpecial = NULL WHERE productID = :productID", $values);
+            $values = array('productIMG' => $productIMG, 'categoryID' => $categoryID, 'productDescription' => $productDescription, 'productPrice' => $productPrice, 'productName' => $productName, 'productID' => $productID);
+            $stmt = $db->boundQuery("UPDATE product SET productIMG = :productIMG, categoryID = :categoryID, productDescription = :productDescription, productPrice = :productPrice, productName = :productName, productSpecial = NULL WHERE productID = :productID", $values);
         }
-
-        redirect_to('./backdex.php?page=backdexProducts');
-    }elseif ($action == "productImage") {
-        require_once ('./controllers/imageUploadController.php');
-        $selVal = array('productID' => $updateProduct['productID']);
-        $imgCnt = new imageUploadController();
-        $imgCnt->imageUpload("SELECT productID FROM product WHERE productID = :productID", $selVal , 'productID', 'productIMG', "UPDATE product SET productIMG = :productIMG WHERE productID = :productID", "backdexProducts", "cut");
+        redirect_to("./backdex.php?page=backdexProductsUpdate&id=$productID&action=usuccess");
+    }elseif ($action == 'success'){
+        echo '<script>alert("Product Created Successfully!");</script>';
+    }elseif ($action == 'usuccess'){
+        echo '<script>alert("Product Updated Successfully!");</script>';
     }
 }

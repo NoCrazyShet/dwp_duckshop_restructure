@@ -13,6 +13,11 @@ if(!isset($_GET['case'])) {
 if(isset($_GET['action'])) {
     $action = $_GET['action'];
     if($action == 'create') {
+        require_once ('./controllers/imageUploadController.php');
+        require_once("./controllers/imageResizer.php");
+        $imgCnt = new imageUploadController();
+        $productIMG = $imgCnt->imageUpload("cut");
+
         $categoryID = $_POST['categoryID'];
         $productDescription = $_POST['productDescription'];
         $productStock = $_POST['productStock'];
@@ -22,27 +27,15 @@ if(isset($_GET['action'])) {
 
         if($productSpecial != NULL) {
             $db->boundQuery("UPDATE product SET productSpecial = NULL WHERE productSpecial IS NOT NULL");
-            $values = array('productIMG' => 'egg.jpg', 'categoryID' => $categoryID, 'productDescription' => $productDescription, 'productStock' => $productStock, 'productPrice' => $productPrice, 'productName' => $productName, 'productSpecial' => $productSpecial);
+            $values = array('productIMG' => $productIMG, 'categoryID' => $categoryID, 'productDescription' => $productDescription, 'productStock' => $productStock, 'productPrice' => $productPrice, 'productName' => $productName, 'productSpecial' => $productSpecial);
             $db->boundQuery("INSERT INTO product (productIMG, categoryID, productDescription, productStock, productPrice, productName, productSpecial) VALUES (:productIMG, :categoryID, :productDescription, :productStock, :productPrice, :productName, :productSpecial)", $values);
         }else {
-            $values = array('productIMG' => 'egg.jpg', 'categoryID' => $categoryID, 'productDescription' => $productDescription, 'productStock' => $productStock, 'productPrice' => $productPrice, 'productName' => $productName);
+            $values = array('productIMG' => $productIMG, 'categoryID' => $categoryID, 'productDescription' => $productDescription, 'productStock' => $productStock, 'productPrice' => $productPrice, 'productName' => $productName);
             $db->boundQuery("INSERT INTO product (productIMG, categoryID, productDescription, productStock, productPrice, productName, productSpecial) VALUES (:productIMG, :categoryID, :productDescription, :productStock, :productPrice, :productName, NULL)", $values);
         }
 
         $id = $db->connection->lastInsertId();
-
-
-        redirect_to("./backdex.php?page=backdexProductsCreate&id=$id&case=picture");
-    } elseif ($action == "productImage") {
-        require_once ('./controllers/imageUploadController.php');
-        require_once("./controllers/imageResizer.php");
-
-        $values = array('productID' => $_GET['id']);
-        $updateProduct = $db->boundQuery("SELECT * FROM product WHERE productID=:productID", $values, 'fetch', PDO::FETCH_ASSOC);
-        $id = $updateProduct['productID'];
-        $selVal = array('productID' => $updateProduct['productID']);
-        $imgCnt = new imageUploadController();
-        $imgCnt->imageUpload("SELECT productID FROM product WHERE productID = :productID", $selVal , 'productID', 'productIMG', "UPDATE product SET productIMG = :productIMG WHERE productID = :productID", "backdexProductsUpdate&id=$id", "cut");
+        redirect_to("./backdex.php?page=backdexProductsUpdate&id=$id&action=success");
     }
 }
 

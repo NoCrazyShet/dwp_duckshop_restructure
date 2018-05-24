@@ -3,28 +3,36 @@ require_once("./backdexPageControllers/backdexProductCreateController.php");
 confirm_admin();
 ?>
 
-<div class="row" style="margin-top: 50px;">
+        <form class="col s12" name="create" id="create" method="POST" action="./backdex.php?page=backdexProductsCreate&action=create" enctype="multipart/form-data">
+            <div class="card horizontal" style="padding: 10px;">
+                <div class="card-image">
+                    <img src="./images/egg.jpg">
+                </div>
 
-<?php
-switch ($productCase) {
-    default:?>
-        <div class="card">
-            <div class="card-content">
-                <div class="row">
-                    <form class="col s12" name="create" id="create" method="POST" action="./backdex.php?page=backdexProductsCreate&action=create">
-
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="file-field input-field">
+                                <div class="btn grey">
+                                    <span>Change image</span>
+                                    <input type="file" name="image">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Select a file to upload">
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="input-field col s12 m12">
                                 <select name="categoryID">
-                                     <option value="categoryID" name="categoryID" disabled selected>Choose product category</option>
-                                     <?php foreach ($categorySelect as $category) { ?>
-                                     <option value="<?php echo $category['categoryID'] ?>"><?php echo $category['categoryName'] ?></option>
-                                     <?php } ?>
+                                    <option value="categoryID" name="categoryID" disabled selected>Choose product category</option>
+                                    <?php foreach ($categorySelect as $category) { ?>
+                                        <option value="<?php echo $category['categoryID'] ?>"><?php echo $category['categoryName'] ?></option>
+                                    <?php } ?>
                                 </select>
                                 <label for="categoryID">Category ID</label>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="input-field col s12 m12">
                                 <textarea id="productName" name="productName" class="materialize-textarea" required></textarea>
@@ -55,42 +63,15 @@ switch ($productCase) {
                                 <label for="productSpecial">Product Special Price</label>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="card-action">
-                                <button class="waves-effect waves-light btn-large indigo lighten-1" type="submit" name="Submit" value="Submit">Save changes and chose product image</button>
-                            </div>
-                        </div>
-                    </form>
+
+                    </div>
+                    <div class="card-action">
+                        <button  type="submit" name="submit" value="submit" class="btn-small indigo lighten-1 right">Create product<i class="material-icons right">add_box</i></button>
+                    </div>
                 </div>
             </div>
-        </div>
-<?php
-        break;
-    case "picture";
-    ?>
-
-<div class="card">
-    <div class="card-image">
-        <img src="./images/egg.jpg">
-        <form name="imgup" method="post" action="./backdex.php?action=productImage&page=backdexProductsCreate&id=<?php echo $_GET['id'];?>" enctype="multipart/form-data">
-
-                <div class="card-content">
-                    <div class="file-field input-field">
-                    <div class="btn grey">
-                        <span>Change image</span>
-                        <input type="file" name="image" value="">
-                    </div>
-
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Select a file to upload">
-                    </div>
-                    </div>
-                    <button class="btn waves-effect waves-light indigo lighten-1" type="submit" name="submit" value="submit">Upload new image</button>
-                </div>
-
         </form>
     </div>
 
 
 
-<?PHP }
