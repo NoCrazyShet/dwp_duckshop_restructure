@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;  }
+
+main {
+  flex: 1 0 auto;
+}
+
+.nav-wrapper{
+  z-index: 100;
+}
+
+.compLinks {
+  margin: 1.168rem 0 1.168rem 0;
+}
+
+.carousel-item h2 {
+  margin-top: 200px;
+}
+
+#form1 {
+  margin-left: 200px;
+}
