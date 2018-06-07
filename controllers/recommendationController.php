@@ -16,7 +16,7 @@ class recommendationController
 
             if($this->limit > 0 && $this->countViewed() >= $this->limit) {
                 $count = $this->countViewed() - $this->limit;
-                for ($i = 0; $i <= $count; $i++) {
+                for ($i = 0; $i < $count; $i++) {
                     array_shift($viewArray);
                 }
             }
@@ -42,12 +42,14 @@ class recommendationController
                 }
             }
         }
-        $values = array('categoryID' => $categoryID);
-        $db = new dbController();
-        $related = $db->boundQuery("SELECT productID FROM product WHERE categoryID = :categoryID", $values, 'fetchAll', NULL);
-        foreach ($related as $key) {
-            if(!in_array($key['productID'], $recommended)){
-                array_push($recommended, $key['productID']);
+        if($this->countViewed() <= 5){
+            $values = array('categoryID' => $categoryID);
+            $db = new dbController();
+            $related = $db->boundQuery("SELECT productID FROM product WHERE categoryID = :categoryID", $values, 'fetchAll', NULL);
+            foreach ($related as $key) {
+                if(!in_array($key['productID'], $recommended)){
+                    array_push($recommended, $key['productID']);
+                }
             }
         }
         if (count($recommended) <= 4) {
