@@ -21,8 +21,20 @@ if(isset($_GET['action'])) {
         $articleTitle = $_POST['articleTitle'];
         $articleSubTitle = $_POST['articleSubTitle'];
 
-        $values = array('articleText' => $articleText, 'articleTitle' => $articleTitle, 'articleSubTitle' => $articleSubTitle, 'articleIMG' => $articleIMG);
-        $db->boundQuery("INSERT INTO news (articleText, articleTitle, articleSubTitle, articleIMG) VALUES (:articleText, :articleTitle, :articleSubTitle, :articleIMG)", $values);
+        $values = array('articleText'       => $articleText,
+                        'articleTitle'      => $articleTitle,
+                        'articleSubTitle'   => $articleSubTitle,
+                        'articleIMG'        => $articleIMG);
+
+        $db->boundQuery("INSERT INTO news (  articleText, 
+                                                    articleTitle, 
+                                                    articleSubTitle, 
+                                                    articleIMG) 
+                                VALUES           (  :articleText, 
+                                                    :articleTitle, 
+                                                    :articleSubTitle, 
+                                                    :articleIMG)",
+                                                    $values);
 
         $articleID = $db->connection->lastInsertId();
 

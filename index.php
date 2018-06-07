@@ -134,3 +134,5 @@ $categories = $db->boundQuery("SELECT * FROM productCategory", NULL, 'fetchAll',
 <script src="style/js/custom.js"></script>
 </body>
 </html>
+<?php
+$db->disconnetDB();

@@ -67,3 +67,5 @@ if(isset($_GET['action'])) {
 <script src="style/js/custom.js"></script>
 </body>
 </html>
+<?php
+$db->disconnetDB();
